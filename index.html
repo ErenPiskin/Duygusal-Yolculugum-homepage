@@ -141,26 +141,16 @@
         .phone-screen {
             width: 100%;
             height: 100%;
-            background-image: url('./images/hero-screenshot.png');
-            background-size: cover;
-            background-position: center;
             border-radius: 20px;
             position: relative;
             overflow: hidden;
         }
 
-        /* Fallback için eğer görsel yüklenmezse */
-        .phone-screen-fallback {
+        .phone-screen img {
             width: 100%;
             height: 100%;
-            background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+            object-fit: cover;
             border-radius: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: #333;
         }
 
         .cta-buttons {
@@ -308,41 +298,15 @@
         .screenshot-screen {
             width: 100%;
             height: 100%;
-            background-size: cover;
-            background-position: center;
             border-radius: 15px;
             overflow: hidden;
         }
 
-        /* Her screenshot için ayrı background */
-        .screenshot-1 .screenshot-screen {
-            background-image: url('./images/screenshot-1.png');
-        }
-
-        .screenshot-2 .screenshot-screen {
-            background-image: url('./images/screenshot-2.png');
-        }
-
-        .screenshot-3 .screenshot-screen {
-            background-image: url('./images/screenshot-3.png');
-        }
-
-        .screenshot-4 .screenshot-screen {
-            background-image: url('./images/screenshot-4.png');
-        }
-
-        /* Fallback görünüm eğer görsel yüklenmezse */
-        .screenshot-fallback {
+        .screenshot-screen img {
             width: 100%;
             height: 100%;
-            background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+            object-fit: cover;
             border-radius: 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            color: #333;
         }
 
         .about {
@@ -540,11 +504,7 @@
                 
                 <div class="phone-mockup floating-animation">
                     <div class="phone-screen">
-                        <!-- Fallback content eğer görsel yüklenmezse -->
-                        <div class="phone-screen-fallback">
-                            📖<br>
-                            <div style="font-size: 1rem; margin-top: 10px;">Günlüğüm</div>
-                        </div>
+                        <img src="./images/hero-screenshot.png" alt="Duygusal Yolculuğum Ana Ekran" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -602,56 +562,40 @@
             <p class="section-subtitle">Duygusal Yolculuğum'un güzel arayüzünü keşfedin</p>
             
             <div class="screenshots-grid">
-                <div class="screenshot-card screenshot-1">
+                <div class="screenshot-card">
                     <div class="screenshot-mockup">
                         <div class="screenshot-screen">
-                            <!-- Fallback content -->
-                            <div class="screenshot-fallback">
-                                📖<br>
-                                <div style="font-size: 0.8rem; margin-top: 10px;">Ana Ekran</div>
-                            </div>
+                            <img src="./images/screenshot-1.png" alt="Günlük Ana Sayfası" loading="lazy">
                         </div>
                     </div>
                     <h4>Günlük Ana Sayfası</h4>
                     <p>Kullanıcı dostu arayüz ile kolay navigasyon</p>
                 </div>
                 
-                <div class="screenshot-card screenshot-2">
+                <div class="screenshot-card">
                     <div class="screenshot-mockup">
                         <div class="screenshot-screen">
-                            <!-- Fallback content -->
-                            <div class="screenshot-fallback">
-                                💫<br>
-                                <div style="font-size: 0.8rem; margin-top: 10px;">Duygu Kartları</div>
-                            </div>
+                            <img src="./images/screenshot-2.png" alt="Duygu Kartı Sistemi" loading="lazy">
                         </div>
                     </div>
                     <h4>Duygu Kartı Sistemi</h4>
                     <p>Yenilikçi duygu geliştirme deneyimi</p>
                 </div>
                 
-                <div class="screenshot-card screenshot-3">
+                <div class="screenshot-card">
                     <div class="screenshot-mockup">
                         <div class="screenshot-screen">
-                            <!-- Fallback content -->
-                            <div class="screenshot-fallback">
-                                📊<br>
-                                <div style="font-size: 0.8rem; margin-top: 10px;">Analizler</div>
-                            </div>
+                            <img src="./images/screenshot-3.png" alt="Duygu Analizi" loading="lazy">
                         </div>
                     </div>
                     <h4>Duygu Analizi</h4>
                     <p>Görsel grafikler ve istatistikler</p>
                 </div>
                 
-                <div class="screenshot-card screenshot-4">
+                <div class="screenshot-card">
                     <div class="screenshot-mockup">
                         <div class="screenshot-screen">
-                            <!-- Fallback content -->
-                            <div class="screenshot-fallback">
-                                💭<br>
-                                <div style="font-size: 0.8rem; margin-top: 10px;">Rüyalar</div>
-                            </div>
+                            <img src="./images/screenshot-4.png" alt="Rüya Günlüğü" loading="lazy">
                         </div>
                     </div>
                     <h4>Rüya Günlüğü</h4>
