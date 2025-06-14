@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Privacy Policy - My Emotional Journey</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #3498db;
+            margin-top: 30px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul {
+            margin-bottom: 15px;
+        }
+        li ul {
+            margin-top: 10px;
+        }
+        .highlight {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin-bottom: 15px;
+        }
+        .updated-date {
+            font-style: italic;
+            color: #666;
+            margin-top: 30px;
+        }
+        
+        /* Improved Language switcher styles */
+        .language-switcher {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 25px;
+        }
+        
+        .language-toggle {
+            display: flex;
+            position: relative;
+            background-color: #f1f1f1;
+            border-radius: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .language-toggle label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+            transition: color 0.3s ease;
+            min-width: 90px;
+            user-select: none;
+        }
+        
+       .lang-flag {
+    display: inline-block;
+    margin-right: 8px;
+    height: 16px;
+    width: 24px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Yeni PNG bayrak görselleri */
+.en-flag {
+    background-image: url('https://flagcdn.com/w40/gb.png'); /* İngiltere bayrağı (UK English) */
+}
+
+.tr-flag {
+    background-image: url('https://flagcdn.com/w40/tr.png'); /* Türkiye bayrağı */
+}
+        
+        #language-en:checked ~ .slider {
+            transform: translateX(0);
+        }
+        
+        #language-tr:checked ~ .slider {
+            transform: translateX(100%);
+        }
+        
+        #language-en:checked ~ label[for="language-en"] {
+            color: white;
+        }
+        
+        #language-tr:checked ~ label[for="language-tr"] {
+            color: white;
+        }
+        
+        .slider {
+            position: absolute;
+            height: 100%;
+            width: 50%;
+            background-image: linear-gradient(135deg, #3498db, #2980b9);
+            border-radius: 30px;
+            transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+            z-index: 0;
+        }
+        
+        input[type="radio"] {
+            display: none;
+        }
+        
+        /* Language content */
+        .tr-content {
+            display: none;
+        }
+        .en-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="language-switcher">
+            <div class="language-toggle">
+                <input type="radio" id="language-en" name="language" checked onclick="toggleLanguage('en')">
+                <input type="radio" id="language-tr" name="language" onclick="toggleLanguage('tr')">
+                <div class="slider"></div>
+                <label for="language-en"><span class="lang-flag en-flag"></span>English</label>
+                <label for="language-tr"><span class="lang-flag tr-flag"></span>Türkçe</label>
+            </div>
+        </div>
+
+        <!-- ENGLISH VERSION -->
+        <div class="en-content">
+            <h1>Privacy Policy</h1>
+            
+            <p>This privacy policy applies to the My Emotional Journey app (hereby referred to as "Application") for mobile devices that was created by Eren Piskin (hereby referred to as "Service Provider") as a Freemium service. This service is intended for use "AS IS".</p>
+
+            <h2>What information does the Application obtain and how is it used?</h2>
+            <p>The Application collects and stores the following information:</p>
+            <ul>
+                <li>Emotion journals and entries you create</li>
+                <li>Dream journals and entries you create</li>
+                <li>Mood tracking data</li>
+                <li>Achievements and progress information</li>
+                <li>App preferences and settings</li>
+            </ul>
+            <p>This information is stored locally on your device by default and is not transmitted to our servers. We do not collect personal information such as your name, email address, or phone number unless you choose to use certain premium features like backup.</p>
+
+            <h2>Google Drive Backup Feature</h2>
+            <p>Our Application offers a premium feature to backup your data to your personal Google Drive account. When you use this feature:</p>
+            <ul>
+                <li>Your emotion journals, dream journals, and related app data are encrypted and uploaded to your Google Drive account's AppData folder</li>
+                <li>This data is only accessible by you and our application with your explicit permission</li>
+                <li>We do not have access to this data on our servers</li>
+                <li>You can enable automatic backups or perform manual backups at your discretion</li>
+                <li>You can delete your backups at any time</li>
+            </ul>
+
+            <h2>What permissions does the Application require?</h2>
+            <p>For the Google Drive backup feature, our app requests the following permissions:</p>
+            <ul>
+                <li><strong>drive.appdata</strong>: To store and retrieve your app data in a dedicated folder</li>
+                <li><strong>drive.file</strong>: To manage files created by the app</li>
+            </ul>
+            <p>These permissions are only used for backup and restore functionality and are not used to access any other files in your Google Drive.</p>
+
+            <h2>Does the Application collect precise real time location information of the device?</h2>
+            <p>This Application does not collect precise information about the location of your mobile device.</p>
+
+            <h2>Device Information</h2>
+            <p>For app functionality and crash reporting, we may collect:</p>
+            <ul>
+                <li>Device model and operating system version</li>
+                <li>App version and installation ID</li>
+                <li>Error logs in case of app crashes</li>
+            </ul>
+            <p>This information is used solely for troubleshooting and improving app performance and is not linked to personally identifiable information.</p>
+
+            <h2>Premium Purchases and Payment Information</h2>
+            <p>When you purchase premium features in our Application:</p>
+            <ul>
+                <li>Payment processing is handled by Google Play Store or Apple App Store</li>
+                <li>We do not collect or store your payment information such as credit card details</li>
+                <li>Your purchase information (subscription status, renewal dates) may be stored locally to verify your access to premium features</li>
+                <li>For subscription management, please visit your device's app store account settings</li>
+            </ul>
+
+            <h2>Free vs Premium Features and Data Limitations</h2>
+            <p>Our Application offers both free and premium tiers with different data handling capabilities:</p>
+            <ul>
+                <li><strong>Free Version Limitations:</strong>
+                    <ul>
+                        <li>Limited to 10 emotion journal entries and 10 dream journal entries</li>
+                        <li>Limited access to analytics features</li>
+                        <li>Access to only basic emotion cards</li>
+                        <li>Cannot back up data to Google Drive</li>
+                        <li>Limited to 3 daily activities</li>
+                    </ul>
+                </li>
+                <li><strong>Premium Version Features:</strong>
+                    <ul>
+                        <li>Unlimited emotion and dream journal entries</li>
+                        <li>Full access to detailed emotional analytics</li>
+                        <li>Access to all emotion cards</li>
+                        <li>Ability to back up and restore data through Google Drive</li>
+                        <li>Access to up to 5 daily activities</li>
+                    </ul>
+                </li>
+            </ul>
+            <p>Your personal data is handled with the same level of security and privacy protection regardless of whether you are using the free or premium version. The limitations are only on the volume of data that can be stored and the features available, not on how we protect your information.</p>
+
+            <h2>Push Notifications</h2>
+            <p>Our Application may send you push notifications with reminders and motivational messages. You can:</p>
+            <ul>
+                <li>Enable or disable notifications through the app settings or your device settings</li>
+                <li>Customize notification frequency and types within the Application</li>
+                <li>We do not use notifications for marketing purposes outside the scope of the Application</li>
+            </ul>
+            <p>We do not collect or analyze notification interaction data on our servers.</p>
+
+            <h2>Do third parties see and/or have access to information obtained by the Application?</h2>
+            <p>When you use the Google Drive backup feature, your data is stored on Google's servers according to <a href="https://policies.google.com/privacy" target="_blank">Google's privacy policy</a>. We do not share your data with any other third parties.</p>
+            <p>We do not sell, trade, or otherwise transfer your information to outside parties.</p>
+
+            <h2>Data Storage and Deletion</h2>
+            <ul>
+                <li>All data is primarily stored locally on your device</li>
+                <li>Backups stored on Google Drive remain there until you manually delete them</li>
+                <li>Uninstalling the app will remove data from your device but will not automatically delete Google Drive backups</li>
+                <li>You can delete your Google Drive backups through the app's interface or directly from your Google Drive account</li>
+            </ul>
+
+            <h2>Your Data Rights</h2>
+            <p>Depending on your location, you may have certain rights regarding your personal data:</p>
+            <ul>
+                <li>Right to access the data stored about you</li>
+                <li>Right to correct inaccurate information</li>
+                <li>Right to delete your data</li>
+                <li>Right to data portability (exporting your data)</li>
+                <li>Right to withdraw consent</li>
+            </ul>
+            <p>To exercise these rights, please contact us at epstudios.dev@gmail.com. We will respond to your request within 30 days.</p>
+
+            <h2>What are my opt-out rights?</h2>
+            <p>You can stop all collection of information by the Application easily by uninstalling it. You may use the standard uninstall processes as may be available as part of your mobile device or via the mobile application marketplace or network.</p>
+            <p>For Google Drive backups, you can:</p>
+            <ul>
+                <li>Disable the automatic backup feature in the app settings</li>
+                <li>Remove the app's access to your Google Drive through your Google Account settings</li>
+                <li>Delete any existing backups from your Google Drive</li>
+            </ul>
+
+            <h2>Security</h2>
+            <p>The Service Provider is concerned about safeguarding the confidentiality of your information. We implement appropriate technical and organizational measures to protect your data:</p>
+            <ul>
+                <li>Your data is primarily stored locally on your device</li>
+                <li>When using the backup feature, your data is encrypted before being uploaded to Google Drive</li>
+                <li>We use secure data transmission protocols</li>
+                <li>We implement reasonable security measures to protect your information</li>
+            </ul>
+
+            <h2>Children</h2>
+            <p>The Application is not used to knowingly solicit data from or market to children under the age of 13. The Service Provider does not knowingly collect personally identifiable information from children. The Service Provider encourages all children to never submit any personally identifiable information through the Application and/or Services.</p>
+            
+            <p>The Service Provider encourages parents and legal guardians to monitor their children's Internet usage and to help enforce this Policy by instructing their children never to provide personally identifiable information through the Application and/or Services without their permission.</p>
+            
+            <p>If you have reason to believe that a child has provided personally identifiable information to the Service Provider through the Application and/or Services, please contact the Service Provider (epstudios.dev@gmail.com) so that they will be able to take the necessary actions.</p>
+            
+            <p>You must also be at least 16 years of age to consent to the processing of your personally identifiable information in your country (in some countries we may allow your parent or guardian to do so on your behalf).</p>
+
+            <h2>Changes</h2>
+            <p>This Privacy Policy may be updated from time to time for any reason. The Service Provider will notify you of any changes to their Privacy Policy by updating this page with the new Privacy Policy. You are advised to consult this Privacy Policy regularly for any changes, as continued use is deemed approval of all changes.</p>
+            
+            <p class="updated-date">This privacy policy is effective as of 2025-04-16</p>
+
+            <h2>Your Consent</h2>
+            <p>By using the Application, you are consenting to the processing of your information as set forth in this Privacy Policy now and as amended by the Service Provider.</p>
+
+            <h2>Contact Us</h2>
+            <p>If you have any questions regarding privacy while using the Application, or have questions about the practices, please contact the Service Provider via email at epstudios.dev@gmail.com.</p>
+        </div>
+
+        <!-- TURKISH VERSION -->
+        <div class="tr-content">
+            <h1>Gizlilik Politikası</h1>
+            
+            <p>Bu gizlilik politikası, Eren Pişkin (bundan sonra "Hizmet Sağlayıcı" olarak anılacaktır) tarafından Freemium hizmet olarak oluşturulan, mobil cihazlar için My Emotional Journey uygulaması (bundan sonra "Uygulama" olarak anılacaktır) için geçerlidir. Bu hizmet "OLDUĞU GİBİ" kullanılmak üzere sunulmuştur.</p>
+
+            <h2>Uygulama hangi bilgileri elde eder ve nasıl kullanılır?</h2>
+            <p>Uygulama aşağıdaki bilgileri toplar ve saklar:</p>
+            <ul>
+                <li>Oluşturduğunuz duygu günlükleri ve kayıtları</li>
+                <li>Oluşturduğunuz rüya günlükleri ve kayıtları</li>
+                <li>Duygu durum takip verileri</li>
+                <li>Başarımlar ve ilerleme bilgileri</li>
+                <li>Uygulama tercihleri ve ayarları</li>
+            </ul>
+            <p>Bu bilgiler varsayılan olarak cihazınızda yerel olarak saklanır ve sunucularımıza iletilmez. Yedekleme gibi belirli premium özellikleri kullanmayı tercih etmediğiniz sürece, adınız, e-posta adresiniz veya telefon numaranız gibi kişisel bilgileri toplamıyoruz.</p>
+
+            <h2>Google Drive Yedekleme Özelliği</h2>
+            <p>Uygulamamız, verilerinizi kişisel Google Drive hesabınıza yedeklemeniz için premium bir özellik sunmaktadır. Bu özelliği kullandığınızda:</p>
+            <ul>
+                <li>Duygu günlükleriniz, rüya günlükleriniz ve ilgili uygulama verileriniz şifrelenerek Google Drive hesabınızın AppData klasörüne yüklenir</li>
+                <li>Bu verilere yalnızca siz ve uygulamamız açık izninizle erişebilir</li>
+                <li>Bu verilere sunucularımızdan erişimimiz yoktur</li>
+                <li>Otomatik yedeklemeleri etkinleştirebilir veya manuel yedeklemeleri kendi takdirinize bağlı olarak gerçekleştirebilirsiniz</li>
+                <li>Yedeklemelerinizi istediğiniz zaman silebilirsiniz</li>
+            </ul>
+
+            <h2>Uygulama hangi izinleri gerektirir?</h2>
+            <p>Google Drive yedekleme özelliği için, uygulamamız aşağıdaki izinleri talep eder:</p>
+            <ul>
+                <li><strong>drive.appdata</strong>: Uygulama verilerinizi özel bir klasörde saklamak ve almak için</li>
+                <li><strong>drive.file</strong>: Uygulama tarafından oluşturulan dosyaları yönetmek için</li>
+            </ul>
+            <p>Bu izinler yalnızca yedekleme ve geri yükleme işlevselliği için kullanılır ve Google Drive'ınızdaki diğer dosyalara erişmek için kullanılmaz.</p>
+
+            <h2>Uygulama, cihazın gerçek zamanlı konum bilgilerini topluyor mu?</h2>
+            <p>Bu Uygulama, mobil cihazınızın konumu hakkında kesin bilgi toplamaz.</p>
+
+            <h2>Cihaz Bilgileri</h2>
+            <p>Uygulama işlevselliği ve çökme raporlaması için şunları toplayabiliriz:</p>
+            <ul>
+                <li>Cihaz modeli ve işletim sistemi sürümü</li>
+                <li>Uygulama sürümü ve kurulum kimliği</li>
+                <li>Uygulama çökmesi durumunda hata günlükleri</li>
+            </ul>
+            <p>Bu bilgiler yalnızca sorun giderme ve uygulama performansını iyileştirme için kullanılır ve kişisel olarak tanımlanabilir bilgilerle ilişkilendirilmez.</p>
+
+            <h2>Premium Satın Alımlar ve Ödeme Bilgileri</h2>
+            <p>Uygulamamızda premium özellikler satın aldığınızda:</p>
+            <ul>
+                <li>Ödeme işlemleri Google Play Store veya Apple App Store tarafından gerçekleştirilir</li>
+                <li>Kredi kartı bilgileri gibi ödeme bilgilerinizi toplamıyor veya saklamıyoruz</li>
+                <li>Satın alma bilgileriniz (abonelik durumu, yenileme tarihleri) premium özelliklere erişiminizi doğrulamak için yerel olarak saklanabilir</li>
+                <li>Abonelik yönetimi için lütfen cihazınızın uygulama mağazası hesap ayarlarını ziyaret edin</li>
+            </ul>
+
+            <h2>Ücretsiz ve Premium Özellikler ve Veri Sınırlamaları</h2>
+            <p>Uygulamamız, farklı veri işleme yeteneklerine sahip hem ücretsiz hem de premium seviyeler sunmaktadır:</p>
+            <ul>
+                <li><strong>Ücretsiz Sürüm Sınırlamaları:</strong>
+                    <ul>
+                        <li>10 duygu günlüğü ve 10 rüya günlüğü girişi ile sınırlıdır</li>
+                        <li>Analiz özelliklerine sınırlı erişim</li>
+                        <li>Yalnızca temel duygu kartlarına erişim</li>
+                        <li>Verileri Google Drive'a yedekleyemez</li>
+                        <li>Günlük 3 aktivite ile sınırlıdır</li>
+                    </ul>
+                </li>
+                <li><strong>Premium Sürüm Özellikleri:</strong>
+                    <ul>
+                        <li>Sınırsız duygu ve rüya günlüğü girişi</li>
+                        <li>Detaylı duygusal analizlere tam erişim</li>
+                        <li>Tüm duygu kartlarına erişim</li>
+                        <li>Google Drive aracılığıyla verileri yedekleme ve geri yükleme özelliği</li>
+                        <li>5 adete kadar günlük aktiviteye erişim</li>
+                    </ul>
+                </li>
+            </ul>
+            <p>Kişisel verileriniz, ücretsiz veya premium sürümü kullanıp kullanmadığınıza bakılmaksızın aynı düzeyde güvenlik ve gizlilik koruması ile işlenir. Sınırlamalar yalnızca saklanabilen veri miktarı ve kullanılabilen özellikler üzerindedir, bilgilerinizi nasıl koruduğumuz konusunda değil.</p>
+
+            <h2>Push Bildirimleri</h2>
+            <p>Uygulamamız size hatırlatıcılar ve motivasyon mesajlarıyla push bildirimleri gönderebilir. Şunları yapabilirsiniz:</p>
+            <ul>
+                <li>Uygulama ayarları veya cihaz ayarları aracılığıyla bildirimleri etkinleştirebilir veya devre dışı bırakabilirsiniz</li>
+                <li>Uygulama içinde bildirim sıklığını ve türlerini özelleştirebilirsiniz</li>
+                <li>Bildirimleri Uygulama kapsamı dışında pazarlama amaçları için kullanmıyoruz</li>
+            </ul>
+            <p>Bildirim etkileşim verilerini sunucularımızda toplamıyor veya analiz etmiyoruz.</p>
+
+            <h2>Üçüncü taraflar Uygulama tarafından elde edilen bilgileri görüyor ve/veya erişiyor mu?</h2>
+            <p>Google Drive yedekleme özelliğini kullandığınızda, verileriniz <a href="https://policies.google.com/privacy" target="_blank">Google'ın gizlilik politikasına</a> göre Google'ın sunucularında saklanır. Verilerinizi diğer üçüncü taraflarla paylaşmıyoruz.</p>
+            <p>Bilgilerinizi satmıyor, takas etmiyor veya başka şekilde dış taraflara aktarmıyoruz.</p>
+
+            <h2>Veri Depolama ve Silme</h2>
+            <ul>
+                <li>Tüm veriler öncelikle cihazınızda yerel olarak saklanır</li>
+                <li>Google Drive'da saklanan yedeklemeler, siz manuel olarak silene kadar orada kalır</li>
+                <li>Uygulamayı kaldırmak cihazınızdaki verileri kaldırır ancak Google Drive yedeklemelerini otomatik olarak silmez</li>
+                <li>Google Drive yedeklemelerinizi uygulama arayüzü üzerinden veya doğrudan Google Drive hesabınızdan silebilirsiniz</li>
+            </ul>
+
+            <h2>Veri Haklarınız</h2>
+            <p>Bulunduğunuz yere bağlı olarak, kişisel verilerinizle ilgili belirli haklara sahip olabilirsiniz:</p>
+            <ul>
+                <li>Hakkınızda saklanan verilere erişim hakkı</li>
+                <li>Yanlış bilgileri düzeltme hakkı</li>
+                <li>Verilerinizi silme hakkı</li>
+                <li>Veri taşınabilirliği hakkı (verilerinizi dışa aktarma)</li>
+                <li>İzni geri çekme hakkı</li>
+            </ul>
+            <p>Bu hakları kullanmak için lütfen epstudios.dev@gmail.com adresinden bizimle iletişime geçin. Talebinize 30 gün içinde yanıt vereceğiz.</p>
+
+            <h2>Vazgeçme haklarım nelerdir?</h2>
+            <p>Uygulamanın tüm bilgi toplamalarını, uygulamayı kaldırarak kolayca durdurabilirsiniz. Mobil cihazınızın bir parçası olarak veya mobil uygulama pazarı ya da ağı aracılığıyla kullanılabilir olabilecek standart kaldırma işlemlerini kullanabilirsiniz.</p>
+            <p>Google Drive yedeklemeleri için şunları yapabilirsiniz:</p>
+            <ul>
+                <li>Uygulama ayarlarından otomatik yedekleme özelliğini devre dışı bırakabilirsiniz</li>
+                <li>Google Hesap ayarlarınız aracılığıyla uygulamanın Google Drive'ınıza erişimini kaldırabilirsiniz</li>
+                <li>Google Drive'ınızdan mevcut yedeklemeleri silebilirsiniz</li>
+            </ul>
+
+            <h2>Güvenlik</h2>
+            <p>Hizmet Sağlayıcı, bilgilerinizin gizliliğini koruma konusunda endişelidir. Verilerinizi korumak için uygun teknik ve organizasyonel önlemleri uyguluyoruz:</p>
+            <ul>
+                <li>Verileriniz öncelikle cihazınızda yerel olarak saklanır</li>
+                <li>Yedekleme özelliğini kullanırken, verileriniz Google Drive'a yüklenmeden önce şifrelenir</li>
+                <li>Güvenli veri iletim protokolleri kullanıyoruz</li>
+                <li>Bilgilerinizi korumak için makul güvenlik önlemleri uyguluyoruz</li>
+            </ul>
+
+            <h2>Çocuklar</h2>
+            <p>Uygulama, 13 yaşın altındaki çocuklardan bilerek veri toplamak veya onlara pazarlama yapmak için kullanılmaz. Hizmet Sağlayıcı, bilerek çocuklardan kişisel olarak tanımlanabilir bilgiler toplamaz. Hizmet Sağlayıcı, tüm çocukları Uygulama ve/veya Hizmetler aracılığıyla kişisel olarak tanımlanabilir bilgiler sunmamaya teşvik eder.</p>
+            
+            <p>Hizmet Sağlayıcı, ebeveynleri ve yasal vasileri çocuklarının İnternet kullanımını izlemeye ve çocuklarına Uygulama ve/veya Hizmetler aracılığıyla izinleri olmadan kişisel olarak tanımlanabilir bilgiler sunmamalarını öğreterek bu Politikanın uygulanmasına yardımcı olmaya teşvik eder.</p>
+            
+            <p>Bir çocuğun Uygulama ve/veya Hizmetler aracılığıyla Hizmet Sağlayıcı'ya kişisel olarak tanımlanabilir bilgiler sağladığını düşünmeniz durumunda, lütfen Hizmet Sağlayıcı ile iletişime geçin (epstudios.dev@gmail.com) böylece gerekli önlemleri alabilir.</p>
+            
+            <p>Ayrıca, ülkenizde kişisel tanımlanabilir bilgilerinizin işlenmesine onay vermek için en az 16 yaşında olmalısınız (bazı ülkelerde ebeveyn veya vasinizin sizin adınıza bunu yapmasına izin verebiliriz).</p>
+
+            <h2>Değişiklikler</h2>
+            <p>Bu Gizlilik Politikası herhangi bir nedenle zaman zaman güncellenebilir. Hizmet Sağlayıcı, Gizlilik Politikasındaki değişiklikleri bu sayfayı yeni Gizlilik Politikası ile güncelleyerek size bildirecektir. Sürekli kullanım tüm değişikliklerin onaylanması olarak kabul edildiğinden, düzenli olarak bu Gizlilik Politikasına başvurmanız önerilir.</p>
+            
+            <p class="updated-date">Bu gizlilik politikası 2025-04-16 tarihinden itibaren geçerlidir</p>
+
+            <h2>Onayınız</h2>
+            <p>Uygulamayı kullanarak, bilgilerinizin bu Gizlilik Politikasında belirtildiği şekilde ve Hizmet Sağlayıcı tarafından değiştirildiği şekilde işlenmesine izin vermiş olursunuz.</p>
+
+            <h2>Bize Ulaşın</h2>
+            <p>Uygulamayı kullanırken gizlilikle ilgili sorularınız varsa veya uygulamanın pratikleri hakkında sorularınız varsa, lütfen e-posta yoluyla Hizmet Sağlayıcı ile iletişime geçin: epstudios.dev@gmail.com.</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleLanguage(lang) {
+            const enContent = document.querySelector('.en-content');
+            const trContent = document.querySelector('.tr-content');
+            
+            if (lang === 'en') {
+                enContent.style.display = 'block';
+                trContent.style.display = 'none';
+            } else {
+                enContent.style.display = 'none';
+                trContent.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
