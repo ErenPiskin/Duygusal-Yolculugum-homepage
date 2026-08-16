@@ -3,39 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Günlük: Duygu & Rüya Günlüğüm</title>
-    <meta name="description" content="Duygusal Yolculuğum, şifreli günlük tutma, duygu analizi ve kişisel gelişim için tasarlanmış kapsamlı mobil uygulamanız.">
+    <title>Duygu Yolculuğum: Günlük & Rüya Defteri</title>
+    <meta name="description" content="Duygu Yolculuğum, şifreli günlük tutma, duygu analizi, rüya defteri ve kişisel gelişim seviyeleri için tasarlanmış premium mobil uygulamanız.">
     
     <!-- Real App Icon Favicon -->
     <link rel="icon" type="image/png" href="./images/app-icon.png">
     <link rel="apple-touch-icon" href="./images/app-icon.png">
     
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        :root {
+            --bg-color: #080c16;
+            --bg-card: rgba(15, 23, 42, 0.65);
+            --border-card: rgba(255, 255, 255, 0.08);
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --primary-color: #8b5cf6;
+            --primary-glow: rgba(139, 92, 246, 0.35);
+            --accent-color: #ec4899;
+            --gradient-accent: linear-gradient(135deg, #a78bfa 0%, #ec4899 100%);
+            --gradient-blue: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            --font-heading: 'Outfit', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: var(--font-body);
+            color: var(--text-primary);
+            background-color: var(--bg-color);
             min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
         }
+
+        /* Ambient Glow Backgrounds */
+        .glow-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .glow-blob {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(236, 72, 153, 0.05) 50%, transparent 100%);
+            filter: blur(80px);
+            border-radius: 50%;
+        }
+
+        .glow-blob-1 { top: -200px; right: -100px; }
+        .glow-blob-2 { top: 40%; left: -300px; }
+        .glow-blob-3 { bottom: -200px; right: -100px; }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
+        /* Header / Navbar */
         .header {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 1rem 0;
+            background: rgba(8, 12, 22, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 1.1rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -45,623 +94,886 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: white;
         }
 
         .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 800;
             display: flex;
             align-items: center;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            gap: 0.8rem;
+            text-decoration: none;
+            color: #fff;
+            background: linear-gradient(135deg, #ffffff 40%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .app-icon {
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             background-image: url('./images/app-icon.png');
             background-size: cover;
             background-position: center;
-            border-radius: 10px;
-            margin-right: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px var(--primary-glow);
+            border: 1.5px solid rgba(255, 255, 255, 0.15);
         }
 
         .nav-links {
             display: flex;
             gap: 2rem;
+            align-items: center;
         }
 
         .nav-links a {
-            color: white;
+            color: var(--text-secondary);
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s;
-            padding: 8px 12px;
-            border-radius: 6px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            padding: 6px 16px;
+            border-radius: 20px;
+            border: 1px solid transparent;
         }
 
         .nav-links a:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-1px);
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
         }
 
+        .nav-links a.policy-link {
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            background: rgba(139, 92, 246, 0.08);
+            color: #d8b4fe;
+        }
+
+        .nav-links a.policy-link:hover {
+            background: rgba(139, 92, 246, 0.2);
+            color: #fff;
+        }
+
+        /* Hero Section */
         .hero {
-            text-align: center;
-            padding: 4rem 0;
-            color: white;
+            padding: 7rem 0 5rem 0;
+            position: relative;
         }
 
         .hero-content {
             display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 3rem;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
             align-items: center;
-            max-width: 1000px;
-            margin: 0 auto;
         }
 
         .hero-text {
             text-align: left;
         }
 
-        .hero h1 {
-            font-size: 3.2rem;
+        .hero-text h1 {
+            font-family: var(--font-heading);
+            font-size: 4rem;
             font-weight: 800;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
-            line-height: 1.2;
-        }
-
-        .hero .subtitle {
-            font-size: 1.4rem;
+            line-height: 1.15;
             margin-bottom: 1.5rem;
-            opacity: 0.95;
-            font-weight: 300;
+            background: linear-gradient(135deg, #ffffff 30%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.02em;
         }
 
-        .hero p {
-            font-size: 1.2rem;
+        .hero-text .subtitle {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #a78bfa;
+            margin-bottom: 1rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
             margin-bottom: 3rem;
-            opacity: 0.9;
-            line-height: 1.7;
-        }
-
-        .phone-mockup {
-            position: relative;
-            width: 280px;
-            height: 560px;
-            background: linear-gradient(145deg, #2c3e50, #34495e);
-            border-radius: 35px;
-            padding: 25px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-            margin: 0 auto;
-        }
-
-        .phone-screen {
-            width: 100%;
-            height: 100%;
-            border-radius: 25px;
-            position: relative;
-            overflow: hidden;
-            background: #000;
-        }
-
-        .phone-screen img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 25px;
-            display: block;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 1rem;
-            justify-content: flex-start;
+            gap: 1.2rem;
             flex-wrap: wrap;
         }
 
         .cta-button {
             display: inline-flex;
             align-items: center;
-            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
-            color: white;
-            padding: 15px 35px;
+            justify-content: center;
+            background: var(--gradient-accent);
+            color: #fff;
+            padding: 16px 36px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 1.1rem;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-            transition: all 0.3s;
+            font-size: 1.05rem;
+            box-shadow: 0 10px 25px rgba(236, 72, 153, 0.35);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            gap: 0.8rem;
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            box-shadow: 0 12px 30px rgba(236, 72, 153, 0.5);
         }
 
         .cta-button.secondary {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: none;
+            color: var(--text-primary);
         }
 
-        .cta-button::before {
-            content: "📱";
-            margin-right: 8px;
+        .cta-button.secondary:hover {
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.05);
         }
 
-        .features {
-            background: white;
-            padding: 5rem 0;
+        .google-play-badge {
+            width: 24px;
+            height: 24px;
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .feature-card {
-            text-align: center;
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            transition: all 0.3s;
-            background: linear-gradient(145deg, #f8f9fa, #ffffff);
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-        }
-
-        .feature-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        .feature-card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-            color: #333;
-            font-weight: 600;
-        }
-
-        .feature-card p {
-            color: #666;
-            line-height: 1.7;
-            font-size: 1rem;
-        }
-
-        .screenshots-section {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            padding: 5rem 0;
-            color: white;
-            text-align: center;
-        }
-
-        .screenshots-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .screenshot-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: transform 0.3s;
-        }
-
-        .screenshot-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .screenshot-mockup {
-            width: 220px;
-            height: 440px;
-            background: linear-gradient(145deg, #2c3e50, #34495e);
-            border-radius: 30px;
-            margin: 0 auto 1.5rem;
+        /* Mockup Container */
+        .phone-mockup-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             position: relative;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            padding: 20px;
         }
 
-        .screenshot-screen {
+        .phone-mockup {
+            position: relative;
+            width: 300px;
+            height: 610px;
+            background: #000;
+            border-radius: 46px;
+            padding: 12px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7),
+                        0 0 0 3px #1f2937,
+                        0 0 45px rgba(139, 92, 246, 0.25);
+            animation: floating 4s ease-in-out infinite;
+        }
+
+        .phone-mockup::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140px;
+            height: 28px;
+            background: #000;
+            border-bottom-left-radius: 18px;
+            border-bottom-right-radius: 18px;
+            z-index: 10;
+        }
+
+        .phone-screen {
             width: 100%;
             height: 100%;
-            border-radius: 20px;
+            border-radius: 36px;
             overflow: hidden;
-            background: #000;
+            background: #090d16;
+            border: 1px solid #1f2937;
         }
 
-        .screenshot-screen img {
+        .phone-screen img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 20px;
             display: block;
         }
 
-        .about {
-            background: white;
-            padding: 5rem 0;
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+        }
+
+        /* Features - Bento Grid */
+        .features-section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-title-wrapper {
             text-align: center;
+            margin-bottom: 4rem;
         }
 
-        .about h2 {
-            font-size: 2.8rem;
-            margin-bottom: 2rem;
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+            background: linear-gradient(135deg, #ffffff 40%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .bento-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 2.5rem;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bento-item::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 10% 10%, rgba(139, 92, 246, 0.08) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .bento-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(139, 92, 246, 0.3);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4), 0 0 24px rgba(139, 92, 246, 0.15);
+        }
+
+        .bento-item:hover::before {
+            opacity: 1;
+        }
+
+        .bento-item-lg {
+            grid-column: span 2;
+        }
+
+        .bento-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            background: rgba(139, 92, 246, 0.08);
+            padding: 14px;
+            border-radius: 18px;
+            border: 1.5px solid rgba(139, 92, 246, 0.15);
+        }
+
+        .bento-item h3 {
+            font-family: var(--font-heading);
+            font-size: 1.45rem;
             font-weight: 700;
-            color: #333;
+            color: #fff;
+            margin-bottom: 0.75rem;
         }
 
-        .about p {
+        .bento-item p {
+            color: var(--text-secondary);
+            line-height: 1.65;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .highlight-text {
+            background: rgba(236, 72, 153, 0.15);
+            padding: 2px 8px;
+            border-radius: 6px;
+            color: #f472b6;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-left: 8px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        /* Interactive Mood Selector */
+        .mood-check-section {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .mood-check-card {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(236, 72, 153, 0.04) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.15);
+            border-radius: 32px;
+            padding: 3.5rem;
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .mood-check-card h3 {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.8rem;
+        }
+
+        .mood-check-card p {
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+        }
+
+        .mood-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .mood-buttons button {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 22px;
+            cursor: pointer;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .mood-buttons button:hover {
+            background: var(--gradient-accent);
+            border-color: transparent;
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(236, 72, 153, 0.3);
+        }
+
+        .mood-response-box {
+            margin-top: 2.5rem;
+            padding: 1.8rem;
+            border-radius: 20px;
+            background: rgba(8, 12, 22, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            animation: fadeIn 0.5s ease-out;
+            text-align: left;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .mood-response-box h4 {
+            font-family: var(--font-heading);
+            color: #a78bfa;
+            font-size: 1.35rem;
+            margin-bottom: 0.6rem;
+            font-weight: 700;
+        }
+
+        .mood-response-box p {
+            color: var(--text-primary);
+            margin-bottom: 0;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* Screenshots Showcase Slider */
+        .screenshots-section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .screenshots-carousel-wrapper {
+            margin-top: 3rem;
+            position: relative;
+            padding: 0 10px;
+        }
+
+        .screenshots-carousel {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 1.5rem 0 2.5rem 0;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(139, 92, 246, 0.4) transparent;
+        }
+
+        .screenshots-carousel::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .screenshots-carousel::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 10px;
+        }
+
+        .screenshots-carousel::-webkit-scrollbar-thumb {
+            background: rgba(139, 92, 246, 0.35);
+            border-radius: 10px;
+        }
+
+        .screenshots-carousel::-webkit-scrollbar-thumb:hover {
+            background: rgba(139, 92, 246, 0.6);
+        }
+
+        .screenshot-item {
+            flex: 0 0 290px;
+            scroll-snap-align: start;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            background: var(--bg-card);
+        }
+
+        .screenshot-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(139, 92, 246, 0.4);
+            box-shadow: 0 25px 50px rgba(139, 92, 246, 0.2);
+        }
+
+        .screenshot-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Final Call to Action */
+        .about-section {
+            padding: 6rem 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .about-card {
+            background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.08) 0%, rgba(8, 12, 22, 0.8) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 36px;
+            padding: 5rem 2rem;
+            max-width: 950px;
+            margin: 0 auto;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-card h2 {
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 40%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .about-card p {
             font-size: 1.2rem;
-            color: #666;
-            max-width: 900px;
-            margin: 0 auto 2rem;
+            color: var(--text-secondary);
+            max-width: 750px;
+            margin: 0 auto 2.5rem;
             line-height: 1.8;
         }
 
-        .stats {
-            background: #2c3e50;
-            padding: 4rem 0;
-            color: white;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .stat-item h3 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: #3498db;
-        }
-
-        .stat-item p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
+        /* Footer */
         .footer {
-            background: #1a252f;
-            color: white;
-            padding: 4rem 0 2rem;
-            text-align: center;
+            background: #05070f;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            color: #fff;
+            padding: 5rem 0 2.5rem;
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-            text-align: left;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 3.5rem;
+            margin-bottom: 4rem;
         }
 
         .footer-section h4 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: #3498db;
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: #a78bfa;
+            font-weight: 700;
         }
 
         .footer-links {
             display: flex;
             flex-direction: column;
-            gap: 0.8rem;
+            gap: 1rem;
         }
 
         .footer-links a {
-            color: #ecf0f1;
+            color: var(--text-secondary);
             text-decoration: none;
-            transition: color 0.3s;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
         }
 
         .footer-links a:hover {
-            color: #3498db;
+            color: #fff;
+            transform: translateX(3px);
         }
 
         .footer-bottom {
-            border-top: 1px solid #34495e;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
             padding-top: 2rem;
             text-align: center;
         }
 
         .footer-bottom p {
-            opacity: 0.8;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
             margin: 0.5rem 0;
         }
 
-        @media (max-width: 768px) {
+        /* Responsive Layouts */
+        @media (max-width: 968px) {
             .hero-content {
                 grid-template-columns: 1fr;
                 text-align: center;
-                gap: 2rem;
+                gap: 3rem;
             }
-            
+
             .hero-text {
                 text-align: center;
             }
-            
-            .hero h1 {
-                font-size: 2.2rem;
+
+            .hero-text h1 {
+                font-size: 3rem;
             }
-            
-            .hero .subtitle {
-                font-size: 1.1rem;
+
+            .hero-text p {
+                font-size: 1.15rem;
             }
-            
+
             .cta-buttons {
                 justify-content: center;
             }
-            
-            .nav-links {
-                gap: 1rem;
+
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .bento-item-lg {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bento-item-lg {
+                grid-column: span 1;
+            }
+
+            .mood-check-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .mood-check-card h3 {
+                font-size: 1.8rem;
+            }
+
+            .mood-buttons button {
+                padding: 10px 20px;
                 font-size: 0.9rem;
             }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .phone-mockup {
-                width: 260px;
-                height: 520px;
-                padding: 20px;
-            }
-            
-            .screenshots-grid {
-                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-                gap: 3rem;
-            }
-            
-            .screenshot-mockup {
-                width: 200px;
-                height: 400px;
-                padding: 18px;
-            }
-        }
 
-        .highlight {
-            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
-            padding: 0.3rem 0.6rem;
-            border-radius: 6px;
-            font-weight: 600;
-        }
+            .nav-links {
+                gap: 1rem;
+            }
 
-        .floating-animation {
-            animation: floating 3s ease-in-out infinite;
-        }
-
-        @keyframes floating {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            .nav-links a {
+                padding: 4px 10px;
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
 <body>
+
+    <!-- Glowing Blobs -->
+    <div class="glow-container">
+        <div class="glow-blob glow-blob-1"></div>
+        <div class="glow-blob glow-blob-2"></div>
+        <div class="glow-blob glow-blob-3"></div>
+    </div>
+
+    <!-- Header -->
     <header class="header">
         <div class="container">
             <nav class="nav">
-                <div class="logo">
+                <a href="#" class="logo">
                     <div class="app-icon"></div>
-                    Günlük: Duygu & Rüya Günlüğüm
-                </div>
+                    Duygu Yolculuğum
+                </a>
                 <div class="nav-links">
                     <a href="#features">Özellikler</a>
                     <a href="#screenshots">Görüntüler</a>
-                    <a href="#about">Hakkında</a>
-                    <a href="/privacy-policy/">Privacy Policy</a>
+                    <a href="/privacy-policy/" class="policy-link">Privacy Policy</a>
                 </div>
             </nav>
         </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Günlük : Duygu & Rüya<br>Günlüğüm</h1>
-                    <p class="subtitle">Şifreli Günlük & Duygu Geliştirme Uygulaması</p>
-                    <p>Sadece bir günlük değil - kişisel duygusal yoldaşınız. Yenilikçi duygu kartı sistemimiz, görsel analizler ve rüya günlüğü özellikleri ile duygusal dünyanızın desenlerini keşfedin.</p>
+                    <p class="subtitle">Kişisel Duygu & Rüya Rehberiniz</p>
+                    <h1>Duygu Yolculuğum:<br>Günlük & Rüya</h1>
+                    <p>Sadece bir günlük değil - ruhsal dünyanızın derinliklerine giden bir yoldaş. Şifreli günlük koruması, yenilikçi duygu geliştirme kartları, rüya analizleri ve gelişmiş grafiksel analizlerle kendinizi keşfetmeye başlayın.</p>
                     <div class="cta-buttons">
-                        <a href="https://play.google.com/store/apps/details?id=com.epstudios.emotionjourney" class="cta-button">Google Play'den İndir</a>
-                        <a href="#features" class="cta-button secondary">Özelliklerı Keşfet</a>
+                        <a href="https://play.google.com/store/apps/details?id=com.epstudios.emotionjourney" class="cta-button" target="_blank">
+                            <svg class="google-play-badge" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M5,3H19A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3M17.5,12L8,6.5V17.5L17.5,12Z" />
+                            </svg>
+                            Google Play'den İndir
+                        </a>
+                        <a href="#features" class="cta-button secondary">Keşfe Çık</a>
                     </div>
                 </div>
                 
-                <div class="phone-mockup floating-animation">
-                    <div class="phone-screen">
-                        <img src="./images/hero-screenshot.png" alt="Duygusal Yolculuğum Ana Ekran" loading="lazy">
+                <div class="phone-mockup-wrapper">
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <img src="./images/hero-screenshot.png" alt="Duygu Yolculuğum Uygulama Görünümü">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="features" class="features">
+    <!-- Bento Grid Features Section -->
+    <section id="features" class="features-section">
         <div class="container">
-            <h2 class="section-title">Benzersiz Özellikler</h2>
-            <p class="section-subtitle">Duygusal gelişiminizi destekleyecek kapsamlı araçlar ve özellikler</p>
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Benzersiz Özellikler</h2>
+                <p class="section-subtitle">Duygusal gelişiminizi ve içsel dünyanızı analiz etmenizi sağlayan premium araçlar</p>
+            </div>
             
-            <div class="features-grid">
-                <div class="feature-card">
-                    <span class="feature-icon">💫</span>
+            <div class="bento-grid">
+                <!-- Card 1 (Large) -->
+                <div class="bento-item bento-item-lg">
+                    <span class="bento-icon">💫</span>
                     <h3>Yenilikçi Duygu Kartları</h3>
-                    <p>Benzersiz duygu kartlarımız ile iç dünyanızı deneyimleme şeklinizi dönüştürün. Kişiselleştirilmiş aktivitelerle duygusal gelişim seviyelerinde ilerleyin.</p>
+                    <p>Ruh halinizi sadece kelimelerle değil, görsel duygu kartlarıyla ifade edin. Her kart, duygusal farkındalığınızı geliştirecek özel aktiviteler ve seviyeler barındırır. Seviye atladıkça duygularınızı yönetmeyi öğrenin.</p>
                 </div>
                 
-                <div class="feature-card">
-                    <span class="feature-icon">💭</span>
-                    <h3>Rüya Günlüğü</h3>
-                    <p>Rüyalarınızı duygularınızla birleştirin. Bilinçli ve bilinçaltı zihninizin kapsamlı bir resmini oluşturun ve gizli bağlantıları keşfedin.</p>
+                <!-- Card 2 (Medium) -->
+                <div class="bento-item">
+                    <span class="bento-icon">🔮</span>
+                    <h3>Bilinçaltı & Rüya Defteri</h3>
+                    <p>Gördüğünüz rüyaları kaydedin ve rüyalarınızın gün içindeki duygusal durumunuzla nasıl bir bağ kurduğunu analiz edin. Rüyaların sırrını keşfedin.</p>
                 </div>
                 
-                <div class="feature-card">
-                    <span class="feature-icon">📊</span>
-                    <h3>Gelişmiş Duygu Analizi</h3>
-                    <p>Duygusal desenlerinizi görsel grafikler ve istatistiklerle takip edin. Tetikleyicileri belirleyin ve mevsimsel değişimleri analiz edin.</p>
+                <!-- Card 3 (Medium) -->
+                <div class="bento-item">
+                    <span class="bento-icon">📈</span>
+                    <h3>Gelişmiş Analizler</h3>
+                    <p>Duygusal iniş ve çıkışlarınızı görselleştiren haftalık, aylık grafikler. Hangi aktivitelerin modunuzu yükselttiğini veya düşürdüğünü analizlerle görün.</p>
                 </div>
                 
-                <div class="feature-card">
-                    <span class="feature-icon">🔒</span>
-                    <h3>Maksimum Güvenlik</h3>
-                    <p>Şifre koruması ve parmak izi ile çoklu güvenlik katmanları. Gelişmiş şifreleme ile düşünceleriniz tamamen güvende.</p>
+                <!-- Card 4 (Large) -->
+                <div class="bento-item bento-item-lg">
+                    <span class="bento-icon">☁️</span>
+                    <h3>Güvenli Bulut Yedekleme <span class="highlight-text">Premium</span></h3>
+                    <p>Kaybolmayan günlükler! Google Drive entegrasyonu ile tüm verilerinizi ve şifreli kayıtlarınızı kendi Drive hesabınızda tamamen güvenli bir şekilde yedekleyin ve dilediğiniz cihaza geri yükleyin.</p>
                 </div>
-                
-                <div class="feature-card">
-                    <span class="feature-icon">☁️</span>
-                    <h3>Güvenli Bulut Yedekleme</h3>
-                    <p><span class="highlight">Premium özellik:</span> Google Drive entegrasyonu ile verilerinizi güvenle yedekleyin. Birden fazla cihazdan erişim sağlayın.</p>
+
+                <!-- Card 5 (Medium) -->
+                <div class="bento-item">
+                    <span class="bento-icon">🔒</span>
+                    <h3>Üst Düzey Güvenlik</h3>
+                    <p>Zihninizdeki düşünceler sadece size aittir. Uygulamayı şifre koruması (PIN/Desen) ve biyometrik parmak izi okuyucu ile kilitleyerek verilerinizi tamamen koruma altına alın.</p>
                 </div>
-                
-                <div class="feature-card">
-                    <span class="feature-icon">📅</span>
-                    <h3>Akıllı Organizasyon</h3>
-                    <p>Takvim görünümü, özel etiketler ve gelişmiş arama özellikleri ile kayıtlarınızı kolayca düzenleyin ve bulun.</p>
+
+                <!-- Card 6 (Medium) -->
+                <div class="bento-item">
+                    <span class="bento-icon">🎨</span>
+                    <h3>Size Özel Temalar</h3>
+                    <p>Ruh halinize uygun temayı seçin. Uygulama arayüzünü tamamen kişiselleştirebileceğiniz geniş renk ve tasarım paletleri ile kendinizi yansıtın.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Interactive Section -->
+    <section class="mood-check-section">
+        <div class="container">
+            <div class="mood-check-card">
+                <h3>Bugün nasıl hissediyorsun?</h3>
+                <p>Aşağıdan ruh halinizi seçin, Duygu Yolculuğum'un size nasıl yoldaşlık edeceğini öğrenin.</p>
+                <div class="mood-buttons">
+                    <button onclick="selectMood('happy', '😊 Mutlu / Huzurlu')">😊 Mutlu</button>
+                    <button onclick="selectMood('anxious', '😟 Endişeli / Stresli')">😟 Endişeli</button>
+                    <button onclick="selectMood('sad', '😔 Üzgün / Düşünceli')">😔 Üzgün</button>
+                    <button onclick="selectMood('tired', '😴 Yorgun / Bitkin')">😴 Yorgun</button>
+                    <button onclick="selectMood('angry', '😠 Öfkeli / Gergin')">😠 Öfkeli</button>
+                </div>
+                <div id="mood-response" class="mood-response-box" style="display: none;">
+                    <h4 id="mood-title"></h4>
+                    <p id="mood-text"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery / ASO Screenshots Section -->
     <section id="screenshots" class="screenshots-section">
         <div class="container">
-            <h2 class="section-title">Uygulama Görüntüleri</h2>
-            <p class="section-subtitle">Duygusal Yolculuğum'un güzel arayüzünü keşfedin</p>
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Uygulamadan Kareler</h2>
+                <p class="section-subtitle">Duygu Yolculuğum'un modern, kullanıcı dostu ve akıcı arayüzünü inceleyin</p>
+            </div>
             
-            <div class="screenshots-grid">
-                <div class="screenshot-card">
-                    <div class="screenshot-mockup">
-                        <div class="screenshot-screen">
-                            <img src="./images/screenshot-1.png" alt="Uygulama Anasayfası" loading="lazy">
-                        </div>
+            <div class="screenshots-carousel-wrapper">
+                <div class="screenshots-carousel">
+                    <!-- Screenshot 1 -->
+                    <div class="screenshot-item">
+                        <img src="./images/duygu-kesfet.png" alt="Duygu Dünyanızı Keşfedin">
                     </div>
-                    <h4>Anasayfa</h4>
-                    <p>Uygulamanın ana ekranı</p>
-                </div>
-                
-                <div class="screenshot-card">
-                    <div class="screenshot-mockup">
-                        <div class="screenshot-screen">
-                            <img src="./images/screenshot-2.png" alt="Duygu Kartları" loading="lazy">
-                        </div>
+                    <!-- Screenshot 2 -->
+                    <div class="screenshot-item">
+                        <img src="./images/duygu-kartlari.png" alt="Duygu Kartlarıyla Gelişin">
                     </div>
-                    <h4>Duygu Kartları</h4>
-                    <p>Yenilikçi duygu geliştirme sistemi</p>
-                </div>
-                
-                <div class="screenshot-card">
-                    <div class="screenshot-mockup">
-                        <div class="screenshot-screen">
-                            <img src="./images/screenshot-3.png" alt="Duygu ve Rüya Günlükleri" loading="lazy">
-                        </div>
+                    <!-- Screenshot 3 -->
+                    <div class="screenshot-item">
+                        <img src="./images/duygu-ruya-kaydet.png" alt="Duygu ve Rüyaları Kaydedin">
                     </div>
-                    <h4>Duygu ve Rüya Günlükleri</h4>
-                    <p>İster Duygu Defteri İster Rüya Defteri</p>
-                </div>
-                
-                <div class="screenshot-card">
-                    <div class="screenshot-mockup">
-                        <div class="screenshot-screen">
-                            <img src="./images/screenshot-4.png" alt="Duygu Analizi" loading="lazy">
-                        </div>
+                    <!-- Screenshot 4 -->
+                    <div class="screenshot-item">
+                        <img src="./images/duygu-analiz.png" alt="Duygu Analiz">
                     </div>
-                    <h4>Analiz</h4>
-                    <p>Görsel grafikler ve duygusal istatistikler</p>
+                    <!-- Screenshot 5 -->
+                    <div class="screenshot-item">
+                        <img src="./images/ruya-sirlari.png" alt="Rüya Sırları">
+                    </div>
+                    <!-- Screenshot 6 -->
+                    <div class="screenshot-item">
+                        <img src="./images/temalar.png" alt="Size Özel Temalar">
+                    </div>
+                    <!-- Screenshot 7 -->
+                    <div class="screenshot-item">
+                        <img src="./images/dusunceler-ozel.png" alt="Düşünceleriniz Size Özel">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-   
-
-    <section id="about" class="about">
+    <!-- Final Call to Action / About -->
+    <section class="about-section">
         <div class="container">
-            <h2>Duygusal Dönüşümünüze Başlayın</h2>
-            <p>Günlük : Duygu & Rüya Günlüğüm, sadece bir günlük uygulaması değil - duygusal zekaya ve kendini keşfetmeye giden yolunuzdur. Her kayıt, zihninizdeki ve kalbinizdeki desenleri anlamanıza bir adım daha yaklaştırır.</p>
-            <p>Benzersiz duygu geliştirme kartları, bilinçaltı desenlerini görmenizi sağlayan rüya analizi ve kapsamlı duygusal gelişim sistemi ile mevcut en gelişmiş kişisel gelişim platformuna sahip olun.</p>
-            <div style="margin-top: 2rem;">
-                <a href="https://play.google.com/store/apps/details?id=com.epstudios.emotionjourney" class="cta-button">Hemen Başlayın</a>
+            <div class="about-card">
+                <h2>Zihinsel Dönüşümünüzü Başlatın</h2>
+                <p>Duygu Yolculuğum ile her gün birkaç dakikanızı kendinize ayırarak duygusal zekanızı artırın, bilinçaltı kalıplarınızı rüya günlükleri ile çözün ve daha dengeli bir yaşam sürün.</p>
+                <a href="https://play.google.com/store/apps/details?id=com.epstudios.emotionjourney" class="cta-button" target="_blank">
+                    Uygulamayı Hemen İndir
+                </a>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>Uygulama</h4>
+                    <h4>Duygu Yolculuğum</h4>
                     <div class="footer-links">
-                        <a href="https://play.google.com/store/apps/details?id=com.epstudios.emotionjourney">Google Play Store</a>
+                        <a href="https://play.google.com/store/apps/details?id=com.epstudios.emotionjourney" target="_blank">Google Play Store</a>
                         <a href="#features">Özellikler</a>
-                        <a href="#screenshots">Uygulama Görüntüleri</a>
-                        <a href="#about">Hakkında</a>
+                        <a href="#screenshots">Görüntüler</a>
                     </div>
                 </div>
                 
                 <div class="footer-section">
-                    <h4>Destek</h4>
+                    <h4>İletişim & Destek</h4>
                     <div class="footer-links">
+                        <a href="mailto:epstudios.dev@gmail.com">epstudios.dev@gmail.com</a>
                         <a href="mailto:epstudios.dev@gmail.com">Teknik Destek</a>
-                        <a href="mailto:epstudios.dev@gmail.com">Genel Bilgi</a>
-                    
                     </div>
                 </div>
                 
                 <div class="footer-section">
-                    <h4>Yasal</h4>
+                    <h4>Yasal Bilgiler</h4>
                     <div class="footer-links">
-                        <a href="/privacy-policy/">Privacy Policy</a>
-                        <a href="#contact">İletişim</a>
+                        <a href="/privacy-policy/">Gizlilik Politikası (Privacy Policy)</a>
                     </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 Duygusal Yolculuğum: Günlüğüm - EP Studios. Tüm hakları saklıdır.</p>
-
+                <p>&copy; 2026 Duygu Yolculuğum - EP Studios. Tüm hakları saklıdır.</p>
             </div>
         </div>
     </footer>
+
+    <!-- Interactive mood logic -->
+    <script>
+        function selectMood(type, name) {
+            const box = document.getElementById('mood-response');
+            const title = document.getElementById('mood-title');
+            const text = document.getElementById('mood-text');
+            
+            box.style.display = 'block';
+            title.innerText = name;
+            
+            let responseText = '';
+            switch(type) {
+                case 'happy':
+                    responseText = 'Harika! Mutlu anları kaydetmek, gelecekte geriye dönüp baktığınızda size ilham verir. Duygu Yolculuğum\'da günlüğünüze bu anları yazabilir, seçtiğiniz pozitif duygu kartıyla mutluluğunuzu pekiştirecek aktiviteler yapabilirsiniz. Günlüğünüz bu anları şifrelenmiş olarak güvenle saklayacaktır.';
+                    break;
+                case 'anxious':
+                    responseText = 'Endişeli hissetmeniz çok doğal. Nefes alın. Duygu Yolculuğum\'da endişenizi tetikleyen durumları yazarak zihninizi boşaltabilirsiniz. Uygulama içindeki rahatlatıcı duygu kartları ve duygu analizi sayesinde bu hislerin ne sıklıkla ve hangi durumlarda ortaya çıktığını grafiklerde görebilirsiniz.';
+                    break;
+                case 'sad':
+                    responseText = 'Hüzün de duygusal yolculuğumuzun doğal bir parçasıdır. Duygularınızı bastırmak yerine günlüğünüze yazarak hafifleyebilirsiniz. Duygu Yolculuğum, rüya günlüğü entegrasyonuyla bilinçaltınızdaki duygusal durumları anlamanıza ve sakin adımlarla iyileşmenize yardımcı olur.';
+                    break;
+                case 'tired':
+                    responseText = 'Bazen sadece durup dinlenmek gerekir. Bugün zihninizi yoran ne varsa yazıp serbest bırakın. Ayrıca rüyalarınızı kaydederek uyku kaliteniz ile duygusal durumunuz arasındaki bağı analiz grafiklerimizden takip edebilirsiniz.';
+                    break;
+                case 'angry':
+                    responseText = 'Öfke güçlü bir enerjidir ve doğru yönlendirildiğinde büyük farkındalık sağlar. Öfkenizi tetikleyen olayları yargılanmadan yazmak sakinleşmenize yardımcı olur. Şifreli günlüğünüz sayesinde sadece sizin görebileceğiniz bu alanda hislerinizi özgürce ifade edin.';
+                    break;
+            }
+            text.innerText = responseText;
+        }
+    </script>
 </body>
 </html>
