@@ -574,78 +574,146 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Responsive Mood grid */
-        @media (max-width: 768px) {
-            .mood-buttons {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-        @media (max-width: 480px) {
-            .mood-buttons {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        /* Screenshots Section */
-        .screenshots-section {
+        /* Interactive Showcase Section (Device Tour) */
+        .showcase-section {
             padding: 6rem 0;
             position: relative;
         }
 
-        .screenshots-carousel-wrapper {
-            margin-top: 3rem;
+        .showcase-container {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3.5rem;
+        }
+
+        .showcase-tabs {
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .showcase-tab {
+            background: #fff;
+            border: 1.5px solid #eae8f0;
+            border-radius: var(--border-radius-md);
+            padding: 1.1rem 1.4rem;
+            cursor: pointer;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 12px rgba(110, 107, 133, 0.01);
+            user-select: none;
+        }
+
+        .showcase-tab:hover {
+            transform: translateX(6px);
+            border-color: rgba(154, 102, 255, 0.3);
+            box-shadow: 0 8px 20px rgba(154, 102, 255, 0.04);
+        }
+
+        .showcase-tab.active {
+            background-color: var(--pastel-purple);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 25px rgba(154, 102, 255, 0.08);
+        }
+
+        .showcase-tab-num {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            background: rgba(154, 102, 255, 0.1);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .showcase-tab.active .showcase-tab-num {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        .showcase-tab-content h4 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 0.15rem;
+        }
+
+        .showcase-tab-content p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .showcase-mockup-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        .showcase-phone {
+            position: relative;
+            width: 295px;
+            height: 600px;
+            background: #fff;
+            border-radius: 46px;
+            padding: 12px;
+            box-shadow: 0 25px 60px rgba(110, 107, 133, 0.18),
+                        0 0 0 4px #e5e7eb,
+                        0 0 45px rgba(154, 102, 255, 0.12);
+        }
+
+        .showcase-phone::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 125px;
+            height: 27px;
+            background: #fff;
+            border-bottom-left-radius: 17px;
+            border-bottom-right-radius: 17px;
+            border: 1px solid #e5e7eb;
+            border-top: none;
+            z-index: 10;
+        }
+
+        .showcase-screen {
+            width: 100%;
+            height: 100%;
+            border-radius: 36px;
+            overflow: hidden;
+            background: #faf9f6;
+            border: 1px solid #f3f4f6;
             position: relative;
         }
 
-        .screenshots-carousel {
-            display: flex;
-            gap: 2rem;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            padding: 1rem 10px 2.5rem 10px;
-            scrollbar-width: thin;
-            scrollbar-color: var(--primary-color) transparent;
-        }
-
-        .screenshots-carousel::-webkit-scrollbar {
-            height: 6px;
-        }
-
-        .screenshots-carousel::-webkit-scrollbar-track {
-            background: rgba(154, 102, 255, 0.02);
-            border-radius: 10px;
-        }
-
-        .screenshots-carousel::-webkit-scrollbar-thumb {
-            background: rgba(154, 102, 255, 0.2);
-            border-radius: 10px;
-        }
-
-        .screenshots-carousel::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-color);
-        }
-
-        .screenshot-item {
-            flex: 0 0 280px;
-            scroll-snap-align: start;
-            border-radius: 28px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(110, 107, 133, 0.12);
-            border: 1px solid rgba(154, 102, 255, 0.08);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            background: #fff;
-        }
-
-        .screenshot-item:hover {
-            transform: translateY(-8px) scale(1.02);
-            border-color: var(--primary-color);
-            box-shadow: var(--hover-shadow);
-        }
-
-        .screenshot-item img {
+        .showcase-screen img {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+            z-index: 1;
             display: block;
+        }
+
+        .showcase-screen img.active {
+            opacity: 1;
+            z-index: 2;
         }
 
         /* App Showcase / Banner Card */
@@ -765,6 +833,35 @@
             .bento-item-lg {
                 grid-column: span 2;
             }
+
+            /* Showcase layout for mobile */
+            .showcase-container {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .showcase-tabs {
+                flex-direction: row;
+                overflow-x: auto;
+                padding-bottom: 1.2rem;
+                scroll-snap-type: x mandatory;
+                scrollbar-width: none;
+            }
+
+            .showcase-tabs::-webkit-scrollbar {
+                display: none;
+            }
+
+            .showcase-tab {
+                flex: 0 0 auto;
+                scroll-snap-align: start;
+                padding: 0.9rem 1.2rem;
+                gap: 0.8rem;
+            }
+
+            .showcase-mockup-wrapper {
+                order: 2;
+            }
         }
 
         @media (max-width: 640px) {
@@ -881,7 +978,7 @@
                 <div class="bento-item bento-orange">
                     <div class="bento-content">
                         <h3>📈 Gelişmiş Duygu Analizi</h3>
-                        <p>Haftalık ve aylık mod grafiklerinizle ruh halinizdeki dalgalanmaları görün. Hangi günlerin veya aktivitelerin modunuzu yükselttiğini analiz edin.</p>
+                        <p>Hata yapmadan haftalık ve aylık mod grafiklerinizle ruh halinizdeki dalgalanmaları görün. Hangi günlerin veya aktivitelerin modunuzu yükselttiğini analiz edin.</p>
                     </div>
                 </div>
                 
@@ -970,43 +1067,87 @@
         </div>
     </section>
 
-    <!-- Gallery / ASO Screenshots Section -->
-    <section id="screenshots" class="screenshots-section">
+    <!-- Gallery / Interactive Showcase Section (Device Tour) -->
+    <section id="screenshots" class="showcase-section">
         <div class="container">
             <div class="section-title-wrapper">
-                <h2 class="section-title">Uygulamadan Canlı Görüntüler</h2>
-                <p class="section-subtitle">Duygu Takibi ve Rüya Günlüğü uygulamasının rengarenk ve samimi tasarımları</p>
+                <h2 class="section-title">Uygulama Özelliklerini İnceleyin</h2>
+                <p class="section-subtitle">Aşağıdaki menüden geçiş yaparak uygulamanın tüm özelliklerini canlı görüntülerle keşfedin</p>
             </div>
             
-            <div class="screenshots-carousel-wrapper">
-                <div class="screenshots-carousel">
-                    <!-- Screenshot 1 -->
-                    <div class="screenshot-item">
-                        <img src="./images/duygu-kesfet.png" alt="Duygu Dünyanızı Keşfedin">
+            <div class="showcase-container">
+                <!-- Tabs on the left -->
+                <div class="showcase-tabs">
+                    <!-- Tab 1 -->
+                    <div class="showcase-tab active" onclick="showScreenshot(0)">
+                        <div class="showcase-tab-num">1</div>
+                        <div class="showcase-tab-content">
+                            <h4>Duygularını Keşfet</h4>
+                            <p>Ruh halinizi cana yakın arayüzümüzle tahlil edin.</p>
+                        </div>
                     </div>
-                    <!-- Screenshot 2 -->
-                    <div class="screenshot-item">
-                        <img src="./images/duygu-kartlari.png" alt="Duygu Kartlarıyla Gelişin">
+                    <!-- Tab 2 -->
+                    <div class="showcase-tab" onclick="showScreenshot(1)">
+                        <div class="showcase-tab-num">2</div>
+                        <div class="showcase-tab-content">
+                            <h4>Duygu Kartları</h4>
+                            <p>Duygusal farkındalık seviyelerinizi geliştirin.</p>
+                        </div>
                     </div>
-                    <!-- Screenshot 3 -->
-                    <div class="screenshot-item">
-                        <img src="./images/duygu-ruya-kaydet.png" alt="Duygu ve Rüyaları Kaydedin">
+                    <!-- Tab 3 -->
+                    <div class="showcase-tab" onclick="showScreenshot(2)">
+                        <div class="showcase-tab-num">3</div>
+                        <div class="showcase-tab-content">
+                            <h4>Günlük & Rüya Defteri</h4>
+                            <p>Zihninizi meşgul eden her şeyi güvenle kaydedin.</p>
+                        </div>
                     </div>
-                    <!-- Screenshot 4 -->
-                    <div class="screenshot-item">
-                        <img src="./images/duygu-analiz.png" alt="Duygu Analiz">
+                    <!-- Tab 4 -->
+                    <div class="showcase-tab" onclick="showScreenshot(3)">
+                        <div class="showcase-tab-num">4</div>
+                        <div class="showcase-tab-content">
+                            <h4>Duygu Durum Analizi</h4>
+                            <p>Değişimleri ve tetikleyicileri grafiklerle görün.</p>
+                        </div>
                     </div>
-                    <!-- Screenshot 5 -->
-                    <div class="screenshot-item">
-                        <img src="./images/ruya-sirlari.png" alt="Rüya Sırları">
+                    <!-- Tab 5 -->
+                    <div class="showcase-tab" onclick="showScreenshot(4)">
+                        <div class="showcase-tab-num">5</div>
+                        <div class="showcase-tab-content">
+                            <h4>Rüyanın Sırları</h4>
+                            <p>Bilinçaltınızın gizemli yollarını keşfedin.</p>
+                        </div>
                     </div>
-                    <!-- Screenshot 6 -->
-                    <div class="screenshot-item">
-                        <img src="./images/temalar.png" alt="Size Özel Temalar">
+                    <!-- Tab 6 -->
+                    <div class="showcase-tab" onclick="showScreenshot(5)">
+                        <div class="showcase-tab-num">6</div>
+                        <div class="showcase-tab-content">
+                            <h4>Size Özel Temalar</h4>
+                            <p>Uygulamayı kendi tarzınızla renklendirin.</p>
+                        </div>
                     </div>
-                    <!-- Screenshot 7 -->
-                    <div class="screenshot-item">
-                        <img src="./images/dusunceler-ozel.png" alt="Düşünceleriniz Size Özel">
+                    <!-- Tab 7 -->
+                    <div class="showcase-tab" onclick="showScreenshot(6)">
+                        <div class="showcase-tab-num">7</div>
+                        <div class="showcase-tab-content">
+                            <h4>Maksimum Güvenlik</h4>
+                            <p>Şifreli koruma ile gizliliğiniz tamamen koruma altında.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Showcase Phone Mockup on the right -->
+                <div class="showcase-mockup-wrapper">
+                    <div class="showcase-phone">
+                        <div class="showcase-screen">
+                            <img id="screenshot-img-0" src="./images/duygu-kesfet.png" class="active" alt="Duygu Dünyanızı Keşfedin">
+                            <img id="screenshot-img-1" src="./images/duygu-kartlari.png" alt="Duygu Kartlarıyla Gelişin">
+                            <img id="screenshot-img-2" src="./images/duygu-ruya-kaydet.png" alt="Duygu ve Rüyaları Kaydedin">
+                            <img id="screenshot-img-3" src="./images/duygu-analiz.png" alt="Duygu Analiz">
+                            <img id="screenshot-img-4" src="./images/ruya-sirlari.png" alt="Rüya Sırları">
+                            <img id="screenshot-img-5" src="./images/temalar.png" alt="Size Özel Temalar">
+                            <img id="screenshot-img-6" src="./images/dusunceler-ozel.png" alt="Düşünceleriniz Size Özel">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1061,8 +1202,39 @@
         </div>
     </footer>
 
-    <!-- Interactive mood logic -->
+    <!-- Interactive mood logic & Showcase logic -->
     <script>
+        // Interactive Showcase Switching
+        function showScreenshot(tabIndex) {
+            // 1. Get all tabs and remove active class
+            const tabs = document.querySelectorAll('.showcase-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // 2. Add active class to clicked tab
+            tabs[tabIndex].classList.add('active');
+            
+            // 3. Get all images in phone screen and remove active class
+            const images = document.querySelectorAll('.showcase-screen img');
+            images.forEach(img => img.classList.remove('active'));
+            
+            // 4. Set the target image as active
+            const targetImg = document.getElementById(`screenshot-img-${tabIndex}`);
+            if (targetImg) {
+                targetImg.classList.add('active');
+            }
+            
+            // 5. Scroll the tab into view on mobile (horizontal layout)
+            if (window.innerWidth <= 968) {
+                const tab = tabs[tabIndex];
+                const container = document.querySelector('.showcase-tabs');
+                container.scrollTo({
+                    left: tab.offsetLeft - (container.offsetWidth / 2) + (tab.offsetWidth / 2),
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Interactive mood selections
         function selectMood(btn, type, name, emojiName) {
             // Remove selected class from all buttons
             document.querySelectorAll('.mood-btn').forEach(button => {
