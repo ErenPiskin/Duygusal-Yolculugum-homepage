@@ -1,1331 +1,163 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rüya Günlüğü & Duygu Takibi - Kişisel Günlüğünüz</title>
-    <meta name="description" content="Rüya Günlüğü & Duygu Takibi uygulaması ile rüyalarınızı kaydedin, duygu durumunuzu takip edin ve şifreli güvenli günlük tutmanın keyfini çıkarın.">
-    
-    <!-- App Icon Favicon -->
-    <link rel="icon" type="image/png" href="./images/app-icon.png">
-    <link rel="apple-touch-icon" href="./images/app-icon.png">
-    
-    <!-- Quicksand Font (App Font) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --bg-color: #fdfbf7;
-            --text-primary: #373351;
-            --text-secondary: #7c779e;
-            --primary-color: #9a66ff;
-            --primary-hover: #834ff2;
-            --accent-color: #ff6b8b;
-            --card-shadow: 0 16px 40px rgba(154, 102, 255, 0.06);
-            --hover-shadow: 0 20px 48px rgba(154, 102, 255, 0.15);
-            --border-radius-lg: 32px;
-            --border-radius-md: 20px;
-            --border-radius-sm: 14px;
-            --font-app: 'Quicksand', sans-serif;
-            
-            /* Pastel Card Colors */
-            --pastel-purple: #f5f0ff;
-            --pastel-blue: #eef6ff;
-            --pastel-orange: #fff6ed;
-            --pastel-green: #f0fdf4;
-            --pastel-pink: #fdf2f8;
-            --pastel-cyan: #ecfeff;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-app);
-            color: var(--text-primary);
-            background-color: var(--bg-color);
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(255, 107, 139, 0.05) 0%, transparent 40%),
-                radial-gradient(circle at 80% 50%, rgba(154, 102, 255, 0.06) 0%, transparent 50%),
-                radial-gradient(circle at 50% 90%, rgba(14, 165, 233, 0.04) 0%, transparent 40%);
-            background-attachment: fixed;
-            min-height: 100vh;
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* Navigation Bar */
-        .header {
-            background: rgba(253, 251, 247, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(154, 102, 255, 0.08);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.45rem;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            text-decoration: none;
-            color: var(--text-primary);
-            transition: transform 0.2s ease;
-        }
-
-        .logo:hover {
-            transform: scale(1.02);
-        }
-
-        .app-icon {
-            width: 44px;
-            height: 44px;
-            background-image: url('./images/app-icon.png');
-            background-size: cover;
-            background-position: center;
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(154, 102, 255, 0.25);
-            border: 2px solid #fff;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            padding: 8px 18px;
-            border-radius: 20px;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-            background: rgba(154, 102, 255, 0.05);
-        }
-
-        .nav-links a.policy-link {
-            border: 2px solid rgba(154, 102, 255, 0.15);
-            background: #fff;
-            color: var(--primary-color);
-            box-shadow: 0 4px 12px rgba(154, 102, 255, 0.04);
-        }
-
-        .nav-links a.policy-link:hover {
-            background: var(--primary-color);
-            color: #fff;
-            border-color: var(--primary-color);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 5rem 0 4rem 0;
-            position: relative;
-        }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .hero-text {
-            text-align: left;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(255, 107, 139, 0.08);
-            color: var(--accent-color);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(255, 107, 139, 0.15);
-        }
-
-        .hero-text h1 {
-            font-size: 3.8rem;
-            font-weight: 850;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #2d2a45 0%, #9a66ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: -0.02em;
-        }
-
-        .hero-text p {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            line-height: 1.75;
-            margin-bottom: 2.5rem;
-            font-weight: 500;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1.2rem;
-            flex-wrap: wrap;
-            margin-bottom: 2.5rem;
-        }
-
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--primary-color) 0%, #7c4af2 100%);
-            color: #fff;
-            padding: 16px 36px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 1.05rem;
-            box-shadow: 0 10px 25px rgba(154, 102, 255, 0.3);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: none;
-            gap: 0.8rem;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 15px 30px rgba(154, 102, 255, 0.45);
-        }
-
-        .cta-button.secondary {
-            background: #fff;
-            border: 2px solid rgba(154, 102, 255, 0.2);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.02);
-            color: var(--primary-color);
-        }
-
-        .cta-button.secondary:hover {
-            background: rgba(154, 102, 255, 0.04);
-            border-color: var(--primary-color);
-            box-shadow: 0 8px 20px rgba(154, 102, 255, 0.1);
-        }
-
-        .play-store-icon {
-            width: 22px;
-            height: 22px;
-        }
-
-        /* Mascot Speech Bubble */
-        .mascot-bubble-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            background: #fff;
-            padding: 12px 20px;
-            border-radius: var(--border-radius-md);
-            box-shadow: var(--card-shadow);
-            border: 1px solid rgba(154, 102, 255, 0.08);
-            max-width: 450px;
-        }
-
-        .mascot-bubble-img {
-            width: 50px;
-            height: auto;
-            animation: gentle-shake 3s ease-in-out infinite;
-        }
-
-        .mascot-bubble-text {
-            font-size: 0.95rem;
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        @keyframes gentle-shake {
-            0%, 100% { transform: rotate(0deg) translateY(0); }
-            25% { transform: rotate(3deg) translateY(-2px); }
-            75% { transform: rotate(-3deg) translateY(1px); }
-        }
-
-        /* White Device Mockup */
-        .phone-mockup-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        .phone-mockup {
-            position: relative;
-            width: 295px;
-            height: 605px;
-            background: #fff;
-            border-radius: 46px;
-            padding: 12px;
-            box-shadow: 0 25px 50px rgba(110, 107, 133, 0.18),
-                        0 0 0 4px #e5e7eb,
-                        0 0 35px rgba(154, 102, 255, 0.12);
-            animation: floating 5s ease-in-out infinite;
-        }
-
-        .phone-mockup::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 130px;
-            height: 28px;
-            background: #fff;
-            border-bottom-left-radius: 18px;
-            border-bottom-right-radius: 18px;
-            border: 1px solid #e5e7eb;
-            border-top: none;
-            z-index: 10;
-        }
-
-        .phone-screen {
-            width: 100%;
-            height: 100%;
-            border-radius: 36px;
-            overflow: hidden;
-            background: #faf9f6;
-            border: 1px solid #f3f4f6;
-        }
-
-        .phone-screen img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        @keyframes floating {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        /* Features - Bento Grid */
-        .features-section {
-            padding: 6rem 0;
-            position: relative;
-        }
-
-        .section-title-wrapper {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-title {
-            font-size: 2.8rem;
-            font-weight: 800;
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-            letter-spacing: -0.01em;
-        }
-
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.7;
-            font-weight: 500;
-        }
-
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        .bento-item {
-            border-radius: var(--border-radius-lg);
-            padding: 2.5rem;
-            box-shadow: var(--card-shadow);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid transparent;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .bento-item:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--hover-shadow);
-        }
-
-        .bento-item-lg {
-            grid-column: span 2;
-        }
-
-        .bento-content {
-            margin-bottom: 1.5rem;
-        }
-
-        .bento-item h3 {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: var(--text-primary);
-            margin-bottom: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-
-        .bento-item p {
-            color: var(--text-secondary);
-            line-height: 1.7;
-            font-size: 1.05rem;
-            font-weight: 500;
-        }
-
-        /* Mascot inside cards */
-        .bento-mascot-img {
-            width: 85px;
-            height: auto;
-            align-self: flex-end;
-            margin-top: 1rem;
-            filter: drop-shadow(0 8px 16px rgba(0,0,0,0.06));
-            transition: transform 0.4s ease;
-        }
-
-        .bento-item:hover .bento-mascot-img {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        /* Bento Individual Themes */
-        .bento-purple {
-            background-color: var(--pastel-purple);
-            border-color: #e9e0ff;
-        }
-        .bento-blue {
-            background-color: var(--pastel-blue);
-            border-color: #dbeafe;
-        }
-        .bento-orange {
-            background-color: var(--pastel-orange);
-            border-color: #ffedd5;
-        }
-        .bento-green {
-            background-color: var(--pastel-green);
-            border-color: #dcfce7;
-        }
-        .bento-pink {
-            background-color: var(--pastel-pink);
-            border-color: #fce7f3;
-        }
-        .bento-cyan {
-            background-color: var(--pastel-cyan);
-            border-color: #cffafe;
-        }
-
-        /* Premium Badge */
-        .premium-tag {
-            background: #fff;
-            color: var(--accent-color);
-            border: 1px solid rgba(255, 107, 139, 0.3);
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-left: 8px;
-            vertical-align: middle;
-        }
-
-        /* Interactive Mood Selector */
-        .mood-check-section {
-            padding: 5rem 0;
-            position: relative;
-        }
-
-        .mood-check-card {
-            background: #fff;
-            border: 1px solid rgba(154, 102, 255, 0.08);
-            border-radius: var(--border-radius-lg);
-            padding: 4rem 3rem;
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-            box-shadow: var(--card-shadow);
-            position: relative;
-        }
-
-        .mood-check-card h3 {
-            font-size: 2.3rem;
-            font-weight: 800;
-            color: var(--text-primary);
-            margin-bottom: 0.8rem;
-        }
-
-        .mood-check-card p.mood-subtitle {
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-            font-size: 1.15rem;
-            font-weight: 500;
-        }
-
-        .mood-buttons {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 1.2rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .mood-btn {
-            background: #fff;
-            border: 1.5px solid #eae8f0;
-            padding: 16px 12px;
-            border-radius: 24px;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.8rem;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 4px 12px rgba(110, 107, 133, 0.02);
-        }
-
-        .mood-btn img {
-            width: 54px;
-            height: 54px;
-            object-fit: contain;
-            transition: transform 0.3s ease;
-        }
-
-        .mood-btn span {
-            font-weight: 700;
-            font-size: 0.9rem;
-            color: var(--text-primary);
-        }
-
-        .mood-btn:hover {
-            transform: translateY(-8px);
-            border-color: var(--primary-color);
-            box-shadow: 0 12px 25px rgba(154, 102, 255, 0.1);
-        }
-
-        .mood-btn:hover img {
-            transform: scale(1.15);
-        }
-
-        .mood-btn.selected {
-            border-color: var(--primary-color);
-            background: var(--pastel-purple);
-            box-shadow: 0 10px 25px rgba(154, 102, 255, 0.15);
-        }
-
-        .mood-response-box {
-            padding: 2rem;
-            border-radius: var(--border-radius-md);
-            border: 1.5px solid transparent;
-            animation: slideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            text-align: left;
-            box-shadow: 0 8px 24px rgba(154,102,255,0.03);
-        }
-
-        .mood-response-box h4 {
-            font-size: 1.35rem;
-            font-weight: 800;
-            margin-bottom: 0.6rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .mood-response-box p {
-            font-size: 1.05rem;
-            line-height: 1.7;
-            font-weight: 500;
-            color: var(--text-primary);
-        }
-
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Interactive Showcase Section (Device Tour) */
-        .showcase-section {
-            padding: 6rem 0;
-            position: relative;
-        }
-
-        .showcase-container {
-            display: grid;
-            grid-template-columns: 1.15fr 0.85fr;
-            gap: 4rem;
-            align-items: center;
-            margin-top: 3.5rem;
-        }
-
-        .showcase-tabs {
-            display: flex;
-            flex-direction: column;
-            gap: 0.85rem;
-        }
-
-        .showcase-tab {
-            background: #fff;
-            border: 1.5px solid #eae8f0;
-            border-radius: var(--border-radius-md);
-            padding: 1.1rem 1.4rem;
-            cursor: pointer;
-            text-align: left;
-            display: flex;
-            align-items: center;
-            gap: 1.2rem;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 4px 12px rgba(110, 107, 133, 0.01);
-            user-select: none;
-        }
-
-        .showcase-tab:hover {
-            transform: translateX(6px);
-            border-color: rgba(154, 102, 255, 0.3);
-            box-shadow: 0 8px 20px rgba(154, 102, 255, 0.04);
-        }
-
-        .showcase-tab.active {
-            background-color: var(--pastel-purple);
-            border-color: var(--primary-color);
-            box-shadow: 0 10px 25px rgba(154, 102, 255, 0.08);
-        }
-
-        .showcase-tab-num {
-            font-size: 1.1rem;
-            font-weight: 800;
-            color: var(--primary-color);
-            background: rgba(154, 102, 255, 0.1);
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            transition: all 0.3s ease;
-        }
-
-        .showcase-tab.active .showcase-tab-num {
-            background: var(--primary-color);
-            color: #fff;
-        }
-
-        .showcase-tab-content h4 {
-            font-size: 1.15rem;
-            font-weight: 800;
-            color: var(--text-primary);
-            margin-bottom: 0.15rem;
-        }
-
-        .showcase-tab-content p {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            margin: 0;
-            font-weight: 500;
-        }
-
-        .showcase-mockup-wrapper {
-            display: flex;
-            justify-content: center;
-        }
-
-        .showcase-phone {
-            position: relative;
-            width: 295px;
-            height: 600px;
-            background: #fff;
-            border-radius: 46px;
-            padding: 12px;
-            box-shadow: 0 25px 60px rgba(110, 107, 133, 0.18),
-                        0 0 0 4px #e5e7eb,
-                        0 0 45px rgba(154, 102, 255, 0.12);
-        }
-
-        .showcase-phone::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 125px;
-            height: 27px;
-            background: #fff;
-            border-bottom-left-radius: 17px;
-            border-bottom-right-radius: 17px;
-            border: 1px solid #e5e7eb;
-            border-top: none;
-            z-index: 10;
-        }
-
-        .showcase-screen {
-            width: 100%;
-            height: 100%;
-            border-radius: 36px;
-            overflow: hidden;
-            background: #faf9f6;
-            border: 1px solid #f3f4f6;
-            position: relative;
-        }
-
-        .showcase-screen img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0;
-            transition: opacity 0.4s ease-in-out;
-            z-index: 1;
-            display: block;
-        }
-
-        .showcase-screen img.active {
-            opacity: 1;
-            z-index: 2;
-        }
-
-        /* App Showcase / Banner Card */
-        .about-section {
-            padding: 6rem 0;
-            text-align: center;
-        }
-
-        .about-card {
-            background: linear-gradient(135deg, #fff7ed 0%, #fff0f6 100%);
-            border: 1.5px solid #ffebf3;
-            border-radius: 40px;
-            padding: 5rem 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-            box-shadow: var(--card-shadow);
-            position: relative;
-        }
-
-        .about-card h2 {
-            font-size: 2.8rem;
-            font-weight: 850;
-            color: var(--text-primary);
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-
-        .about-card p {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            max-width: 780px;
-            margin: 0 auto 3rem;
-            line-height: 1.8;
-            font-weight: 500;
-        }
-
-        /* Footer */
-        .footer {
-            background: #f4f2f9;
-            border-top: 1px solid rgba(154, 102, 255, 0.06);
-            color: var(--text-primary);
-            padding: 5rem 0 2.5rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 3.5rem;
-            margin-bottom: 4rem;
-        }
-
-        .footer-section h4 {
-            font-size: 1.25rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary-color);
-            font-weight: 800;
-        }
-
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .footer-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 0.95rem;
-            font-weight: 600;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary-color);
-            transform: translateX(3px);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(154, 102, 255, 0.06);
-            padding-top: 2rem;
-            text-align: center;
-        }
-
-        .footer-bottom p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        /* Responsive Layouts */
-        @media (max-width: 968px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 3rem;
-            }
-
-            .hero-text {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
-            .hero-text h1 {
-                font-size: 3rem;
-            }
-
-            .cta-buttons {
-                justify-content: center;
-            }
-
-            .bento-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .bento-item-lg {
-                grid-column: span 2;
-            }
-
-            /* Showcase layout for mobile */
-            .showcase-container {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
-            }
-
-            .showcase-tabs {
-                flex-direction: row;
-                overflow-x: auto;
-                padding-bottom: 1.2rem;
-                scroll-snap-type: x mandatory;
-                scrollbar-width: none;
-            }
-
-            .showcase-tabs::-webkit-scrollbar {
-                display: none;
-            }
-
-            .showcase-tab {
-                flex: 0 0 auto;
-                scroll-snap-align: start;
-                padding: 0.9rem 1.2rem;
-                gap: 0.8rem;
-            }
-
-            .showcase-mockup-wrapper {
-                order: 2;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .hero-text h1 {
-                font-size: 2.4rem;
-            }
-
-            .bento-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .bento-item-lg {
-                grid-column: span 1;
-            }
-
-            .nav-links {
-                gap: 0.8rem;
-            }
-
-            .nav-links a {
-                padding: 6px 12px;
-                font-size: 0.85rem;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <nav class="nav">
-                <a href="#" class="logo">
-                    <div class="app-icon"></div>
-                    Rüya Günlüğü & Duygu Takibi
-                </a>
-                <div class="nav-links">
-                    <a href="#features">Özellikler</a>
-                    <a href="#screenshots">Ekran Görüntüleri</a>
-                    <a href="/privacy-policy/" class="policy-link">Gizlilik Politikası</a>
-                </div>
-            </nav>
-        </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#08090d" />
+    <meta name="description" content="EP Studio; duygulara dokunan uygulamalar ve keşfedilecek yeni dünyalar tasarlayan bağımsız bir dijital stüdyo." />
+    <title>EP Studio — Hisset. Keşfet. Oyna.</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/css/site.css" />
+  </head>
+  <body class="home-page">
+    <a class="skip-link" href="#work">İçeriğe geç</a>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="./" aria-label="EP Studio ana sayfa">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i></span>
+        <span>EP<span>Studio</span></span>
+      </a>
+      <button class="menu-button" type="button" aria-label="Menüyü aç" aria-expanded="false" data-menu-button>
+        <span></span><span></span>
+      </button>
+      <nav class="site-nav" aria-label="Ana menü" data-nav>
+        <a href="#studio">Stüdyo</a>
+        <a href="#work">Projeler</a>
+        <a href="#contact">İletişim</a>
+      </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <div class="hero-badge">
-                        <span>✨ Rengarenk ve Sevimli Günlük Deneyimi</span>
-                    </div>
-                    <h1>Rüya Günlüğü &<br>Duygu Takibi</h1>
-                    <p>Ruh halinizi sevimli emojilerle takip edin, rüyalarınızı şifreli bir deftere kaydederek bilinçaltınızın sırlarını çözün. Zihinsel sağlığınızı ve duygusal gelişim seviyenizi eğlenceli grafiklerle takip edin.</p>
-                    <div class="cta-buttons">
-                        <a href="https://play.google.com/store/apps/details?id=com.epstudios.emotionjourney" class="cta-button" target="_blank">
-                            <svg class="play-store-icon" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M5,3H19A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3M17.5,12L8,6.5V17.5L17.5,12Z" />
-                            </svg>
-                            Google Play'den Ücretsiz İndir
-                        </a>
-                        <a href="#features" class="cta-button secondary">Özellikleri İncele</a>
-                    </div>
-                    
-                    <!-- Speech bubble with home mascot -->
-                    <div class="mascot-bubble-wrapper">
-                        <img src="./images/mascots/home.png" alt="Mascot" class="mascot-bubble-img">
-                        <div class="mascot-bubble-text">
-                            "Bugün nasılsın? Gel, günlüğüne duygularını bırakalım ve sevimli kartlarla zihnini dinlendirelim!"
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="phone-mockup-wrapper">
-                    <div class="phone-mockup">
-                        <div class="phone-screen">
-                            <img src="./images/hero-screenshot.png" alt="Rüya Günlüğü Uygulama Görünümü">
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <main>
+      <section class="studio-hero" id="studio">
+        <div class="hero-grain" aria-hidden="true"></div>
+        <div class="hero-orbit orbit-one" aria-hidden="true"></div>
+        <div class="hero-orbit orbit-two" aria-hidden="true"></div>
+        <div class="hero-kicker reveal"><span></span>Bağımsız dijital stüdyo</div>
+
+        <div class="hero-copy reveal">
+          <h1>
+            <span>Hisset.</span>
+            <span>Keşfet.</span>
+            <span class="accent-word">Oyna.</span>
+          </h1>
+          <p>Günlük hayatınıza eşlik eden uygulamalar ve içine adım atmak isteyeceğiniz oyun dünyaları tasarlıyoruz.</p>
         </div>
-    </section>
 
-    <!-- Bento Grid Features Section -->
-    <section id="features" class="features-section">
-        <div class="container">
-            <div class="section-title-wrapper">
-                <h2 class="section-title">İç Dünyanı Keşfetmene Yardımcı Özellikler</h2>
-                <p class="section-subtitle">Ruh sağlığını destekleyecek, duygularını ve rüyalarını düzenleyecek sevimli araçlar</p>
-            </div>
-            
-            <div class="bento-grid">
-                <!-- Card 1 (Large) - Emojis -->
-                <div class="bento-item bento-item-lg bento-purple">
-                    <div class="bento-content">
-                        <h3>💫 Yenilikçi Duygu Kartları</h3>
-                        <p>Duygularınızı sadece yazarak değil, her duyguya özel tasarlanmış sevimli kartlarla ifade edin. Kartlarda bulunan seviyeler ve özel görevler sayesinde duygusal farkındalığınızı adım adım geliştirin.</p>
-                    </div>
-                    <img src="./images/mascots/emotion.png" alt="Emotion Mascot" class="bento-mascot-img">
-                </div>
-                
-                <!-- Card 2 (Medium) - Dreams -->
-                <div class="bento-item bento-blue">
-                    <div class="bento-content">
-                        <h3>💭 Bilinçaltı & Rüya Defteri</h3>
-                        <p>Gördüğünüz rüyaları yazın ve rüyalarınızla o günkü modunuz arasındaki bağlantıyı keşfedin. Bilinçaltınızın sırlarını çözmek artık çok kolay.</p>
-                    </div>
-                    <img src="./images/mascots/dream.png" alt="Dream Mascot" class="bento-mascot-img">
-                </div>
-                
-                <!-- Card 3 (Medium) - Charts -->
-                <div class="bento-item bento-orange">
-                    <div class="bento-content">
-                        <h3>📈 Gelişmiş Duygu Analizi</h3>
-                        <p>Hata yapmadan haftalık ve aylık mod grafiklerinizle ruh halinizdeki dalgalanmaları görün. Hangi günlerin veya aktivitelerin modunuzu yükselttiğini analiz edin.</p>
-                    </div>
-                </div>
-                
-                <!-- Card 4 (Large) - Cloud Backup -->
-                <div class="bento-item bento-item-lg bento-green">
-                    <div class="bento-content">
-                        <h3>☁️ Güvenli Bulut Yedekleme <span class="premium-tag">Premium</span></h3>
-                        <p>Verilerinizi kaybetmekten korkmayın! Google Drive entegrasyonu sayesinde tüm günlük ve rüya kayıtlarınızı şifreli bir biçimde kendi kişisel Drive hesabınızda yedekleyebilir, yeni bir cihaza geçtiğinizde anında geri yükleyebilirsiniz.</p>
-                    </div>
-                </div>
+        <a class="scroll-cue" href="#work" aria-label="Projeleri gör">
+          <span>Projelerimiz</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v15M6 13l6 6 6-6" /></svg>
+        </a>
+        <div class="hero-index" aria-hidden="true">EP / STUDIO</div>
+      </section>
 
-                <!-- Card 5 (Medium) - Safety -->
-                <div class="bento-item bento-pink">
-                    <div class="bento-content">
-                        <h3>🔒 Üst Düzey Güvenlik (Şifre & Parmak İzi)</h3>
-                        <p>Düşünceleriniz ve rüyalarınız sadece size özel kalsın. Uygulamayı PIN, Desen veya biyometrik parmak izi korumasıyla kilitleyerek tamamen güvende tutun.</p>
-                    </div>
-                </div>
-
-                <!-- Card 6 (Medium) - Themes -->
-                <div class="bento-item bento-cyan">
-                    <div class="bento-content">
-                        <h3>🎨 Renkli Temalar</h3>
-                        <p>Kendi modunuza uygun rengarenk tema seçeneklerinden birini seçerek uygulamanın tasarımını kendinize özel hale getirin.</p>
-                    </div>
-                </div>
-            </div>
+      <section class="work-section" id="work">
+        <div class="section-intro reveal">
+          <p class="eyebrow">Seçili işler</p>
+          <h2>Bir hisle başlayan<br />dijital deneyimler.</h2>
+          <p class="section-note">Her proje kendine ait bir renge, ritme ve dünyaya sahip.</p>
         </div>
-    </section>
 
-    <!-- Interactive mood check section with local emojis -->
-    <section class="mood-check-section">
-        <div class="container">
-            <div class="mood-check-card">
-                <h3>Bugün Nasıl Hissediyorsun?</h3>
-                <p class="mood-subtitle">Uygulama içi sevimli emojilerimizi deneyin! Seçtiğiniz ruh haline göre size özel tavsiyeyi görün.</p>
-                
-                <div class="mood-buttons">
-                    <button class="mood-btn" onclick="selectMood(this, 'muhtesem', 'Muhteşem', 'muhtesem')">
-                        <img src="./images/emojis/muhtesem.png" alt="Muhteşem">
-                        <span>Muhteşem</span>
-                    </button>
-                    <button class="mood-btn" onclick="selectMood(this, 'mutlu', 'Mutlu', 'mutlu')">
-                        <img src="./images/emojis/mutlu.png" alt="Mutlu">
-                        <span>Mutlu</span>
-                    </button>
-                    <button class="mood-btn" onclick="selectMood(this, 'huzurlu', 'Huzurlu', 'huzurlu')">
-                        <img src="./images/emojis/huzurlu.png" alt="Huzurlu">
-                        <span>Huzurlu</span>
-                    </button>
-                    <button class="mood-btn" onclick="selectMood(this, 'heyecanli', 'Heyecanlı', 'heyecanli')">
-                        <img src="./images/emojis/heyecanli.png" alt="Heyecanlı">
-                        <span>Heyecanlı</span>
-                    </button>
-                    <button class="mood-btn" onclick="selectMood(this, 'notr', 'Nötr', 'notr')">
-                        <img src="./images/emojis/notr.png" alt="Nötr">
-                        <span>Nötr</span>
-                    </button>
-                    <button class="mood-btn" onclick="selectMood(this, 'endiseli', 'Endişeli', 'endiseli')">
-                        <img src="./images/emojis/endiseli.png" alt="Endişeli">
-                        <span>Endişeli</span>
-                    </button>
-                    <button class="mood-btn" onclick="selectMood(this, 'kaygili', 'Kaygılı', 'kaygili')">
-                        <img src="./images/emojis/kaygili.png" alt="Kaygılı">
-                        <span>Kaygılı</span>
-                    </button>
-                    <button class="mood-btn" onclick="selectMood(this, 'korkmus', 'Korkmuş', 'korkmus')">
-                        <img src="./images/emojis/korkmus.png" alt="Korkmuş">
-                        <span>Korkmuş</span>
-                    </button>
-                    <button class="mood-btn" onclick="selectMood(this, 'mutsuz', 'Mutsuz', 'mutsuz')">
-                        <img src="./images/emojis/mutsuz.png" alt="Mutsuz">
-                        <span>Mutsuz</span>
-                    </button>
-                    <button class="mood-btn" onclick="selectMood(this, 'ofkeli', 'Öfkeli', 'ofkeli')">
-                        <img src="./images/emojis/ofkeli.png" alt="Öfkeli">
-                        <span>Öfkeli</span>
-                    </button>
-                </div>
+        <div class="project-list">
+          <article class="project project-dream reveal">
+            <a class="project-visual" href="./uygulamalar/ruya-gunlugu/" aria-label="Rüya Günlüğü ve Duygu Takibi detaylarını gör">
+              <div class="dream-backdrop"></div>
+              <div class="dream-bloom dream-bloom-one"></div>
+              <div class="dream-bloom dream-bloom-two"></div>
+              <div class="phone-shell phone-back" aria-hidden="true"><img src="./images/screenshot-2.png" alt="" /></div>
+              <div class="phone-shell phone-front"><img src="./images/hero-screenshot.png" alt="Rüya Günlüğü ve Duygu Takibi uygulamasının ana ekranı" /></div>
+              <img class="dream-mascot" src="./images/mascots/dream.png" alt="" aria-hidden="true" />
+              <span class="project-number">01</span>
+            </a>
 
-                <div id="mood-response" class="mood-response-box" style="display: none;">
-                    <h4 id="mood-title"></h4>
-                    <p id="mood-text"></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery / Interactive Showcase Section (Device Tour) -->
-    <section id="screenshots" class="showcase-section">
-        <div class="container">
-            <div class="section-title-wrapper">
-                <h2 class="section-title">Uygulama Özelliklerini İnceleyin</h2>
-                <p class="section-subtitle">Aşağıdaki menüden geçiş yaparak uygulamanın tüm özelliklerini canlı görüntülerle keşfedin</p>
-            </div>
-            
-            <div class="showcase-container">
-                <!-- Tabs on the left -->
-                <div class="showcase-tabs">
-                    <!-- Tab 1 -->
-                    <div class="showcase-tab active" onclick="showScreenshot(0)">
-                        <div class="showcase-tab-num">1</div>
-                        <div class="showcase-tab-content">
-                            <h4>Duygularını Keşfet</h4>
-                            <p>Ruh halinizi cana yakın arayüzümüzle tahlil edin.</p>
-                        </div>
-                    </div>
-                    <!-- Tab 2 -->
-                    <div class="showcase-tab" onclick="showScreenshot(1)">
-                        <div class="showcase-tab-num">2</div>
-                        <div class="showcase-tab-content">
-                            <h4>Duygu Kartları</h4>
-                            <p>Duygusal farkındalık seviyelerinizi geliştirin.</p>
-                        </div>
-                    </div>
-                    <!-- Tab 3 -->
-                    <div class="showcase-tab" onclick="showScreenshot(2)">
-                        <div class="showcase-tab-num">3</div>
-                        <div class="showcase-tab-content">
-                            <h4>Günlük & Rüya Defteri</h4>
-                            <p>Zihninizi meşgul eden her şeyi güvenle kaydedin.</p>
-                        </div>
-                    </div>
-                    <!-- Tab 4 -->
-                    <div class="showcase-tab" onclick="showScreenshot(3)">
-                        <div class="showcase-tab-num">4</div>
-                        <div class="showcase-tab-content">
-                            <h4>Duygu Durum Analizi</h4>
-                            <p>Değişimleri ve tetikleyicileri grafiklerle görün.</p>
-                        </div>
-                    </div>
-                    <!-- Tab 5 -->
-                    <div class="showcase-tab" onclick="showScreenshot(4)">
-                        <div class="showcase-tab-num">5</div>
-                        <div class="showcase-tab-content">
-                            <h4>Rüyanın Sırları</h4>
-                            <p>Bilinçaltınızın gizemli yollarını keşfedin.</p>
-                        </div>
-                    </div>
-                    <!-- Tab 6 -->
-                    <div class="showcase-tab" onclick="showScreenshot(5)">
-                        <div class="showcase-tab-num">6</div>
-                        <div class="showcase-tab-content">
-                            <h4>Size Özel Temalar</h4>
-                            <p>Uygulamayı kendi tarzınızla renklendirin.</p>
-                        </div>
-                    </div>
-                    <!-- Tab 7 -->
-                    <div class="showcase-tab" onclick="showScreenshot(6)">
-                        <div class="showcase-tab-num">7</div>
-                        <div class="showcase-tab-content">
-                            <h4>Maksimum Güvenlik</h4>
-                            <p>Şifreli koruma ile gizliliğiniz tamamen koruma altında.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Showcase Phone Mockup on the right -->
-                <div class="showcase-mockup-wrapper">
-                    <div class="showcase-phone">
-                        <div class="showcase-screen">
-                            <img id="screenshot-img-0" src="./images/duygu-kesfet.png" class="active" alt="Duygu Dünyanızı Keşfedin">
-                            <img id="screenshot-img-1" src="./images/duygu-kartlari.png" alt="Duygu Kartlarıyla Gelişin">
-                            <img id="screenshot-img-2" src="./images/duygu-ruya-kaydet.png" alt="Duygu ve Rüyaları Kaydedin">
-                            <img id="screenshot-img-3" src="./images/duygu-analiz.png" alt="Duygu Analiz">
-                            <img id="screenshot-img-4" src="./images/ruya-sirlari.png" alt="Rüya Sırları">
-                            <img id="screenshot-img-5" src="./images/temalar.png" alt="Size Özel Temalar">
-                            <img id="screenshot-img-6" src="./images/dusunceler-ozel.png" alt="Düşünceleriniz Size Özel">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final Call to Action -->
-    <section class="about-section">
-        <div class="container">
-            <div class="about-card">
-                <h2>Ruhunu Dinlendirmeye Bugün Başla</h2>
-                <p>Her gün birkaç dakikanı ayırarak duygularını kaydet, rüyalarını not al ve zihninin derinliklerindeki desenleri keşfet. Rüya Günlüğü & Duygu Takibi tamamen şifreli yapısıyla senin en güvenli zihinsel sığınağın olacak.</p>
-                <a href="https://play.google.com/store/apps/details?id=com.epstudios.emotionjourney" class="cta-button" target="_blank">
-                    Uygulamayı Play Store'dan İndir
+            <div class="project-copy">
+              <div class="project-meta">
+                <span class="status status-live"><i></i>Yayında</span>
+                <span>Mobil uygulama</span>
+              </div>
+              <h3>Rüya Günlüğü<br />&amp; Duygu Takibi</h3>
+              <p>Rüyalarınızı kaydedin, duygularınızı tanıyın ve kendinize ayırdığınız anları anlamlı bir yolculuğa dönüştürün.</p>
+              <div class="project-actions">
+                <a class="text-link" href="./uygulamalar/ruya-gunlugu/">
+                  Projeyi keşfet
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
                 </a>
+                <a class="store-link" href="https://play.google.com/store/apps/details?id=com.epstudios.emotionjourney" target="_blank" rel="noopener noreferrer">Google Play</a>
+              </div>
             </div>
-        </div>
-    </section>
+          </article>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Rüya Günlüğü & Duygu Takibi</h4>
-                    <div class="footer-links">
-                        <a href="https://play.google.com/store/apps/details?id=com.epstudios.emotionjourney" target="_blank">Google Play Store</a>
-                        <a href="#features">Özellikler</a>
-                        <a href="#screenshots">Ekran Görüntüleri</a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>İletişim & Destek</h4>
-                    <div class="footer-links">
-                        <a href="mailto:epstudios.dev@gmail.com">epstudios.dev@gmail.com</a>
-                        <a href="mailto:epstudios.dev@gmail.com">Teknik Destek</a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Yasal Bilgiler</h4>
-                    <div class="footer-links">
-                        <a href="/privacy-policy/">Gizlilik Politikası (Privacy Policy)</a>
-                    </div>
-                </div>
+          <article class="project project-aether reveal">
+            <a class="project-visual" href="./oyunlar/aether-kizil-vadi/" aria-label="Aether Kızıl Vadi yakında sayfasını gör">
+              <img class="aether-art" src="./assets/images/aether-menu-background.jpg" alt="Kızıl Vadi oyununun sondaj kuleleri ve Aether kristalleriyle kaplı vadisi" />
+              <div class="aether-overlay"></div>
+              <div class="aether-title" aria-hidden="true"><small>AETHER</small><strong>KIZIL VADİ</strong></div>
+              <span class="project-number">02</span>
+            </a>
+
+            <div class="project-copy">
+              <div class="project-meta">
+                <span class="status status-soon">Yakında</span>
+                <span>Oyun</span>
+              </div>
+              <h3>Aether:<br />Kızıl Vadi</h3>
+              <p>Ara, del, taşı, sat — ve vadinin sahibi ol. Kızıl Vadi’de yeni bir sondaj şirketi yükseliyor.</p>
+              <div class="project-actions">
+                <a class="text-link" href="./oyunlar/aether-kizil-vadi/">
+                  İlk bakış
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                </a>
+              </div>
             </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2026 Rüya Günlüğü & Duygu Takibi - EP Studios. Tüm hakları saklıdır.</p>
-            </div>
+          </article>
         </div>
+
+        <div class="future-row reveal" aria-label="Gelecek projeler">
+          <span>03</span>
+          <p>Yeni dünyalar<br />yapım aşamasında.</p>
+          <span class="future-line"></span>
+          <span class="future-label">Sıradaki proje</span>
+        </div>
+      </section>
+
+      <section class="manifesto-section">
+        <div class="manifesto-mark" aria-hidden="true"><i></i><i></i></div>
+        <p class="eyebrow reveal">EP Studio hakkında</p>
+        <p class="manifesto-copy reveal">Küçük detayların büyük hisler yarattığına inanıyoruz. Faydalı, özgün ve akılda kalan dijital deneyimleri bağımsız bir ruhla geliştiriyoruz.</p>
+        <div class="principles reveal">
+          <span>01 / Duyguyla tasarla</span>
+          <span>02 / Merakla geliştir</span>
+          <span>03 / Özenle tamamla</span>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact">
+        <div class="contact-copy reveal">
+          <p class="eyebrow">Bir fikrin mi var?</p>
+          <h2>Birlikte yeni bir<br />dünya kuralım.</h2>
+        </div>
+        <a class="contact-button reveal" href="mailto:epstudios.dev@gmail.com">
+          <span>Merhaba de</span>
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 16h18M18 9l7 7-7 7" /></svg>
+        </a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand brand-footer" href="./" aria-label="EP Studio ana sayfa">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i></span>
+        <span>EP<span>Studio</span></span>
+      </a>
+      <p>Bağımsız fikirler. Kendine ait dünyalar.</p>
+      <div class="footer-links">
+        <a href="mailto:epstudios.dev@gmail.com">E-posta</a>
+        <a href="./gizlilik/">Gizlilik Merkezi</a>
+      </div>
+      <span class="copyright">© <span data-year></span> EP Studio</span>
     </footer>
 
-    <!-- Interactive mood logic & Showcase logic -->
-    <script>
-        // Interactive Showcase Switching
-        function showScreenshot(tabIndex) {
-            // 1. Get all tabs and remove active class
-            const tabs = document.querySelectorAll('.showcase-tab');
-            tabs.forEach(tab => tab.classList.remove('active'));
-            
-            // 2. Add active class to clicked tab
-            tabs[tabIndex].classList.add('active');
-            
-            // 3. Get all images in phone screen and remove active class
-            const images = document.querySelectorAll('.showcase-screen img');
-            images.forEach(img => img.classList.remove('active'));
-            
-            // 4. Set the target image as active
-            const targetImg = document.getElementById(`screenshot-img-${tabIndex}`);
-            if (targetImg) {
-                targetImg.classList.add('active');
-            }
-            
-            // 5. Scroll the tab into view on mobile (horizontal layout)
-            if (window.innerWidth <= 968) {
-                const tab = tabs[tabIndex];
-                const container = document.querySelector('.showcase-tabs');
-                container.scrollTo({
-                    left: tab.offsetLeft - (container.offsetWidth / 2) + (tab.offsetWidth / 2),
-                    behavior: 'smooth'
-                });
-            }
-        }
-
-        // Interactive mood selections
-        function selectMood(btn, type, name, emojiName) {
-            // Remove selected class from all buttons
-            document.querySelectorAll('.mood-btn').forEach(button => {
-                button.classList.remove('selected');
-            });
-            
-            // Add selected class to current button
-            btn.classList.add('selected');
-            
-            const box = document.getElementById('mood-response');
-            const title = document.getElementById('mood-title');
-            const text = document.getElementById('mood-text');
-            
-            box.style.display = 'block';
-            
-            let responseText = '';
-            let boxBgColor = '';
-            let boxBorderColor = '';
-            let textTitleColor = '';
-            
-            switch(type) {
-                case 'muhtesem':
-                    responseText = 'Harika! Gününün muhteşem geçmesi bizi çok sevindirdi. Bu enerjiyi hemen günlüğüne yazıp sabitleyebilirsin. Rüya Günlüğü & Duygu Takibi\'nde bu enerjiyi korumana yardımcı olacak heyecan dolu yeni duygu kartları seni bekliyor!';
-                    boxBgColor = '#fdf4ff'; // Purple/pinkish light
-                    boxBorderColor = '#f0abfc';
-                    textTitleColor = '#d946ef';
-                    break;
-                case 'mutlu':
-                    responseText = 'Ne güzel bir gün! Mutluluk paylaştıkça çoğalır. Günlüğüne seni neyin mutlu ettiğini yazarak bu güzel anıyı ölümsüzleştir. İleride geriye dönüp okuduğunda sana tebessüm ettirecektir.';
-                    boxBgColor = '#fffbeb'; // Yellow light
-                    boxBorderColor = '#fde047';
-                    textTitleColor = '#ca8a04';
-                    break;
-                case 'huzurlu':
-                    responseText = 'İçsel huzur en büyük zenginliktir. Bugün zihninin dinginliğini günlüğüne dökerek bu anı kaydet. Rüya günlüğünle bu dinginliği pekiştirerek huzurlu bir gece uykusuna hazırlanabilirsin.';
-                    boxBgColor = '#f0fdf4'; // Green light
-                    boxBorderColor = '#bbf7d0';
-                    textTitleColor = '#16a34a';
-                    break;
-                case 'heyecanli':
-                    responseText = 'Bu harika enerjiyi harekete geçir! Seni heyecanlandıran fikirleri, hedefleri ve olayları hemen günlüğüne kaydet. Gelişmiş analizlerimizde bu yüksek enerjinin modunu nasıl tetiklediğini görebilirsin.';
-                    boxBgColor = '#fff7ed'; // Orange light
-                    boxBorderColor = '#fed7aa';
-                    textTitleColor = '#ea580c';
-                    break;
-                case 'notr':
-                    responseText = 'Sakin ve dengeli bir gün. Her gün fırtınalı veya aşırı coşkulu olmak zorunda değil. Bugünün sadeliğini, gün içinde yaptığın ufak aktiviteleri günlüğüne not et. Dengede kalmak iyidir.';
-                    boxBgColor = '#f8fafc'; // Slate light
-                    boxBorderColor = '#cbd5e1';
-                    textTitleColor = '#475569';
-                    break;
-                case 'endiseli':
-                    responseText = 'Nefes al ve rahatla. Endişeli hissetmen çok insani. Kafandaki tüm karmaşayı günlüğünün güvenli kollarına bırak. Şifreli korumamız sayesinde sadece senin görebileceğin bu alanda içini dökerek hafifleyebilirsin.';
-                    boxBgColor = '#faf5ff'; // Violet light
-                    boxBorderColor = '#e9d5ff';
-                    textTitleColor = '#9333ea';
-                    break;
-                case 'kaygili':
-                    responseText = 'Kendine yüklenme. Kaygı sadece geçici bir buluttur. Rüya Günlüğü & Duygu Takibi\'nin rahatlatıcı aktiviteleri ve duygu kartları sayesinde bu hislerle baş etmeyi öğrenebilir, tetikleyicilerini analizlerimizden keşfedebilirsin.';
-                    boxBgColor = '#eff6ff'; // Blue light
-                    boxBorderColor = '#bfdbfe';
-                    textTitleColor = '#2563eb';
-                    break;
-                case 'korkmus':
-                    responseText = 'Buradasın ve güvendesin. Korkularını kağıda dökmek, onları somutlaştırıp küçültmenin en iyi yoludur. Günlüğünü kilitleyip parmak izi korumasını açarak zihnini tamamen güvenceye al.';
-                    boxBgColor = '#fff1f2'; // Red/rose light
-                    boxBorderColor = '#fecdd3';
-                    textTitleColor = '#e11d48';
-                    break;
-                case 'mutsuz':
-                    responseText = 'Bugün modun biraz düşük olabilir, bu da yolculuğun bir parçası. Kendine zaman tanı. Günlüğüne hislerini yazmak rahatlamana yardımcı olacaktır. Unutma, her zor günün ardından yeni bir gün doğar.';
-                    boxBgColor = '#f0f9ff'; // Cyan/sky light
-                    boxBorderColor = '#bae6fd';
-                    textTitleColor = '#0284c7';
-                    break;
-                case 'ofkeli':
-                    responseText = 'Öfke güçlü bir tepkidir, onu bastırma ama güvenli bir şekilde serbest bırak. Seni neyin öfkelendirdiğini yargılanmadan, sansürsüzce günlüğüne yaz. Yazmak nabzını düşürecek ve durumu net görmeni sağlayacaktır.';
-                    boxBgColor = '#fff5f5'; // Red light
-                    boxBorderColor = '#feb2b2';
-                    textTitleColor = '#dc2626';
-                    break;
-            }
-            
-            box.style.backgroundColor = boxBgColor;
-            box.style.borderColor = boxBorderColor;
-            title.style.color = textTitleColor;
-            
-            // Add emoji icon inline in response title
-            title.innerHTML = `<img src="./images/emojis/${emojiName}.png" style="width: 28px; height: 28px; vertical-align: middle; margin-right: 8px;"> ${name}`;
-            text.innerText = responseText;
-        }
-    </script>
-</body>
+    <script src="./assets/js/site.js" defer></script>
+  </body>
 </html>

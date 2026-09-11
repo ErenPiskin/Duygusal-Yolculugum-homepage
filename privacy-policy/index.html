@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Privacy Policy - Rüya Günlüğü & Duygu Takibi</title>
+    <meta name="description" content="Rüya Günlüğü &amp; Duygu Takibi application privacy policy in English and Turkish.">
+    <link rel="icon" type="image/png" href="../images/app-icon.png">
     <style>
+        * {
+            box-sizing: border-box;
+        }
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -12,10 +17,44 @@
             color: #333;
             line-height: 1.6;
         }
+        .policy-topbar {
+            align-items: center;
+            background: #17141e;
+            color: #fff;
+            display: flex;
+            font-size: 13px;
+            font-weight: 700;
+            justify-content: space-between;
+            letter-spacing: .04em;
+            padding: 16px max(20px, calc((100vw - 800px) / 2));
+            text-decoration: none;
+        }
+        .policy-topbar span:last-child {
+            color: #bca9ff;
+        }
         .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
+        }
+        .policy-product {
+            align-items: center;
+            display: flex;
+            gap: 14px;
+            margin: 18px 0 28px;
+        }
+        .policy-product img {
+            border-radius: 14px;
+            height: 52px;
+            width: 52px;
+        }
+        .policy-product strong,
+        .policy-product span {
+            display: block;
+        }
+        .policy-product span {
+            color: #777;
+            font-size: 13px;
         }
         h1 {
             color: #333;
@@ -139,7 +178,18 @@
     </style>
 </head>
 <body>
+    <a class="policy-topbar" href="../gizlilik/">
+        <span>← EP Studio Gizlilik Merkezi</span>
+        <span>Ürüne özel politika</span>
+    </a>
     <div class="container">
+        <div class="policy-product">
+            <img src="../images/app-icon.png" alt="Rüya Günlüğü ve Duygu Takibi uygulama ikonu">
+            <div>
+                <strong>Rüya Günlüğü &amp; Duygu Takibi</strong>
+                <span>EP Studio</span>
+            </div>
+        </div>
         <div class="language-switcher">
             <div class="language-toggle">
                 <input type="radio" id="language-en" name="language" checked onclick="toggleLanguage('en')">
@@ -189,7 +239,7 @@
                 <li>Is completely anonymous and cannot be linked to your personal identity</li>
                 <li>Does not include the actual content of your journal entries</li>
                 <li>Is used solely for improving app functionality and user experience</li>
-                <li>Is processed according to <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a></li>
+                <li>Is processed according to <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a></li>
                 <li>Can be opted out through your device's advertising settings</li>
                 <li>Helps us understand which features are most valuable to users</li>
                 <li>Enables us to identify and fix app performance issues</li>
@@ -274,13 +324,13 @@
                 <li><strong>Device and Network Information:</strong> Device model, operating system version, mobile carrier, network connection type, and approximate IP-based location (coarse location).</li>
                 <li><strong>Ad Interaction Data:</strong> Ad impressions, clicks, video completions, and general interaction metrics.</li>
             </ul>
-            <p>AdMob processes this data in accordance with <a href="https://policies.google.com/technologies/ads" target="_blank">Google's Advertising Policies</a> and <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>.</p>
+            <p>AdMob processes this data in accordance with <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">Google's Advertising Policies</a> and <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a>.</p>
             <p><strong>Ad-Free Experience:</strong> Users who upgrade to the Premium subscription will enjoy an entirely ad-free experience. When a Premium subscription is active, all advertising SDK functions and ad displays are disabled.</p>
             <p><strong>Opting Out of Personalized Ads:</strong> You can manage or opt out of personalized ads at any time via your device's settings: <em>Settings &gt; Google &gt; Ads &gt; Delete advertising ID / Reset advertising ID</em>.</p>
 
             <h2>Do third parties see and/or have access to information obtained by the Application?</h2>
-            <p>When you use the Google Drive backup feature, your data is stored on Google's servers according to <a href="https://policies.google.com/privacy" target="_blank">Google's privacy policy</a>. We do not share your private journal data with any other third parties.</p>
-            <p>We use Firebase Analytics (Google) to collect anonymous usage statistics to improve our app, and Google AdMob to deliver advertisements in our free version. This data is processed according to <a href="https://policies.google.com/privacy" target="_blank">Google's privacy policy</a> and cannot be linked to your personal identity.</p>
+            <p>When you use the Google Drive backup feature, your data is stored on Google's servers according to <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's privacy policy</a>. We do not share your private journal data with any other third parties.</p>
+            <p>We use Firebase Analytics (Google) to collect anonymous usage statistics to improve our app, and Google AdMob to deliver advertisements in our free version. This data is processed according to <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's privacy policy</a> and cannot be linked to your personal identity.</p>
             <p>We do not sell, trade, or otherwise transfer your information to outside parties.</p>
 
             <h2>Data Storage and Deletion</h2>
@@ -389,7 +439,7 @@
                 <li>Tamamen anonimdir ve kişisel kimliğinizle ilişkilendirilemez</li>
                 <li>Günlük girişlerinizin gerçek içeriğini içermez</li>
                 <li>Yalnızca uygulama işlevselliğini ve kullanıcı deneyimini iyileştirmek için kullanılır</li>
-                <li><a href="https://policies.google.com/privacy" target="_blank">Google'ın Gizlilik Politikasına</a> göre işlenir</li>
+                <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google'ın Gizlilik Politikasına</a> göre işlenir</li>
                 <li>Cihazınızın reklam ayarları aracılığıyla devre dışı bırakılabilir</li>
                 <li>Hangi özelliklerin kullanıcılar için en değerli olduğunu anlamamıza yardımcı olur</li>
                 <li>Uygulama performans sorunlarını tespit etmemizi ve düzeltmemizi sağlar</li>
@@ -474,13 +524,13 @@
                 <li><strong>Cihaz ve Ağ Bilgileri:</strong> Cihaz modeli, işletim sistemi sürümü, mobil operatör, ağ bağlantı türü ve IP tabanlı yaklaşık bölge konumu (kaba konum).</li>
                 <li><strong>Reklam Etkileşim Verileri:</strong> Reklam gösterimleri, tıklamaları, video izleme tamamlamaları ve genel etkileşim metrikleri.</li>
             </ul>
-            <p>AdMob bu verileri <a href="https://policies.google.com/technologies/ads" target="_blank">Google Reklam Politikaları</a> ve <a href="https://policies.google.com/privacy" target="_blank">Google Gizlilik Politikası</a>'na uygun olarak işlemektedir.</p>
+            <p>AdMob bu verileri <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">Google Reklam Politikaları</a> ve <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Gizlilik Politikası</a>'na uygun olarak işlemektedir.</p>
             <p><strong>Reklamsız Deneyim:</strong> Premium aboneliğe geçen kullanıcılar tamamen reklamsız bir deneyimden yararlanırlar. Premium abonelik aktif olduğunda tüm reklam gösterimleri ve reklam SDK işlevleri tamamen devre dışı bırakılır.</p>
             <p><strong>Kişiselleştirilmiş Reklamları Yönetme/Kapatma:</strong> Cihaz ayarlarınız üzerinden dilediğiniz zaman kişiselleştirilmiş reklamları yönetebilir veya sıfırlayabilirsiniz: <em>Ayarlar &gt; Google &gt; Reklamlar &gt; Reklam Kimliğini Sıfırla / Sil</em>.</p>
 
             <h2>Üçüncü taraflar Uygulama tarafından elde edilen bilgileri görüyor ve/veya erişiyor mu?</h2>
-            <p>Google Drive yedekleme özelliğini kullandığınızda, verileriniz <a href="https://policies.google.com/privacy" target="_blank">Google'ın gizlilik politikasına</a> göre Google'ın sunucularında saklanır. Özel günlük verilerinizi diğer üçüncü taraflarla paylaşmıyoruz.</p>
-            <p>Uygulamamızı iyileştirmek için anonim kullanım istatistikleri toplamak amacıyla Firebase Analytics (Google), ücretsiz sürümde reklam sunumu için ise Google AdMob kullanmaktayız. Bu veriler <a href="https://policies.google.com/privacy" target="_blank">Google'ın gizlilik politikasına</a> göre işlenir ve kişisel kimliğinizle ilişkilendirilemez.</p>
+            <p>Google Drive yedekleme özelliğini kullandığınızda, verileriniz <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google'ın gizlilik politikasına</a> göre Google'ın sunucularında saklanır. Özel günlük verilerinizi diğer üçüncü taraflarla paylaşmıyoruz.</p>
+            <p>Uygulamamızı iyileştirmek için anonim kullanım istatistikleri toplamak amacıyla Firebase Analytics (Google), ücretsiz sürümde reklam sunumu için ise Google AdMob kullanmaktayız. Bu veriler <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google'ın gizlilik politikasına</a> göre işlenir ve kişisel kimliğinizle ilişkilendirilemez.</p>
             <p>Bilgilerinizi satmıyor, takas etmiyor veya başka şekilde dış taraflara aktarmıyoruz.</p>
 
             <h2>Veri Depolama ve Silme</h2>
