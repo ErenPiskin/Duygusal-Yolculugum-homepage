@@ -163,8 +163,14 @@
         }
         
         input[type="radio"] {
-            display: none;
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
         }
+        input[type="radio"]:focus-visible ~ label { outline: 2px solid #17141e; }
+        a { overflow-wrap: anywhere; }
+        @media (max-width: 480px) { .policy-topbar { gap: 12px; } }
         
         .tr-content {
             display: none;
@@ -173,6 +179,7 @@
             display: block;
         }
     </style>
+    <noscript><style>.tr-content { display: block; }</style></noscript>
 </head>
 <body>
     <a class="policy-topbar" href="../../../gizlilik/">
@@ -198,100 +205,99 @@
         </div>
 
         <!-- ENGLISH VERSION -->
-        <div class="en-content">
+        <section class="en-content" lang="en" aria-label="Privacy policy in English">
             <h1>Privacy Policy</h1>
-            
-            <p>This privacy policy applies to the Aether: Kızıl Vadi game (hereby referred to as "Application") for mobile devices that was created by Eren Piskin (hereby referred to as "Service Provider") as a Free-to-play service. This service is intended for use "AS IS".</p>
+            <p class="updated-date">Last updated: 12 October 2026</p>
+            <p>This policy explains how Aether: Kızıl Vadi (Aether: Red Valley), a mobile game by Eren Piskin / EP Studio, handles information on Android and iOS. Contact: <a href="mailto:epstudios.dev@gmail.com">epstudios.dev@gmail.com</a>.</p>
 
-            <h2>What information does the Application obtain and how is it used?</h2>
-            <p>The Application collects and stores the following information:</p>
-            <ul>
-                <li>Game progress and save data</li>
-                <li>In-game achievements and scores</li>
-                <li>App preferences and settings</li>
-                <li>Anonymous usage analytics and game performance data</li>
-                <li>Error logs and crash reports for game improvement</li>
-            </ul>
-            <p>Your game save data is stored locally on your device by default. We do not collect personal information such as your name, email address, or phone number unless you explicitly provide it through a contact form or support request.</p>
+            <h2>Game saves and settings</h2>
+            <p>Game progress, local scores, language and preferences are stored on your device. This version does not require an account and does not provide our own cloud save service. Removing the app or clearing its data may remove your progress; your device's backup settings may also affect local data.</p>
 
-            <h2>Analytics and Game Improvement</h2>
-            <p>Our Application uses analytics services to help us understand how players interact with our game and to improve our services. We collect the following anonymous analytics data:</p>
+            <h2>Analytics and crash reports</h2>
+            <p>We use Google Firebase Analytics to understand gameplay and improve balance, and Firebase Crashlytics to diagnose crashes. Information may include gameplay events (such as seasons, results and advertising interactions), app and OS versions, device model, app-instance or installation identifiers, crash traces and performance information. Identifiers can distinguish an app installation or device; this data should not be assumed to be fully anonymous.</p>
+
+            <h2>Advertising</h2>
+            <p>The game uses Google AdMob / Google Mobile Ads for optional rewarded ads and interstitial ads at gameplay transitions. The advertising SDK may process device identifiers, ad views and interactions, diagnostics and IP addresses, which may be used to infer approximate location. These data support ad delivery, measurement, fraud prevention and, where permitted by your choices, personalized advertising. The game does not request access to precise GPS location.</p>
+            <p>On iOS, the App Tracking Transparency (ATT) permission is requested before accessing the advertising identifier for tracking. You can decline tracking and continue playing. Declining ATT does not stop all advertising or all analytics and crash reporting. Advertising consent messages provided by Google's User Messaging Platform (UMP) are separate from Apple's ATT permission and depend on your region and previous choices.</p>
+
+            <h2>Your choices</h2>
             <ul>
-                <li>Level completion rates and playtime</li>
-                <li>In-game choices and interaction patterns</li>
-                <li>App performance metrics and error reports</li>
-                <li>General device information (OS version, device model)</li>
-            </ul>
-            <p>This analytics data:</p>
-            <ul>
-                <li>Is completely anonymous and cannot be linked to your personal identity</li>
-                <li>Is used exclusively to balance the game and improve the player experience</li>
+                <li>When required by Google's consent platform, the main menu provides <strong>Ad privacy choices</strong> to review or change advertising consent.</li>
+                <li>You can manage iOS tracking permission in Settings &gt; Privacy &amp; Security &gt; Tracking, and advertising controls in the relevant Android device settings.</li>
+                <li>Local reminder notifications require device permission. You can disable them in system settings. This version uses local notifications, not a remote messaging service for game reminders.</li>
+                <li>Contact us for questions or requests concerning your information. Advertising choices do not automatically disable Firebase Analytics or Crashlytics.</li>
             </ul>
 
-            <h2>Third Party Access</h2>
-            <p>Only aggregated, anonymized data is periodically transmitted to external services to help the Service Provider improve the Application and their service. The Service Provider may share your information with third parties in the ways that are described in this privacy statement.</p>
+            <h2>Service providers and transfers</h2>
+            <p>Google processes information through the services described above under its applicable terms and privacy policies. Processing may take place outside your country. The game does not collect your name, phone number or email for an account. If you email support, we receive your email address and any information you choose to send; do not send passwords or sensitive information.</p>
+            <ul>
+                <li><a href="https://policies.google.com/privacy">Google Privacy Policy</a></li>
+                <li><a href="https://firebase.google.com/support/privacy">Firebase privacy and security information</a></li>
+                <li><a href="https://developers.google.com/admob/ios/privacy/data-disclosure">Google Mobile Ads data disclosures</a></li>
+                <li><a href="https://support.google.com/ads/answer/2662922">Google advertising controls</a></li>
+            </ul>
 
-            <h2>Security</h2>
-            <p>The Service Provider is concerned about safeguarding the confidentiality of your information. We provide physical, electronic, and procedural safeguards to protect information we process and maintain.</p>
+            <h2>Retention and deletion requests</h2>
+            <p>Local saves remain until they are reset or removed from your device. Analytics and diagnostic retention depends on the provider's policies and the project's service settings; this policy does not promise a single fixed retention period for every data type. Support correspondence is retained as needed to address your request and applicable obligations.</p>
+            <p>For access, correction or deletion requests, email <a href="mailto:epstudios.dev@gmail.com">epstudios.dev@gmail.com</a>. We will assess the request, any information needed to locate the relevant records, and applicable requirements. Deleting the app does not automatically delete data already processed by service providers. Without a game account, we may be unable to associate a particular installation's analytics with your email address.</p>
 
-            <h2>Changes</h2>
-            <p>This Privacy Policy may be updated from time to time for any reason. The Service Provider will notify you of any changes to the Privacy Policy by updating this page with the new Privacy Policy. You are advised to consult this Privacy Policy regularly for any changes, as continued use is deemed approval of all changes.</p>
-            
-            <p class="updated-date">This privacy policy is effective as of 2024-03-20</p>
+            <h2>Children and security</h2>
+            <p>The game is not specifically designed for children. If you believe a child has provided personal information to us, contact us. Network services use their security mechanisms, but no transmission or storage method can be guaranteed to be completely secure.</p>
 
-            <h2>Contact Us</h2>
-            <p>If you have any questions regarding privacy while using the Application, or have questions about the practices, please contact the Service Provider via email at epstudios.dev@gmail.com.</p>
-        </div>
+            <h2>Changes and contact</h2>
+            <p>We will update this page and its revision date when practices change. Where a new permission or consent is required, it will be requested separately. Using the game is not treated as blanket consent to tracking.</p>
+            <p>Privacy and game support: <a href="mailto:epstudios.dev@gmail.com">epstudios.dev@gmail.com</a>. <a href="../support/">Game support page</a>.</p>
+        </section>
 
         <!-- TURKISH VERSION -->
-        <div class="tr-content">
+        <section class="tr-content" lang="tr" aria-label="Türkçe gizlilik politikası">
             <h1>Gizlilik Politikası</h1>
-            
-            <p>Bu gizlilik politikası, Eren Pişkin (bundan böyle "Hizmet Sağlayıcı" olarak anılacaktır) tarafından oynaması ücretsiz (Free-to-play) bir hizmet olarak oluşturulan mobil cihazlar için Aether: Kızıl Vadi oyunu (bundan böyle "Uygulama" olarak anılacaktır) için geçerlidir. Bu hizmet "OLDUĞU GİBİ" kullanım için tasarlanmıştır.</p>
+            <p class="updated-date">Son güncelleme: 12 Ekim 2026</p>
+            <p>Bu politika, Eren Pişkin / EP Studio tarafından geliştirilen Aether: Kızıl Vadi mobil oyununun Android ve iOS'ta bilgileri nasıl işlediğini açıklar. İletişim: <a href="mailto:epstudios.dev@gmail.com">epstudios.dev@gmail.com</a>.</p>
 
-            <h2>Uygulama hangi bilgileri elde eder ve nasıl kullanılır?</h2>
-            <p>Uygulama aşağıdaki bilgileri toplar ve saklar:</p>
-            <ul>
-                <li>Oyun ilerlemesi ve kayıt verileri</li>
-                <li>Oyun içi başarılar ve skorlar</li>
-                <li>Uygulama tercihleri ve ayarları</li>
-                <li>Anonim kullanım analitiği ve oyun performans verileri</li>
-                <li>Oyunun geliştirilmesi için hata günlükleri ve çökme raporları</li>
-            </ul>
-            <p>Oyun kayıt verileriniz varsayılan olarak cihazınızda yerel olarak saklanır. İletişim formu veya destek talebi aracılığıyla açıkça sağlamadığınız sürece adınız, e-posta adresiniz veya telefon numaranız gibi kişisel bilgileri toplamıyoruz.</p>
+            <h2>Oyun kayıtları ve ayarlar</h2>
+            <p>Oyun ilerlemesi, yerel skorlar, dil ve tercihler cihazınızda saklanır. Bu sürüm hesap gerektirmez ve kendi bulut kayıt hizmetimizi sunmaz. Uygulamayı veya verilerini silmek ilerlemenizi silebilir; cihazınızın yedekleme ayarları da yerel verileri etkileyebilir.</p>
 
-            <h2>Analitik ve Oyun Geliştirme</h2>
-            <p>Uygulamamız, oyuncuların oyunumuzla nasıl etkileşime girdiğini anlamamıza ve hizmetlerimizi geliştirmemize yardımcı olmak için analitik hizmetleri kullanır. Aşağıdaki anonim analitik verilerini topluyoruz:</p>
+            <h2>Analitik ve çökme raporları</h2>
+            <p>Oynanışı anlamak ve oyun dengesini geliştirmek için Google Firebase Analytics, çökmeleri incelemek için Firebase Crashlytics kullanıyoruz. İşlenen bilgiler; sezonlar, sonuçlar ve reklam etkileşimleri gibi oyun olaylarını, uygulama ve işletim sistemi sürümlerini, cihaz modelini, uygulama örneği veya kurulum tanımlayıcılarını, hata izlerini ve performans bilgilerini içerebilir. Tanımlayıcılar bir kurulumu veya cihazı ayırt edebilir; bu veriler tamamen anonim kabul edilmemelidir.</p>
+
+            <h2>Reklamlar</h2>
+            <p>Oyun, isteğe bağlı ödüllü reklamlar ve oyun geçişlerindeki tam ekran reklamlar için Google AdMob / Google Mobile Ads kullanır. Reklam SDK'sı cihaz tanımlayıcılarını, reklam gösterim ve etkileşimlerini, tanılama bilgilerini ve yaklaşık konum çıkarımında kullanılabilen IP adresini işleyebilir. Bu bilgiler reklam sunumu, ölçüm, sahtecilik önleme ve tercihlerinizin izin verdiği durumlarda kişiselleştirilmiş reklamlar için kullanılır. Oyun hassas GPS konumuna erişim istemez.</p>
+            <p>iOS'ta reklam tanımlayıcısına takip amacıyla erişmeden önce App Tracking Transparency (ATT) izni istenir. Takibi reddedip oyunu oynamaya devam edebilirsiniz. ATT'yi reddetmek bütün reklamları, analitiği veya çökme raporlamasını durdurmaz. Google User Messaging Platform (UMP) üzerinden sunulan reklam rıza mesajları, Apple ATT izninden ayrıdır ve bölgenize ve önceki tercihlerinize bağlıdır.</p>
+
+            <h2>Tercihleriniz</h2>
             <ul>
-                <li>Bölüm tamamlama oranları ve oynama süresi</li>
-                <li>Oyun içi seçimler ve etkileşim kalıpları</li>
-                <li>Uygulama performans metrikleri ve hata raporları</li>
-                <li>Genel cihaz bilgileri (İşletim sistemi sürümü, cihaz modeli)</li>
-            </ul>
-            <p>Bu analitik veriler:</p>
-            <ul>
-                <li>Tamamen anonimdir ve kişisel kimliğinizle ilişkilendirilemez</li>
-                <li>Yalnızca oyunu dengelemek ve oyuncu deneyimini iyileştirmek için kullanılır</li>
+                <li>Google'ın rıza platformu gerektirdiğinde ana menüdeki <strong>Reklam gizlilik tercihleri</strong> üzerinden reklam rızanızı görüntüleyebilir veya değiştirebilirsiniz.</li>
+                <li>iOS takip iznini Ayarlar &gt; Gizlilik ve Güvenlik &gt; Takip bölümünden; reklam kontrollerini Android cihazınızın ilgili ayarlarından yönetebilirsiniz.</li>
+                <li>Yerel hatırlatma bildirimleri cihaz izni gerektirir. Sistem ayarlarından kapatabilirsiniz. Bu sürüm, oyun hatırlatmaları için uzaktan mesajlaşma hizmeti yerine yerel bildirim kullanır.</li>
+                <li>Bilgilerinizle ilgili soru veya talepler için bize ulaşabilirsiniz. Reklam tercihleri Firebase Analytics ve Crashlytics'i otomatik olarak kapatmaz.</li>
             </ul>
 
-            <h2>Üçüncü Taraf Erişimi</h2>
-            <p>Hizmet Sağlayıcının Uygulamayı ve hizmetlerini geliştirmesine yardımcı olmak için yalnızca toplanmış, anonimleştirilmiş veriler periyodik olarak harici hizmetlere iletilir. Hizmet Sağlayıcı, bilgilerinizi yalnızca bu gizlilik bildiriminde açıklanan şekillerde üçüncü taraflarla paylaşabilir.</p>
+            <h2>Hizmet sağlayıcıları ve aktarım</h2>
+            <p>Google, yukarıda belirtilen hizmetler üzerinden bilgileri kendi geçerli şartları ve gizlilik politikaları kapsamında işler. İşleme ülkeniz dışında gerçekleşebilir. Oyun, hesap açmak için adınızı, telefonunuzu veya e-postanızı toplamaz. Destek için e-posta gönderirseniz adresinizi ve göndermeyi seçtiğiniz bilgileri alırız; şifre veya hassas bilgi göndermeyin.</p>
+            <ul>
+                <li><a href="https://policies.google.com/privacy?hl=tr">Google Gizlilik Politikası</a></li>
+                <li><a href="https://firebase.google.com/support/privacy">Firebase gizlilik ve güvenlik bilgileri</a></li>
+                <li><a href="https://developers.google.com/admob/ios/privacy/data-disclosure">Google Mobile Ads veri açıklamaları</a></li>
+                <li><a href="https://support.google.com/ads/answer/2662922?hl=tr">Google reklam kontrolleri</a></li>
+            </ul>
 
-            <h2>Güvenlik</h2>
-            <p>Hizmet Sağlayıcı, bilgilerinizin gizliliğini koruma konusunda endişelidir. İşlediğimiz ve sürdürdüğümüz bilgileri korumak için fiziksel, elektronik ve prosedürel güvenlik önlemleri sağlıyoruz.</p>
+            <h2>Saklama ve silme talepleri</h2>
+            <p>Yerel kayıtlar sıfırlanana veya cihazdan silinene kadar kalır. Analitik ve tanılama verilerinin saklama süresi sağlayıcının politikalarına ve projenin hizmet ayarlarına bağlıdır; bu politika tüm veri türleri için tek bir sabit süre taahhüt etmez. Destek yazışmaları talebinizin karşılanması ve geçerli yükümlülükler için gerektiği sürece saklanır.</p>
+            <p>Erişim, düzeltme veya silme taleplerini <a href="mailto:epstudios.dev@gmail.com">epstudios.dev@gmail.com</a> adresine gönderebilirsiniz. Talebi, ilgili kayıtları bulmak için gereken bilgileri ve geçerli gereklilikleri değerlendireceğiz. Uygulamayı silmek hizmet sağlayıcıların daha önce işlediği verileri otomatik olarak silmez. Oyun hesabı bulunmadığından belirli bir kurulumun analitiğini e-posta adresinizle eşleştiremeyebiliriz.</p>
 
-            <h2>Değişiklikler</h2>
-            <p>Bu Gizlilik Politikası herhangi bir nedenle zaman zaman güncellenebilir. Hizmet Sağlayıcı, Gizlilik Politikasındaki değişiklikleri bu sayfayı yeni Gizlilik Politikası ile güncelleyerek size bildirecektir. Sürekli kullanım tüm değişikliklerin onaylanması olarak kabul edildiğinden, düzenli olarak bu Gizlilik Politikasına başvurmanız önerilir.</p>
-            
-            <p class="updated-date">Bu gizlilik politikası 2024-03-20 tarihinden itibaren geçerlidir</p>
+            <h2>Çocuklar ve güvenlik</h2>
+            <p>Oyun özellikle çocuklar için tasarlanmamıştır. Bir çocuğun bize kişisel bilgi sağladığını düşünüyorsanız iletişime geçin. Ağ hizmetleri kendi güvenlik mekanizmalarını kullanır; hiçbir iletim veya saklama yönteminin tamamen güvenli olduğu garanti edilemez.</p>
 
-            <h2>Bize Ulaşın</h2>
-            <p>Uygulamayı kullanırken gizlilikle ilgili sorularınız varsa veya uygulamanın pratikleri hakkında sorularınız varsa, lütfen e-posta yoluyla Hizmet Sağlayıcı ile iletişime geçin: epstudios.dev@gmail.com.</p>
-        </div>
+            <h2>Değişiklikler ve iletişim</h2>
+            <p>Uygulamalarımız değiştiğinde bu sayfayı ve güncelleme tarihini yenileyeceğiz. Yeni bir izin veya rıza gerektiğinde ayrıca istenecektir. Oyunu kullanmanız takibe verilmiş genel bir rıza olarak kabul edilmez.</p>
+            <p>Gizlilik ve oyun desteği: <a href="mailto:epstudios.dev@gmail.com">epstudios.dev@gmail.com</a>. <a href="../support/">Oyun destek sayfası</a>.</p>
+        </section>
     </div>
 
     <script>
         function toggleLanguage(lang) {
+            document.documentElement.lang = lang;
             const enContent = document.querySelector('.en-content');
             const trContent = document.querySelector('.tr-content');
             
