@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#1f2a16" />
+    <meta name="description" content="Bizim Köy — yorumlarla büyüyen bir köy. Yoruma KATIL yaz, köye taşın. EP Studio." />
+    <title>Bizim Köy — Yorumlarla büyüyen köy | EP Studio</title>
+    <link rel="icon" type="image/png" href="../assets/images/bizim-koy-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/css/site.css" />
+    <style>
+      .koy-hero { position: relative; min-height: 88svh; display: grid; align-items: end; overflow: hidden; background: #1f2a16; color: #fff8e8; }
+      .koy-hero img.koy-art { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
+      .koy-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,28,12,.15) 30%, rgba(20,28,12,.88)); }
+      .koy-copy { position: relative; z-index: 1; padding: 0 max(20px, calc((100vw - 1100px) / 2)) 9vh; max-width: 1200px; }
+      .koy-copy .koy-icon { width: 76px; height: 76px; border-radius: 50%; border: 3px solid #f4c64e; margin-bottom: 22px; }
+      .koy-copy h1 { font-family: var(--display); font-size: clamp(3.4rem, 9vw, 8rem); letter-spacing: -.06em; line-height: .9; margin: 0; }
+      .koy-copy h1 span { color: #f4c64e; }
+      .koy-copy p { font-size: clamp(1.05rem, 2vw, 1.35rem); max-width: 36ch; margin-top: 18px; opacity: .92; }
+      .koy-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+      .koy-links a { border: 1px solid rgba(255,248,232,.5); border-radius: 999px; padding: 11px 20px; font-weight: 700; color: inherit; text-decoration: none; }
+      .koy-links a:first-child { background: #f4c64e; border-color: #f4c64e; color: #1f2a16; }
+      .koy-how { padding: 12vh max(20px, calc((100vw - 1100px) / 2)); display: grid; gap: 28px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+      .koy-how h2 { grid-column: 1 / -1; font-family: var(--display); font-size: clamp(2.2rem, 5vw, 4rem); letter-spacing: -.05em; line-height: .95; margin: 0 0 10px; }
+      .koy-how article { border-top: 1px solid currentColor; padding-top: 18px; }
+      .koy-how article b { display: block; font-family: var(--display); font-size: 1.25rem; margin-bottom: 8px; }
+      .koy-note { padding: 0 max(20px, calc((100vw - 1100px) / 2)) 10vh; opacity: .75; max-width: 70ch; }
+    </style>
+  </head>
+  <body class="detail-page">
+    <a class="skip-link" href="#content">İçeriğe geç</a>
+    <header class="site-header detail-header" data-header>
+      <a class="brand" href="../" aria-label="EP Studio ana sayfa">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i></span>
+        <span>EP<span>Studio</span></span>
+      </a>
+      <a class="back-link" href="../">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6" /></svg>
+        Tüm projeler
+      </a>
+    </header>
+
+    <main id="content">
+      <section class="koy-hero">
+        <img class="koy-art" src="../assets/images/bizim-koy-hero.jpg" alt="Ormanın ortasında kamp ateşi ve etrafında oturan köylüler" />
+        <div class="koy-copy">
+          <img class="koy-icon" src="../assets/images/bizim-koy-icon.png" alt="Bizim Köy ikonu" />
+          <h1>Bizim <span>Köy</span></h1>
+          <p>Sıfırdan bir köy kuruyoruz. Yoruma <b>KATIL</b> yazan herkes köye taşınıyor, ne yapılacağına da hep birlikte karar veriyoruz.</p>
+          <div class="koy-links">
+            <a href="https://www.instagram.com/koykuruyoruz/">Instagram · @koykuruyoruz</a>
+            <a href="gizlilik/">Gizlilik</a>
+            <a href="kosullar/">Kullanım koşulları</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="koy-how">
+        <h2>Nasıl<br />çalışıyor?</h2>
+        <article><b>1 · Yoruma KATIL yaz</b>Paylaşımın altına "Katıl" ve istersen bir meslek yaz: demirci, çoban, balıkçı… Senin adınla bir köylü köye taşınır.</article>
+        <article><b>2 · Ne yapılacağını seç</b>Aklındaki binayı yorumlara yaz. Her gün en çok istenen yapı köye eklenir.</article>
+        <article><b>3 · Her akşam yeni bölüm</b>Gün sonunda köyün son hâlini kısa bir videoyla paylaşıyoruz; yorumun belki videoda görünür.</article>
+      </section>
+      <p class="koy-note">Bizim Köy bir EP Studio içerik serisidir. Yalnızca herkese açık kullanıcı adını ve yorum metnini kullanırız; konum, e-posta ya da özel mesaj okumayız. Ayrıntılar <a href="gizlilik/">gizlilik politikasında</a>.</p>
+    </main>
+
+    <footer class="site-footer detail-footer">
+      <a class="brand brand-footer" href="../" aria-label="EP Studio ana sayfa">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i></span>
+        <span>EP<span>Studio</span></span>
+      </a>
+      <p>Bizim Köy</p>
+      <div class="footer-links"><a href="gizlilik/">Gizlilik</a><a href="gizlilik/#veri-silme">Veri silme</a><a href="kosullar/">Koşullar</a><a href="mailto:epstudios.dev@gmail.com">İletişim</a></div>
+      <span class="copyright">© <span data-year></span> EP Studio</span>
+    </footer>
+    <script src="../assets/js/site.js" defer></script>
+  </body>
+</html>
