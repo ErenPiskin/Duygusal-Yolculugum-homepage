@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Privacy Policy - Rüya Günlüğü & Duygu Takibi</title>
+    <title>Privacy Policy — Emotion Journey / Rüya Günlüğü &amp; Duygu Takibi</title>
     <meta name="description" content="Rüya Günlüğü &amp; Duygu Takibi application privacy policy in English and Turkish.">
     <link rel="icon" type="image/png" href="../images/app-icon.png">
     <style>
@@ -165,7 +165,20 @@
         }
         
         input[type="radio"] {
-            display: none;
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+        }
+        input[type="radio"]:focus-visible ~ label {
+            outline: 2px solid #17141e;
+            outline-offset: -3px;
+        }
+        code {
+            overflow-wrap: anywhere;
+        }
+        a {
+            overflow-wrap: anywhere;
         }
         
         /* Language content */
@@ -186,14 +199,14 @@
         <div class="policy-product">
             <img src="../images/app-icon.png" alt="Rüya Günlüğü ve Duygu Takibi uygulama ikonu">
             <div>
-                <strong>Rüya Günlüğü &amp; Duygu Takibi</strong>
+                <strong>Emotion Journey / Rüya Günlüğü &amp; Duygu Takibi</strong>
                 <span>EP Studio</span>
             </div>
         </div>
         <div class="language-switcher">
             <div class="language-toggle">
-                <input type="radio" id="language-en" name="language" checked onclick="toggleLanguage('en')">
-                <input type="radio" id="language-tr" name="language" onclick="toggleLanguage('tr')">
+                <input type="radio" id="language-en" name="language" checked onchange="toggleLanguage('en')">
+                <input type="radio" id="language-tr" name="language" onchange="toggleLanguage('tr')">
                 <div class="slider"></div>
                 <label for="language-en"><span class="lang-flag en-flag"></span>English</label>
                 <label for="language-tr"><span class="lang-flag tr-flag"></span>Türkçe</label>
@@ -201,403 +214,135 @@
         </div>
 
         <!-- ENGLISH VERSION -->
-        <div class="en-content">
+        <div class="en-content" lang="en">
             <h1>Privacy Policy</h1>
-            
-            <p>This privacy policy applies to the Rüya Günlüğü & Duygu Takibi app (hereby referred to as "Application") for mobile devices that was created by Eren Piskin (hereby referred to as "Service Provider") as a Freemium service. This service is intended for use "AS IS".</p>
+            <p class="updated-date">Last updated: 3 November 2026</p>
+            <p>This policy applies to Emotion Journey, also known as My Emotional Journey and Rüya Günlüğü &amp; Duygu Takibi (the “Application”), provided by Eren Piskin / EP Studio. It explains how the Android and iOS versions handle information. Contact: <a href="mailto:epstudios.dev@gmail.com">epstudios.dev@gmail.com</a>.</p>
 
-            <h2>What information does the Application obtain and how is it used?</h2>
-            <p>The Application collects and stores the following information:</p>
+            <h2>1. Your journal and information stored on your device</h2>
+            <p>Your journal text, dream entries, mood records, display name, companion preferences, activities, progress and app settings are stored on your device. We do not operate a server that receives your private journal contents. Journal text, mood values and mood labels are not included in the Application’s Firebase Analytics events.</p>
+            <p>The Application does not require an EP Studio account. If you contact support, we receive the email address and information you choose to send. Please avoid sending private journal content unless it is necessary for your request.</p>
+
+            <h2>2. Usage analytics — Google Analytics for Firebase</h2>
+            <p>We use Google Analytics for Firebase to understand how the Application is used, identify problems and improve the experience. Usage events can include:</p>
             <ul>
-                <li>Emotion journals and entries you create</li>
-                <li>Dream journals and entries you create</li>
-                <li>Mood tracking data</li>
-                <li>Achievements and progress information</li>
-                <li>App preferences and settings</li>
-                <li>Anonymous usage analytics and app performance data</li>
-                <li>Feature usage patterns and user interactions</li>
-                <li>Error logs and crash reports for app improvement</li>
+            <li>App launches, screen views, onboarding steps, feature use, theme and language choices.</li>
+            <li>Journal creation, editing and deletion events, entry type (emotion or dream), saving outcomes and general activity/progress counters. These events do not include journal text, exact word counts, mood scores or mood labels.</li>
+            <li>Paywall views and outcomes, product identifiers, premium status, restore events and interactions with reminders, such as opening a reminder or changing its settings.</li>
+            <li>App version, platform/device information, installation or app-instance identifiers and general error categories. Our custom error events exclude free-form error messages.</li>
             </ul>
-            <p>This information is stored locally on your device by default and is not transmitted to our servers. We do not collect personal information such as your name, email address, or phone number unless you choose to use certain premium features like backup.</p>
+            <p>These events are sent to Google. We do not deliberately attach your name or email to them, but installation identifiers can associate events with the same app installation. The data is therefore not described as completely anonymous. Firebase/Google Analytics may also process technical and automatically collected data under its own settings and policies.</p>
+            <p>The current Application does not offer a separate in-app switch to disable Firebase Analytics. Refusing Apple’s tracking permission or changing advertising preferences does not by itself disable usage analytics. Contact us with questions about analytics or your data rights. See <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Firebase privacy information</a> and <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google’s Privacy Policy</a>.</p>
 
-            <h2>Analytics and App Improvement</h2>
-            <p>Our Application uses Firebase Analytics to help us understand how users interact with our app and to improve our services. We collect the following anonymous analytics data:</p>
+            <h2>3. Purchases and subscriptions — RevenueCat and the app stores</h2>
+            <p>Apple App Store or Google Play processes purchases. We use RevenueCat to display purchase offers, validate purchases, manage premium access and restore purchases. RevenueCat processes an app user identifier (generated without an EP Studio account), product and transaction identifiers, purchase history, subscription status, renewal/expiration information and technical app/device information needed to provide this service. Purchase status is also cached on your device.</p>
+            <p>We do not receive or store your full payment-card details. Buying premium does not create an EP Studio login or automatically transfer a purchase between Android and iOS. Use the restore-purchases option with the relevant store account. Deleting local data or uninstalling the Application does not cancel a store subscription; manage or cancel it through your Apple or Google account.</p>
+            <p>See <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer">RevenueCat’s Privacy Policy</a>, <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Apple’s Privacy Policy</a> and <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google’s Privacy Policy</a>.</p>
+
+            <h2>4. Advertising — Google AdMob</h2>
+            <p>The free version includes advertising provided by Google AdMob. Google’s advertising SDK may process device or app identifiers, an advertising identifier when available and permitted, IP address, approximate location derived from IP, device/network information, ad impressions and interactions, and diagnostic/performance information. These data support ad delivery, measurement and fraud prevention. We do not request precise GPS location for advertising.</p>
+            <p>Advertising preferences and applicable consent choices affect how ads are served. Where required, Google’s User Messaging Platform presents privacy choices. An ad privacy option appears in the Application’s settings when required by that platform. On iOS, Apple’s App Tracking Transparency permission is requested separately; you can refuse it and continue using the Application. Non-personalized or limited ads may still involve technical data processing.</p>
+            <p>You can manage iOS tracking permission in Settings &gt; Privacy &amp; Security &gt; Tracking, and Android advertising preferences in the device’s advertising/privacy settings. Menu names depend on the OS version. Active premium access removes ad displays; it does not disable purchase validation or usage analytics, and we do not promise that every advertising SDK initialization or consent operation is disabled.</p>
+            <p>See <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">Google’s advertising privacy information</a> and <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google’s Privacy Policy</a>.</p>
+
+            <h2>5. Optional Google Drive backup — Android only</h2>
+            <p>On Android, eligible premium users can choose to sign in with Google and back up or restore journal data using their own Google Drive account. Google sign-in processes account information and authorization credentials needed for this feature. The Application requests <code>drive.file</code> and <code>drive.appdata</code> access to manage its backup files. Backups are encoded/encrypted by the Application before upload; this is not a promise that they are inaccessible to anyone with access to the account or recovery material.</p>
+            <p>This feature is optional. EP Studio does not receive a copy of your Drive backup on an EP Studio server. You can stop automatic backups, revoke access through your Google account and manage backup files in Google Drive. Deleting local app data or uninstalling does not automatically delete cloud backups.</p>
+            <p>Google Drive backup is not available in the iOS version. The Application does not provide an iCloud backup/restore feature. Device or operating-system backup services are governed by your own system settings and the relevant provider’s policies.</p>
+
+            <h2>6. Local reminders and permissions</h2>
+            <p>Reminders are scheduled locally on your device after notification permission and your reminder preference allow them. They do not require uploading journal contents to a push-notification server. Reminder schedules can repeat and continue while the Application is closed, until you disable them in the Application or device settings. Frequency and delivery also depend on your choices, recent activity and operating-system settings.</p>
+            <p>When you return to the Application or save an entry, reminders are re-evaluated; the current plan skips the day you have written. Delivery may be delayed or silenced by Focus, notification summaries, power-saving or other device restrictions. General reminder interactions and settings changes may be sent to Firebase Analytics as described above.</p>
+            <p>If you enable app lock, Face ID, Touch ID or the available device authentication method is handled by the operating system; the Application does not receive your biometric templates. Local lock credentials may be stored using secure device storage. The Android backup permission and iOS advertising-tracking permission are used only for the features explained above.</p>
+
+            <h2>7. Service providers and international processing</h2>
+            <p>Google/Firebase processes analytics, advertising and, if you enable it on Android, Drive backup data; RevenueCat and the app stores process purchase information. These providers can process information outside your country under their policies and applicable safeguards. If you contact support, your email provider and our email service process the correspondence.</p>
+            <p>We do not send journal text to Firebase Analytics, AdMob or RevenueCat, and we do not sell journal contents. Optional Drive backup and information you voluntarily send to support are the exceptions to keeping your journal contents on your device. Advertising-related data processing and sharing are described in the advertising section; we do not make a blanket claim that no data is shared with third parties.</p>
+
+            <h2>8. Retention, deletion and your choices</h2>
             <ul>
-                <li>App usage patterns (which features are used most frequently)</li>
-                <li>Journal entry statistics (number of entries, word count ranges, entry types)</li>
-                <li>Mood tracking patterns (anonymized mood data for improving user experience)</li>
-                <li>Feature adoption rates (which features are popular among users)</li>
-                <li>Premium feature conversion analytics</li>
-                <li>App performance metrics and error reports</li>
-                <li>General user preferences (theme choices, language settings)</li>
-                <li>Screen view analytics and navigation patterns</li>
-                <li>Achievement unlock patterns</li>
-                <li>Notification interaction data</li>
+            <li>You can delete journal entries or use the Application’s local data-deletion option. Uninstalling generally removes local app files, but device backups and secure-storage/Keychain records may persist according to operating-system behavior.</li>
+            <li>Optional Drive backups remain under your Google account until deleted there. Revoking access does not itself delete existing backups.</li>
+            <li>Analytics, advertising, purchase and support data can remain with the respective providers according to configured retention settings, their policies, service needs and applicable record-keeping obligations. Local deletion does not automatically erase these records.</li>
+            <li>Uninstalling stops the Application from sending new events while it is not installed. Store subscription renewals and purchase-provider records may continue independently until you cancel the subscription.</li>
             </ul>
-            <p>This analytics data:</p>
-            <ul>
-                <li>Is completely anonymous and cannot be linked to your personal identity</li>
-                <li>Does not include the actual content of your journal entries</li>
-                <li>Is used solely for improving app functionality and user experience</li>
-                <li>Is processed according to <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a></li>
-                <li>Can be opted out through your device's advertising settings</li>
-                <li>Helps us understand which features are most valuable to users</li>
-                <li>Enables us to identify and fix app performance issues</li>
-            </ul>
+            <p>Depending on applicable law, you may have rights to request access, correction, deletion or a copy of personal data, object to or restrict processing, and withdraw consent where processing relies on consent. Email <a href="mailto:epstudios.dev@gmail.com">epstudios.dev@gmail.com</a> to make a request. We may need information to verify the request and identify relevant records; an email address alone may not identify a pseudonymous installation or purchase record. We respond within the period required by applicable law. You may also contact the relevant data protection authority.</p>
 
-            <h2>Google Drive Backup Feature</h2>
-            <p>Our Application offers a premium feature to backup your data to your personal Google Drive account. When you use this feature:</p>
-            <ul>
-                <li>Your emotion journals, dream journals, and related app data are encrypted and uploaded to your Google Drive account's AppData folder</li>
-                <li>This data is only accessible by you and our application with your explicit permission</li>
-                <li>We do not have access to this data on our servers</li>
-                <li>You can enable automatic backups or perform manual backups at your discretion</li>
-                <li>You can delete your backups at any time</li>
-            </ul>
+            <h2>9. Security</h2>
+            <p>We use device storage, secure storage for selected credentials and the providers’ secure network connections where applicable. No storage or transmission method is completely secure. Protect your device, store and Google accounts, and any backup files. App lock is an access-control feature and does not mean every local file or backup is end-to-end encrypted.</p>
 
-            <h2>What permissions does the Application require?</h2>
-            <p>For the Google Drive backup feature, our app requests the following permissions:</p>
-            <ul>
-                <li><strong>drive.appdata</strong>: To store and retrieve your app data in a dedicated folder</li>
-                <li><strong>drive.file</strong>: To manage files created by the app</li>
-            </ul>
-            <p>These permissions are only used for backup and restore functionality and are not used to access any other files in your Google Drive.</p>
+            <h2>10. Children</h2>
+            <p>The Application is not directed to children under 13, and we do not knowingly seek personal information from them. If you believe a child has provided personal information through the Application or support, contact us so we can investigate and take appropriate action. Where local law requires a higher age or parental authorization for a particular processing activity, those requirements apply.</p>
 
-            <h2>Does the Application collect precise real time location information of the device?</h2>
-            <p>This Application does not collect precise information about the location of your mobile device.</p>
-
-            <h2>Device Information</h2>
-            <p>For app functionality and crash reporting, we may collect:</p>
-            <ul>
-                <li>Device model and operating system version</li>
-                <li>App version and installation ID</li>
-                <li>Error logs in case of app crashes</li>
-            </ul>
-            <p>This information is used solely for troubleshooting and improving app performance and is not linked to personally identifiable information.</p>
-
-            <h2>Premium Purchases and Payment Information</h2>
-            <p>When you purchase premium features in our Application:</p>
-            <ul>
-                <li>Payment processing is handled by Google Play Store or Apple App Store</li>
-                <li>We do not collect or store your payment information such as credit card details</li>
-                <li>Your purchase information (subscription status, renewal dates) may be stored locally to verify your access to premium features</li>
-                <li>For subscription management, please visit your device's app store account settings</li>
-            </ul>
-
-            <h2>Free vs Premium Features and Data Limitations</h2>
-            <p>Our Application offers both free and premium tiers with different data handling capabilities:</p>
-            <ul>
-                <li><strong>Free Version Limitations:</strong>
-                    <ul>
-                        <li>Limited to 10 emotion journal entries and 10 dream journal entries</li>
-                        <li>Limited access to analytics features</li>
-                        <li>Access to only basic emotion cards</li>
-                        <li>Cannot back up data to Google Drive</li>
-                        <li>Limited to 3 daily activities</li>
-                    </ul>
-                </li>
-                <li><strong>Premium Version Features:</strong>
-                    <ul>
-                        <li>Unlimited emotion and dream journal entries</li>
-                        <li>Full access to detailed emotional analytics</li>
-                        <li>Access to all emotion cards</li>
-                        <li>Ability to back up and restore data through Google Drive</li>
-                        <li>Access to up to 5 daily activities</li>
-                    </ul>
-                </li>
-            </ul>
-            <p>Your personal data is handled with the same level of security and privacy protection regardless of whether you are using the free or premium version. The limitations are only on the volume of data that can be stored and the features available, not on how we protect your information.</p>
-
-            <h2>Push Notifications</h2>
-            <p>Our Application may send you push notifications with reminders and motivational messages. You can:</p>
-            <ul>
-                <li>Enable or disable notifications through the app settings or your device settings</li>
-                <li>Customize notification frequency and types within the Application</li>
-                <li>We do not use notifications for marketing purposes outside the scope of the Application</li>
-            </ul>
-            <p>We do not collect or analyze notification interaction data on our servers.</p>
-
-            <h2>Advertising and Third-Party Services (Google AdMob)</h2>
-            <p>Our Application offers a free version supported by advertisements provided by <strong>Google AdMob</strong>. To serve relevant advertisements, prevent fraud, and measure ad performance, AdMob may collect and process certain device and usage information:</p>
-            <ul>
-                <li><strong>Advertising ID (Google Advertising ID / AD_ID):</strong> Used to deliver personalized or non-personalized ads according to user consent, device settings, and regulatory requirements.</li>
-                <li><strong>Device and Network Information:</strong> Device model, operating system version, mobile carrier, network connection type, and approximate IP-based location (coarse location).</li>
-                <li><strong>Ad Interaction Data:</strong> Ad impressions, clicks, video completions, and general interaction metrics.</li>
-            </ul>
-            <p>AdMob processes this data in accordance with <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">Google's Advertising Policies</a> and <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a>.</p>
-            <p><strong>Ad-Free Experience:</strong> Users who upgrade to the Premium subscription will enjoy an entirely ad-free experience. When a Premium subscription is active, all advertising SDK functions and ad displays are disabled.</p>
-            <p><strong>Opting Out of Personalized Ads:</strong> You can manage or opt out of personalized ads at any time via your device's settings: <em>Settings &gt; Google &gt; Ads &gt; Delete advertising ID / Reset advertising ID</em>.</p>
-
-            <h2>Do third parties see and/or have access to information obtained by the Application?</h2>
-            <p>When you use the Google Drive backup feature, your data is stored on Google's servers according to <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's privacy policy</a>. We do not share your private journal data with any other third parties.</p>
-            <p>We use Firebase Analytics (Google) to collect anonymous usage statistics to improve our app, and Google AdMob to deliver advertisements in our free version. This data is processed according to <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's privacy policy</a> and cannot be linked to your personal identity.</p>
-            <p>We do not sell, trade, or otherwise transfer your information to outside parties.</p>
-
-            <h2>Data Storage and Deletion</h2>
-            <ul>
-                <li>All data is primarily stored locally on your device</li>
-                <li>Backups stored on Google Drive remain there until you manually delete them</li>
-                <li>Analytics data is anonymized and stored by Google Firebase according to their data retention policies</li>
-                <li>Uninstalling the app will remove data from your device but will not automatically delete Google Drive backups</li>
-                <li>You can delete your Google Drive backups through the app's interface or directly from your Google Drive account</li>
-            </ul>
-
-            <h2>Your Data Rights</h2>
-            <p>Depending on your location, you may have certain rights regarding your personal data:</p>
-            <ul>
-                <li>Right to access the data stored about you</li>
-                <li>Right to correct inaccurate information</li>
-                <li>Right to delete your data</li>
-                <li>Right to data portability (exporting your data)</li>
-                <li>Right to withdraw consent</li>
-                <li>Right to opt-out of analytics data collection</li>
-            </ul>
-            <p>To exercise these rights, please contact us at epstudios.dev@gmail.com. We will respond to your request within 30 days.</p>
-
-            <h2>What are my opt-out rights?</h2>
-            <p>You can stop all collection of information by the Application easily by uninstalling it. You may use the standard uninstall processes as may be available as part of your mobile device or via the mobile application marketplace or network.</p>
-            <p>For Google Drive backups, you can:</p>
-            <ul>
-                <li>Disable the automatic backup feature in the app settings</li>
-                <li>Remove the app's access to your Google Drive through your Google Account settings</li>
-                <li>Delete any existing backups from your Google Drive</li>
-            </ul>
-            <p>To opt-out of analytics data collection, you can:</p>
-            <ul>
-                <li>Disable analytics in your device's privacy settings</li>
-                <li>Use your device's "Limit Ad Tracking" or "Opt out of Ads Personalization" setting</li>
-                <li>Contact us at epstudios.dev@gmail.com to request analytics opt-out</li>
-            </ul>
-
-            <h2>Security</h2>
-            <p>The Service Provider is concerned about safeguarding the confidentiality of your information. We implement appropriate technical and organizational measures to protect your data:</p>
-            <ul>
-                <li>Your data is primarily stored locally on your device</li>
-                <li>When using the backup feature, your data is encrypted before being uploaded to Google Drive</li>
-                <li>We use secure data transmission protocols</li>
-                <li>We implement reasonable security measures to protect your information</li>
-                <li>Analytics data is anonymized to protect your privacy</li>
-            </ul>
-
-            <h2>Children</h2>
-            <p>The Application is not used to knowingly solicit data from or market to children under the age of 13. The Service Provider does not knowingly collect personally identifiable information from children. The Service Provider encourages all children to never submit any personally identifiable information through the Application and/or Services.</p>
-            
-            <p>The Service Provider encourages parents and legal guardians to monitor their children's Internet usage and to help enforce this Policy by instructing their children never to provide personally identifiable information through the Application and/or Services without their permission.</p>
-            
-            <p>If you have reason to believe that a child has provided personally identifiable information to the Service Provider through the Application and/or Services, please contact the Service Provider (epstudios.dev@gmail.com) so that they will be able to take the necessary actions.</p>
-            
-            <p>You must also be at least 16 years of age to consent to the processing of your personally identifiable information in your country (in some countries we may allow your parent or guardian to do so on your behalf).</p>
-
-            <h2>Changes</h2>
-            <p>This Privacy Policy may be updated from time to time for any reason. The Service Provider will notify you of any changes to their Privacy Policy by updating this page with the new Privacy Policy. You are advised to consult this Privacy Policy regularly for any changes, as continued use is deemed approval of all changes.</p>
-            
-            <p class="updated-date">This privacy policy is effective as of 2025-06-16</p>
-
-            <h2>Your Consent</h2>
-            <p>By using the Application, you are consenting to the processing of your information as set forth in this Privacy Policy now and as amended by the Service Provider.</p>
-
-            <h2>Contact Us</h2>
-            <p>If you have any questions regarding privacy while using the Application, or have questions about the practices, please contact the Service Provider via email at epstudios.dev@gmail.com.</p>
+            <h2>11. Changes and contact</h2>
+            <p>We will publish policy updates on this page and update the date above. Where a change requires additional notice or consent, we will provide it as required. Using the Application does not replace a separate consent choice where one is required.</p>
+            <p>For privacy questions and requests, contact Eren Piskin / EP Studio at <a href="mailto:epstudios.dev@gmail.com">epstudios.dev@gmail.com</a>.</p>
         </div>
 
         <!-- TURKISH VERSION -->
-        <div class="tr-content">
+        <div class="tr-content" lang="tr">
             <h1>Gizlilik Politikası</h1>
-            
-            <p>Bu gizlilik politikası, Eren Pişkin (bundan sonra "Hizmet Sağlayıcı" olarak anılacaktır) tarafından Freemium hizmet olarak oluşturulan, mobil cihazlar için Rüya Günlüğü & Duygu Takibi uygulaması (bundan sonra "Uygulama" olarak anılacaktır) için geçerlidir. Bu hizmet "OLDUĞU GİBİ" kullanılmak üzere sunulmuştur.</p>
+            <p class="updated-date">Son güncelleme: 3 Kasım 2026</p>
+            <p>Bu politika, Eren Pişkin / EP Studio tarafından sunulan Emotion Journey, My Emotional Journey ve Rüya Günlüğü &amp; Duygu Takibi adlarıyla bilinen uygulama (“Uygulama”) için geçerlidir. Android ve iOS sürümlerinde bilgilerin nasıl işlendiğini açıklar. İletişim: <a href="mailto:epstudios.dev@gmail.com">epstudios.dev@gmail.com</a>.</p>
 
-            <h2>Uygulama hangi bilgileri elde eder ve nasıl kullanılır?</h2>
-            <p>Uygulama aşağıdaki bilgileri toplar ve saklar:</p>
+            <h2>1. Günlükleriniz ve cihazda saklanan bilgiler</h2>
+            <p>Günlük metinleriniz, rüya kayıtlarınız, duygu durumu kayıtlarınız, görünen adınız, yol arkadaşı tercihleriniz, aktiviteleriniz, ilerlemeniz ve uygulama ayarlarınız cihazınızda saklanır. Özel günlük içeriklerinizi alan bir EP Studio sunucusu işletmiyoruz. Günlük metinleri, duygu puanları ve duygu etiketleri Uygulamanın Firebase Analytics olaylarına dahil edilmez.</p>
+            <p>Uygulama bir EP Studio hesabı açmanızı gerektirmez. Destek için bize yazarsanız e-posta adresinizi ve göndermeyi seçtiğiniz bilgileri alırız. Talebiniz için gerekli olmadıkça özel günlük içeriğinizi göndermemenizi öneririz.</p>
+
+            <h2>2. Kullanım analitiği — Google Analytics for Firebase</h2>
+            <p>Uygulamanın kullanımını anlamak, sorunları belirlemek ve deneyimi iyileştirmek için Google Analytics for Firebase kullanıyoruz. Kullanım olayları şunları içerebilir:</p>
             <ul>
-                <li>Oluşturduğunuz duygu günlükleri ve kayıtları</li>
-                <li>Oluşturduğunuz rüya günlükleri ve kayıtları</li>
-                <li>Duygu durum takip verileri</li>
-                <li>Başarımlar ve ilerleme bilgileri</li>
-                <li>Uygulama tercihleri ve ayarları</li>
-                <li>Anonim kullanım analitikleri ve uygulama performans verileri</li>
-                <li>Özellik kullanım kalıpları ve kullanıcı etkileşimleri</li>
-                <li>Uygulama iyileştirmesi için hata günlükleri ve çökme raporları</li>
+            <li>Uygulama açılışları, ekran görüntülemeleri, başlangıç adımları, özellik kullanımı, tema ve dil tercihleri.</li>
+            <li>Günlük oluşturma, düzenleme ve silme olayları, kayıt türü (duygu veya rüya), kaydetme sonuçları ve genel kullanım/ilerleme sayaçları. Bu olaylar günlük metnini, kesin kelime sayısını, duygu puanlarını veya duygu etiketlerini içermez.</li>
+            <li>Satın alma ekranının görüntülenmesi ve sonuçları, ürün kimlikleri, premium durumu, satın alma geri yükleme olayları ve hatırlatmayı açma ya da ayarlarını değiştirme gibi bildirim etkileşimleri.</li>
+            <li>Uygulama sürümü, platform/cihaz bilgileri, kurulum veya uygulama örneği kimlikleri ve genel hata kategorileri. Kendi hata olaylarımızda serbest biçimli hata mesajları gönderilmez.</li>
             </ul>
-            <p>Bu bilgiler varsayılan olarak cihazınızda yerel olarak saklanır ve sunucularımıza iletilmez. Yedekleme gibi belirli premium özellikleri kullanmayı tercih etmediğiniz sürece, adınız, e-posta adresiniz veya telefon numaranız gibi kişisel bilgileri toplamıyoruz.</p>
+            <p>Bu olaylar Google'a gönderilir. Olaylara adınızı veya e-postanızı bilerek eklemiyoruz; ancak kurulum kimlikleri aynı uygulama kurulumuna ait olayları ilişkilendirebilir. Bu nedenle verileri tamamen anonim olarak tanımlamıyoruz. Firebase/Google Analytics kendi ayarları ve politikaları kapsamında teknik ve otomatik toplanan verileri de işleyebilir.</p>
+            <p>Uygulamanın mevcut sürümünde Firebase Analytics'i kapatan ayrı bir uygulama içi anahtar bulunmaz. Apple'ın takip iznini reddetmek veya reklam tercihlerini değiştirmek kullanım analitiğini kendiliğinden kapatmaz. Analitik veya veri haklarınızla ilgili sorularınız için bize ulaşabilirsiniz. <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Firebase gizlilik bilgileri</a> ve <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Gizlilik Politikası</a>.</p>
 
-            <h2>Analitik ve Uygulama İyileştirmesi</h2>
-            <p>Uygulamamız, kullanıcıların uygulamamızla nasıl etkileşim kurduğunu anlamamıza ve hizmetlerimizi iyileştirmemize yardımcı olmak için Firebase Analytics kullanmaktadır. Aşağıdaki anonim analitik verileri topluyoruz:</p>
+            <h2>3. Satın almalar ve abonelikler — RevenueCat ve uygulama mağazaları</h2>
+            <p>Ödemeleri Apple App Store veya Google Play işler. Satın alma tekliflerini göstermek, satın almaları doğrulamak, premium erişimini yönetmek ve satın almaları geri yüklemek için RevenueCat kullanıyoruz. RevenueCat; EP Studio hesabı olmadan üretilen uygulama kullanıcı kimliğini, ürün ve işlem kimliklerini, satın alma geçmişini, abonelik durumunu, yenilenme/bitiş bilgilerini ve hizmet için gerekli teknik uygulama/cihaz bilgilerini işler. Satın alma durumu cihazınızda da önbelleğe alınır.</p>
+            <p>Tam ödeme kartı bilgilerinizi almaz veya saklamayız. Premium satın almak EP Studio hesabı oluşturmaz ve satın almayı Android ile iOS arasında otomatik taşımaz. İlgili mağaza hesabınızla satın almaları geri yükleme seçeneğini kullanabilirsiniz. Yerel verileri silmek veya Uygulamayı kaldırmak mağaza aboneliğinizi iptal etmez; aboneliğinizi Apple veya Google hesabınızdan yönetin veya iptal edin.</p>
+            <p><a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer">RevenueCat Gizlilik Politikası</a>, <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Apple Gizlilik Politikası</a> ve <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Gizlilik Politikası</a>.</p>
+
+            <h2>4. Reklamlar — Google AdMob</h2>
+            <p>Ücretsiz sürümde Google AdMob reklamları bulunur. Google'ın reklam SDK'sı; cihaz veya uygulama kimliklerini, mevcut ve izin verilmişse reklam kimliğini, IP adresini, IP'den çıkarılan yaklaşık konumu, cihaz/ağ bilgilerini, reklam gösterim ve etkileşimlerini ve tanı/performans bilgilerini işleyebilir. Bu bilgiler reklam sunumu, ölçüm ve sahtekarlığın önlenmesi için kullanılır. Reklamlar için kesin GPS konumu istemiyoruz.</p>
+            <p>Reklam tercihleri ve geçerli izin seçimleri reklamların nasıl sunulacağını etkiler. Gerekli olduğunda Google'ın User Messaging Platform hizmeti gizlilik seçeneklerini gösterir. Bu platform gerektirdiğinde Uygulama ayarlarında reklam gizliliği seçeneği görünür. iOS'ta Apple'ın Uygulama Takibi Şeffaflığı (ATT) izni ayrıca istenir; reddederek Uygulamayı kullanmaya devam edebilirsiniz. Kişiselleştirilmemiş veya sınırlı reklamlar da teknik veri işlenmesini gerektirebilir.</p>
+            <p>iOS takip iznini Ayarlar &gt; Gizlilik ve Güvenlik &gt; Takip bölümünden, Android reklam tercihlerini cihazın reklam/gizlilik ayarlarından yönetebilirsiniz. Menü adları işletim sistemi sürümüne göre değişebilir. Aktif premium erişimi reklam gösterimlerini kaldırır; satın alma doğrulamasını veya kullanım analitiğini kapatmaz. Reklam SDK'sının tüm başlatma ve izin işlemlerinin kapatıldığını taahhüt etmiyoruz.</p>
+            <p><a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">Google reklam gizliliği bilgileri</a> ve <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Gizlilik Politikası</a>.</p>
+
+            <h2>5. İsteğe bağlı Google Drive yedekleme — yalnızca Android</h2>
+            <p>Android'de uygun premium kullanıcıları Google ile giriş yapmayı seçerek günlük verilerini kendi Google Drive hesaplarına yedekleyebilir veya buradan geri yükleyebilir. Google ile giriş, bu özellik için gerekli hesap bilgileri ve yetkilendirme bilgilerini işler. Uygulama, yedek dosyalarını yönetmek için <code>drive.file</code> ve <code>drive.appdata</code> erişimi ister. Yedekler yüklenmeden önce Uygulama tarafından kodlanır/şifrelenir; bu, hesaba veya kurtarma bilgilerine erişimi olan herkesin yedeklere erişemeyeceği yönünde bir garanti değildir.</p>
+            <p>Bu özellik isteğe bağlıdır. Drive yedeğinizin bir kopyası EP Studio sunucusuna gönderilmez. Otomatik yedeklemeyi durdurabilir, Google hesabınızdan erişimi kaldırabilir ve Google Drive'daki yedek dosyalarını yönetebilirsiniz. Yerel uygulama verilerini silmek veya Uygulamayı kaldırmak bulut yedeklerini otomatik silmez.</p>
+            <p>iOS sürümünde Google Drive yedekleme bulunmaz. Uygulama bir iCloud yedekleme/geri yükleme özelliği sunmaz. Cihazın veya işletim sisteminin yedekleme hizmetleri, kendi sistem ayarlarınıza ve ilgili sağlayıcının politikalarına tabidir.</p>
+
+            <h2>6. Yerel hatırlatmalar ve izinler</h2>
+            <p>Bildirim izniniz ve hatırlatma tercihiniz uygun olduğunda hatırlatmalar cihazınızda yerel olarak planlanır. Günlük içeriğinin bir push bildirim sunucusuna yüklenmesini gerektirmez. Hatırlatmalar tekrarlanabilir ve siz Uygulama veya cihaz ayarlarından kapatana kadar Uygulama kapalıyken de devam edebilir. Sıklık ve teslim, tercihlerinize, yakın zamandaki kullanımınıza ve işletim sistemi ayarlarına da bağlıdır.</p>
+            <p>Uygulamaya döndüğünüzde veya kayıt kaydettiğinizde hatırlatmalar yeniden değerlendirilir; mevcut plan yazı yazdığınız günü atlar. Odak modu, bildirim özetleri, pil tasarrufu veya diğer cihaz kısıtlamaları bildirimi geciktirebilir ya da sessize alabilir. Genel bildirim etkileşimleri ve ayar değişiklikleri yukarıda açıklandığı gibi Firebase Analytics'e gönderilebilir.</p>
+            <p>Uygulama kilidini açarsanız Face ID, Touch ID veya kullanılabilen cihaz doğrulama yöntemi işletim sistemi tarafından yönetilir; Uygulama biyometrik şablonlarınızı almaz. Yerel kilit bilgileri cihazın güvenli depolamasında tutulabilir. Android yedekleme erişimi ve iOS reklam takip izni yalnızca yukarıda açıklanan özellikler için kullanılır.</p>
+
+            <h2>7. Hizmet sağlayıcıları ve uluslararası işleme</h2>
+            <p>Google/Firebase; analitik, reklam ve Android'de etkinleştirirseniz Drive yedekleme verilerini işler. RevenueCat ve uygulama mağazaları satın alma bilgilerini işler. Bu sağlayıcılar, kendi politikaları ve geçerli güvenceler kapsamında bilgileri ülkeniz dışında işleyebilir. Destek için bize yazarsanız e-posta sağlayıcınız ve bizim e-posta hizmetimiz yazışmayı işler.</p>
+            <p>Günlük metinlerini Firebase Analytics, AdMob veya RevenueCat'e göndermeyiz ve günlük içeriklerini satmayız. İsteğe bağlı Drive yedeklemesi ve desteğe kendi isteğinizle gönderdiğiniz bilgiler, günlük içeriğinin cihazda kalmasının istisnalarıdır. Reklamla ilgili veri işleme ve paylaşımı reklamlar bölümünde açıklanmıştır; hiçbir verinin üçüncü taraflarla paylaşılmadığına ilişkin genel bir beyan vermiyoruz.</p>
+
+            <h2>8. Saklama, silme ve tercihleriniz</h2>
             <ul>
-                <li>Uygulama kullanım kalıpları (hangi özelliklerin en sık kullanıldığı)</li>
-                <li>Günlük giriş istatistikleri (giriş sayısı, kelime sayısı aralıkları, giriş türleri)</li>
-                <li>Duygu durum takip kalıpları (kullanıcı deneyimini iyileştirmek için anonimleştirilmiş duygu durum verileri)</li>
-                <li>Özellik benimseme oranları (kullanıcılar arasında hangi özelliklerin popüler olduğu)</li>
-                <li>Premium özellik dönüşüm analitikleri</li>
-                <li>Uygulama performans metrikleri ve hata raporları</li>
-                <li>Genel kullanıcı tercihleri (tema seçimleri, dil ayarları)</li>
-                <li>Ekran görüntüleme analitikleri ve navigasyon kalıpları</li>
-                <li>Başarım açma kalıpları</li>
-                <li>Bildirim etkileşim verileri</li>
+            <li>Günlük kayıtlarını silebilir veya Uygulamanın yerel verileri silme seçeneğini kullanabilirsiniz. Uygulamayı kaldırmak genellikle yerel uygulama dosyalarını kaldırır; ancak cihaz yedekleri ve güvenli depolama/Keychain kayıtları işletim sisteminin davranışına göre kalabilir.</li>
+            <li>İsteğe bağlı Drive yedekleri, oradan silinene kadar Google hesabınızda kalır. Erişimi kaldırmak mevcut yedekleri kendiliğinden silmez.</li>
+            <li>Analitik, reklam, satın alma ve destek verileri; ayarlanmış saklama süreleri, ilgili sağlayıcının politikaları, hizmet ihtiyaçları ve geçerli kayıt tutma yükümlülükleri doğrultusunda saklanabilir. Yerel silme işlemi bu kayıtları otomatik silmez.</li>
+            <li>Uygulamayı kaldırmak, kurulu olmadığı sürece Uygulamanın yeni olay göndermesini durdurur. Mağaza aboneliği yenilemeleri ve satın alma sağlayıcısının kayıtları, aboneliği iptal edene kadar bağımsız olarak devam edebilir.</li>
             </ul>
-            <p>Bu analitik veriler:</p>
-            <ul>
-                <li>Tamamen anonimdir ve kişisel kimliğinizle ilişkilendirilemez</li>
-                <li>Günlük girişlerinizin gerçek içeriğini içermez</li>
-                <li>Yalnızca uygulama işlevselliğini ve kullanıcı deneyimini iyileştirmek için kullanılır</li>
-                <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google'ın Gizlilik Politikasına</a> göre işlenir</li>
-                <li>Cihazınızın reklam ayarları aracılığıyla devre dışı bırakılabilir</li>
-                <li>Hangi özelliklerin kullanıcılar için en değerli olduğunu anlamamıza yardımcı olur</li>
-                <li>Uygulama performans sorunlarını tespit etmemizi ve düzeltmemizi sağlar</li>
-            </ul>
+            <p>Geçerli hukuka bağlı olarak kişisel verilere erişim, düzeltme, silme veya bir kopyasını isteme, işlemeye itiraz etme veya işlemeyi kısıtlama ve işleme izne dayanıyorsa izni geri çekme haklarınız bulunabilir. Talep için <a href="mailto:epstudios.dev@gmail.com">epstudios.dev@gmail.com</a> adresine yazabilirsiniz. Talebinizi doğrulamak ve ilgili kayıtları bulmak için ek bilgi gerekebilir; tek başına bir e-posta adresi, takma kimlikli bir kurulumu veya satın alma kaydını belirlemeyebilir. Geçerli hukukun öngördüğü sürede yanıt veririz. İlgili veri koruma makamına da başvurabilirsiniz.</p>
 
-            <h2>Google Drive Yedekleme Özelliği</h2>
-            <p>Uygulamamız, verilerinizi kişisel Google Drive hesabınıza yedeklemeniz için premium bir özellik sunmaktadır. Bu özelliği kullandığınızda:</p>
-            <ul>
-                <li>Duygu günlükleriniz, rüya günlükleriniz ve ilgili uygulama verileriniz şifrelenerek Google Drive hesabınızın AppData klasörüne yüklenir</li>
-                <li>Bu verilere yalnızca siz ve uygulamamız açık izninizle erişebilir</li>
-                <li>Bu verilere sunucularımızdan erişimimiz yoktur</li>
-                <li>Otomatik yedeklemeleri etkinleştirebilir veya manuel yedeklemeleri kendi takdirinize bağlı olarak gerçekleştirebilirsiniz</li>
-                <li>Yedeklemelerinizi istediğiniz zaman silebilirsiniz</li>
-            </ul>
+            <h2>9. Güvenlik</h2>
+            <p>Cihaz depolamasını, belirli kimlik bilgileri için güvenli depolamayı ve uygun yerlerde sağlayıcıların güvenli ağ bağlantılarını kullanıyoruz. Hiçbir depolama veya iletim yöntemi tamamen güvenli değildir. Cihazınızı, mağaza ve Google hesaplarınızı ve yedek dosyalarınızı koruyun. Uygulama kilidi bir erişim denetimi özelliğidir; tüm yerel dosyaların veya yedeklerin uçtan uca şifrelendiği anlamına gelmez.</p>
 
-            <h2>Uygulama hangi izinleri gerektirir?</h2>
-            <p>Google Drive yedekleme özelliği için, uygulamamız aşağıdaki izinleri talep eder:</p>
-            <ul>
-                <li><strong>drive.appdata</strong>: Uygulama verilerinizi özel bir klasörde saklamak ve almak için</li>
-                <li><strong>drive.file</strong>: Uygulama tarafından oluşturulan dosyaları yönetmek için</li>
-            </ul>
-            <p>Bu izinler yalnızca yedekleme ve geri yükleme işlevselliği için kullanılır ve Google Drive'ınızdaki diğer dosyalara erişmek için kullanılmaz.</p>
+            <h2>10. Çocuklar</h2>
+            <p>Uygulama 13 yaşın altındaki çocuklara yönelik değildir ve onlardan bilerek kişisel bilgi istemeyiz. Bir çocuğun Uygulama veya destek üzerinden kişisel bilgi sağladığını düşünüyorsanız, inceleyip uygun adımları atabilmemiz için bize ulaşın. Yerel hukuk belirli bir işleme faaliyeti için daha yüksek yaş veya ebeveyn izni gerektiriyorsa bu şartlar geçerlidir.</p>
 
-            <h2>Uygulama, cihazın gerçek zamanlı konum bilgilerini topluyor mu?</h2>
-            <p>Bu Uygulama, mobil cihazınızın konumu hakkında kesin bilgi toplamaz.</p>
-
-            <h2>Cihaz Bilgileri</h2>
-            <p>Uygulama işlevselliği ve çökme raporlaması için şunları toplayabiliriz:</p>
-            <ul>
-                <li>Cihaz modeli ve işletim sistemi sürümü</li>
-                <li>Uygulama sürümü ve kurulum kimliği</li>
-                <li>Uygulama çökmesi durumunda hata günlükleri</li>
-            </ul>
-            <p>Bu bilgiler yalnızca sorun giderme ve uygulama performansını iyileştirme için kullanılır ve kişisel olarak tanımlanabilir bilgilerle ilişkilendirilmez.</p>
-
-            <h2>Premium Satın Alımlar ve Ödeme Bilgileri</h2>
-            <p>Uygulamamızda premium özellikler satın aldığınızda:</p>
-            <ul>
-                <li>Ödeme işlemleri Google Play Store veya Apple App Store tarafından gerçekleştirilir</li>
-                <li>Kredi kartı bilgileri gibi ödeme bilgilerinizi toplamıyor veya saklamıyoruz</li>
-                <li>Satın alma bilgileriniz (abonelik durumu, yenileme tarihleri) premium özelliklere erişiminizi doğrulamak için yerel olarak saklanabilir</li>
-                <li>Abonelik yönetimi için lütfen cihazınızın uygulama mağazası hesap ayarlarını ziyaret edin</li>
-            </ul>
-
-            <h2>Ücretsiz ve Premium Özellikler ve Veri Sınırlamaları</h2>
-            <p>Uygulamamız, farklı veri işleme yeteneklerine sahip hem ücretsiz hem de premium seviyeler sunmaktadır:</p>
-            <ul>
-                <li><strong>Ücretsiz Sürüm Sınırlamaları:</strong>
-                    <ul>
-                        <li>10 duygu günlüğü ve 10 rüya günlüğü girişi ile sınırlıdır</li>
-                        <li>Analiz özelliklerine sınırlı erişim</li>
-                        <li>Yalnızca temel duygu kartlarına erişim</li>
-                        <li>Verileri Google Drive'a yedekleyemez</li>
-                        <li>Günlük 3 aktivite ile sınırlıdır</li>
-                    </ul>
-                </li>
-                <li><strong>Premium Sürüm Özellikleri:</strong>
-                    <ul>
-                        <li>Sınırsız duygu ve rüya günlüğü girişi</li>
-                        <li>Detaylı duygusal analizlere tam erişim</li>
-                        <li>Tüm duygu kartlarına erişim</li>
-                        <li>Google Drive aracılığıyla verileri yedekleme ve geri yükleme özelliği</li>
-                        <li>5 adete kadar günlük aktiviteye erişim</li>
-                    </ul>
-                </li>
-            </ul>
-            <p>Kişisel verileriniz, ücretsiz veya premium sürümü kullanıp kullanmadığınıza bakılmaksızın aynı düzeyde güvenlik ve gizlilik koruması ile işlenir. Sınırlamalar yalnızca saklanabilen veri miktarı ve kullanılabilen özellikler üzerindedir, bilgilerinizi nasıl koruduğumuz konusunda değil.</p>
-
-            <h2>Push Bildirimleri</h2>
-            <p>Uygulamamız size hatırlatıcılar ve motivasyon mesajlarıyla push bildirimleri gönderebilir. Şunları yapabilirsiniz:</p>
-            <ul>
-                <li>Uygulama ayarları veya cihaz ayarları aracılığıyla bildirimleri etkinleştirebilir veya devre dışı bırakabilirsiniz</li>
-                <li>Uygulama içinde bildirim sıklığını ve türlerini özelleştirebilirsiniz</li>
-                <li>Bildirimleri Uygulama kapsamı dışında pazarlama amaçları için kullanmıyoruz</li>
-            </ul>
-            <p>Bildirim etkileşim verilerini sunucularımızda toplamıyor veya analiz etmiyoruz.</p>
-
-            <h2>Reklamlar ve Üçüncü Taraf Hizmetleri (Google AdMob)</h2>
-            <p>Uygulamamız, <strong>Google AdMob</strong> tarafından sağlanan reklamlarla desteklenen ücretsiz bir sürüm sunmaktadır. İlgili reklamları sunmak, sahtekarlığı önlemek ve reklam performansını ölçmek amacıyla AdMob belirli cihaz ve kullanım bilgilerini toplayabilir ve işleyebilir:</p>
-            <ul>
-                <li><strong>Reklam Kimliği (Google Reklam Kimliği / AD_ID):</strong> Kullanıcı tercihine, cihaz ayarlarına ve yasal düzenlemelere bağlı olarak kişiselleştirilmiş veya kişiselleştirilmemiş reklamlar sunmak amacıyla kullanılır.</li>
-                <li><strong>Cihaz ve Ağ Bilgileri:</strong> Cihaz modeli, işletim sistemi sürümü, mobil operatör, ağ bağlantı türü ve IP tabanlı yaklaşık bölge konumu (kaba konum).</li>
-                <li><strong>Reklam Etkileşim Verileri:</strong> Reklam gösterimleri, tıklamaları, video izleme tamamlamaları ve genel etkileşim metrikleri.</li>
-            </ul>
-            <p>AdMob bu verileri <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">Google Reklam Politikaları</a> ve <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Gizlilik Politikası</a>'na uygun olarak işlemektedir.</p>
-            <p><strong>Reklamsız Deneyim:</strong> Premium aboneliğe geçen kullanıcılar tamamen reklamsız bir deneyimden yararlanırlar. Premium abonelik aktif olduğunda tüm reklam gösterimleri ve reklam SDK işlevleri tamamen devre dışı bırakılır.</p>
-            <p><strong>Kişiselleştirilmiş Reklamları Yönetme/Kapatma:</strong> Cihaz ayarlarınız üzerinden dilediğiniz zaman kişiselleştirilmiş reklamları yönetebilir veya sıfırlayabilirsiniz: <em>Ayarlar &gt; Google &gt; Reklamlar &gt; Reklam Kimliğini Sıfırla / Sil</em>.</p>
-
-            <h2>Üçüncü taraflar Uygulama tarafından elde edilen bilgileri görüyor ve/veya erişiyor mu?</h2>
-            <p>Google Drive yedekleme özelliğini kullandığınızda, verileriniz <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google'ın gizlilik politikasına</a> göre Google'ın sunucularında saklanır. Özel günlük verilerinizi diğer üçüncü taraflarla paylaşmıyoruz.</p>
-            <p>Uygulamamızı iyileştirmek için anonim kullanım istatistikleri toplamak amacıyla Firebase Analytics (Google), ücretsiz sürümde reklam sunumu için ise Google AdMob kullanmaktayız. Bu veriler <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google'ın gizlilik politikasına</a> göre işlenir ve kişisel kimliğinizle ilişkilendirilemez.</p>
-            <p>Bilgilerinizi satmıyor, takas etmiyor veya başka şekilde dış taraflara aktarmıyoruz.</p>
-
-            <h2>Veri Depolama ve Silme</h2>
-            <ul>
-                <li>Tüm veriler öncelikle cihazınızda yerel olarak saklanır</li>
-                <li>Google Drive'da saklanan yedeklemeler, siz manuel olarak silene kadar orada kalır</li>
-                <li>Analitik veriler anonimleştirilir ve Google Firebase tarafından veri saklama politikalarına göre saklanır</li>
-                <li>Uygulamayı kaldırmak cihazınızdaki verileri kaldırır ancak Google Drive yedeklemelerini otomatik olarak silmez</li>
-                <li>Google Drive yedeklemelerinizi uygulama arayüzü üzerinden veya doğrudan Google Drive hesabınızdan silebilirsiniz</li>
-            </ul>
-
-            <h2>Veri Haklarınız</h2>
-            <p>Bulunduğunuz yere bağlı olarak, kişisel verilerinizle ilgili belirli haklara sahip olabilirsiniz:</p>
-            <ul>
-                <li>Hakkınızda saklanan verilere erişim hakkı</li>
-                <li>Yanlış bilgileri düzeltme hakkı</li>
-                <li>Verilerinizi silme hakkı</li>
-                <li>Veri taşınabilirliği hakkı (verilerinizi dışa aktarma)</li>
-                <li>İzni geri çekme hakkı</li>
-                <li>Analitik veri toplama işleminden çıkma hakkı</li>
-            </ul>
-            <p>Bu hakları kullanmak için lütfen epstudios.dev@gmail.com adresinden bizimle iletişime geçin. Talebinize 30 gün içinde yanıt vereceğiz.</p>
-
-            <h2>Vazgeçme haklarım nelerdir?</h2>
-            <p>Uygulamanın tüm bilgi toplamalarını, uygulamayı kaldırarak kolayca durdurabilirsiniz. Mobil cihazınızın bir parçası olarak veya mobil uygulama pazarı ya da ağı aracılığıyla kullanılabilir olabilecek standart kaldırma işlemlerini kullanabilirsiniz.</p>
-            <p>Google Drive yedeklemeleri için şunları yapabilirsiniz:</p>
-            <ul>
-                <li>Uygulama ayarlarından otomatik yedekleme özelliğini devre dışı bırakabilirsiniz</li>
-                <li>Google Hesap ayarlarınız aracılığıyla uygulamanın Google Drive'ınıza erişimini kaldırabilirsiniz</li>
-                <li>Google Drive'ınızdan mevcut yedeklemeleri silebilirsiniz</li>
-            </ul>
-            <p>Analitik veri toplamadan çıkmak için şunları yapabilirsiniz:</p>
-            <ul>
-                <li>Cihazınızın gizlilik ayarlarından analitikleri devre dışı bırakabilirsiniz</li>
-                <li>Cihazınızın "Reklam Takibini Sınırla" veya "Reklam Kişiselleştirmesinden Çık" ayarını kullanabilirsiniz</li>
-                <li>Analitiklerden çıkmayı talep etmek için epstudios.dev@gmail.com adresinden bizimle iletişime geçebilirsiniz</li>
-            </ul>
-
-            <h2>Güvenlik</h2>
-            <p>Hizmet Sağlayıcı, bilgilerinizin gizliliğini koruma konusunda endişelidir. Verilerinizi korumak için uygun teknik ve organizasyonel önlemleri uyguluyoruz:</p>
-            <ul>
-                <li>Verileriniz öncelikle cihazınızda yerel olarak saklanır</li>
-                <li>Yedekleme özelliğini kullanırken, verileriniz Google Drive'a yüklenmeden önce şifrelenir</li>
-                <li>Güvenli veri iletim protokolleri kullanıyoruz</li>
-                <li>Bilgilerinizi korumak için makul güvenlik önlemleri uyguluyoruz</li>
-                <li>Analitik veriler gizliliğinizi korumak için anonimleştirilir</li>
-            </ul>
-
-            <h2>Çocuklar</h2>
-            <p>Uygulama, 13 yaşın altındaki çocuklardan bilerek veri toplamak veya onlara pazarlama yapmak için kullanılmaz. Hizmet Sağlayıcı, bilerek çocuklardan kişisel olarak tanımlanabilir bilgiler toplamaz. Hizmet Sağlayıcı, tüm çocukları Uygulama ve/veya Hizmetler aracılığıyla kişisel olarak tanımlanabilir bilgiler sunmamaya teşvik eder.</p>
-            
-            <p>Hizmet Sağlayıcı, ebeveynleri ve yasal vasileri çocuklarının İnternet kullanımını izlemeye ve çocuklarına Uygulama ve/veya Hizmetler aracılığıyla izinleri olmadan kişisel olarak tanımlanabilir bilgiler sunmamalarını öğreterek bu Politikanın uygulanmasına yardımcı olmaya teşvik eder.</p>
-            
-            <p>Bir çocuğun Uygulama ve/veya Hizmetler aracılığıyla Hizmet Sağlayıcı'ya kişisel olarak tanımlanabilir bilgiler sağladığını düşünmeniz durumunda, lütfen Hizmet Sağlayıcı ile iletişime geçin (epstudios.dev@gmail.com) böylece gerekli önlemleri alabilir.</p>
-            
-            <p>Ayrıca, ülkenizde kişisel tanımlanabilir bilgilerinizin işlenmesine onay vermek için en az 16 yaşında olmalısınız (bazı ülkelerde ebeveyn veya vasinizin sizin adınıza bunu yapmasına izin verebiliriz).</p>
-
-            <h2>Değişiklikler</h2>
-            <p>Bu Gizlilik Politikası herhangi bir nedenle zaman zaman güncellenebilir. Hizmet Sağlayıcı, Gizlilik Politikasındaki değişiklikleri bu sayfayı yeni Gizlilik Politikası ile güncelleyerek size bildirecektir. Sürekli kullanım tüm değişikliklerin onaylanması olarak kabul edildiğinden, düzenli olarak bu Gizlilik Politikasına başvurmanız önerilir.</p>
-            
-            <p class="updated-date">Bu gizlilik politikası 2025-06-16 tarihinden itibaren geçerlidir</p>
-
-            <h2>Onayınız</h2>
-            <p>Uygulamayı kullanarak, bilgilerinizin bu Gizlilik Politikasında belirtildiği şekilde ve Hizmet Sağlayıcı tarafından değiştirildiği şekilde işlenmesine izin vermiş olursunuz.</p>
-
-            <h2>Bize Ulaşın</h2>
-            <p>Uygulamayı kullanırken gizlilikle ilgili sorularınız varsa veya uygulamanın pratikleri hakkında sorularınız varsa, lütfen e-posta yoluyla Hizmet Sağlayıcı ile iletişime geçin: epstudios.dev@gmail.com.</p>
+            <h2>11. Değişiklikler ve iletişim</h2>
+            <p>Politika güncellemelerini bu sayfada yayımlayıp yukarıdaki tarihi değiştireceğiz. Bir değişiklik ek bildirim veya izin gerektirirse bunu gerektiği şekilde sağlayacağız. Uygulamayı kullanmak, gerekli olan ayrı bir izin seçiminin yerine geçmez.</p>
+            <p>Gizlilik soruları ve talepleriniz için Eren Pişkin / EP Studio'ya <a href="mailto:epstudios.dev@gmail.com">epstudios.dev@gmail.com</a> adresinden ulaşabilirsiniz.</p>
         </div>
     </div>
 
@@ -606,6 +351,7 @@
             const enContent = document.querySelector('.en-content');
             const trContent = document.querySelector('.tr-content');
             
+            document.documentElement.lang = lang;
             if (lang === 'en') {
                 enContent.style.display = 'block';
                 trContent.style.display = 'none';
