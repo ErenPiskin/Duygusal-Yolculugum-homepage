@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://epstudios.com.tr/sitemap.xml
